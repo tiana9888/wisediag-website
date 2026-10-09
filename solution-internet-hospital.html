@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="NW3wowXtbDAeVeGmNEGbbA">
+<head data-page-node-id="JJIBXYPzPI3JyZoqZ0htyc">
+    <meta charset="UTF-8" data-page-node-id="0urFdPH9nZOH1cNTEJgMis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="sjvyHD7pTSCMkR95Jp7X5o">
+  <link rel="icon" href="assets/footer/logo-wisediag.png">
+    <title>互联网医院解决方案｜智诊科技 WiseDiag</title>
+    <meta name="description" content="智诊科技基于 WiseDiag 医学大模型，为互联网医院提供诊前信息采集、导诊、医生问诊辅助与诊后随访支持，诊断及处方开具由医生完成。" data-page-node-id="5ckYUN81uHirK75aTXwHle">
+    <meta name="keywords" content="智诊科技,WiseDiag,互联网医院,AI导诊,AI辅助问诊,互联网医院解决方案,AI诊后管理" data-page-node-id="Hbs5nYzrehCn1T46npR83P">
+    <meta name="author" content="智诊科技" data-page-node-id="EVM9xPZmV6ZOuItNqBX7Yc">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { min-height: 100vh; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6; color: #333; display: flex; flex-direction: column;
+        }
+        main { flex: 1; }
+
+        /* ====== 导航 ====== */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+        .header-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; height: 70px;
+        }
+        .logo-text { font-size: 22px; font-weight: 700; color: #1677FF; text-decoration: none; letter-spacing: 1px; }
+        .logo-text span { color: #666; font-weight: 500; font-size: 14px; margin-left: 8px; }
+        .nav-menu { display: flex; list-style: none; gap: 36px; }
+        .nav-link { text-decoration: none; color: #333; font-weight: 500; font-size: 16px; padding: 10px 0; position: relative; cursor: pointer; transition: color 0.3s; }
+        .nav-link::after { content:''; position:absolute; bottom:0; left:0; width:0; height:3px; background:#1677FF; transition:width 0.3s; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link:hover, .nav-link.active { color: #1677FF; }
+
+        /* ====== 下拉菜单 ====== */
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+            background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            padding: 8px 0; min-width: 160px; opacity: 0; visibility: hidden;
+            transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 1001;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+        }
+        .dropdown-item {
+            display: block; padding: 10px 20px; color: #333; font-size: 14px;
+            text-decoration: none; transition: all 0.2s; white-space: nowrap;
+        }
+        .dropdown-item:hover { background: #F0F7FF; color: #1677FF; }
+        .dropdown-item.active { color: #1677FF; font-weight: 600; background: #F0F7FF; }
+        .dropdown-arrow {
+            display: inline-block; width: 0; height: 0;
+            border-left: 4px solid transparent; border-right: 4px solid transparent;
+            border-top: 4px solid currentColor; margin-left: 5px; vertical-align: middle;
+            transition: transform 0.2s;
+        }
+        .dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+
+        /* ====== Banner ====== */
+        .banner {
+            width: 100%; height: 460px; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #0A4D8C 0%, #1677FF 40%, #4096FF 70%, #69B1FF 100%);
+        }
+        .banner::before { content:''; position:absolute; top:-100px; right:-100px; width:500px; height:500px; background:radial-gradient(circle,rgba(255,255,255,0.08) 0%,transparent 70%); border-radius:50%; }
+        .banner::after { content:''; position:absolute; bottom:-150px; left:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%); border-radius:50%; }
+        .banner-content-wrapper { position: relative; width: 1100px; max-width: 100%; z-index: 20; padding: 0 20px; display: flex; align-items: center; gap: 40px; }
+        .banner-content { max-width: 560px; flex-shrink: 0; }
+        /* Banner 右侧系统展示 */
+        .banner-showcase { flex-shrink: 0; width: 420px; display: flex; gap: 0; }
+        .banner-showcase img { width: 140px; height: auto; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+        .banner-badge { display:inline-block; padding:6px 16px; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.25); border-radius:20px; font-size:13px; color:#fff; margin-bottom:20px; font-weight:500; }
+        .banner-title { font-size: 38px; font-weight: 700; color: #fff; margin-bottom: 20px; line-height: 1.3; letter-spacing: 1px; }
+        .banner-title .hl { background: linear-gradient(90deg,#FFE066,#FFD43B); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .banner-text { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 32px; }
+        .banner-buttons { display: flex; gap: 16px; }
+        .banner-btn { padding: 12px 36px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .banner-btn-primary { background: #fff; color: #1677FF; border: none; }
+        .banner-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+        .banner-btn-secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+        .banner-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        /* ====== 通用 Section ====== */
+        .section { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 12px; color: #1a1a1a; }
+        .section-title .accent { color: #1677FF; }
+        .section-subtitle { font-size: 16px; color: #888; text-align: center; margin-bottom: 50px; }
+        .section-h1 { font-size: 28px; font-weight: 700; color: #1677FF; padding-left: 16px; position: relative; margin-bottom: 40px; }
+        .section-h1::before { content:''; position:absolute; left:0; top:20%; width:4px; background:#1677FF; height:60%; border-radius:2px; }
+
+        /* ====== 痛点卡片 ====== */
+        .pain-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .pain-card { background: #fff; border-radius: 12px; padding: 32px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border-top: 4px solid #FF6B6B; transition: transform 0.3s, box-shadow 0.3s; }
+        .pain-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+        .pain-num { font-size: 32px; font-weight: 800; color: #FFD6D6; line-height: 1; margin-bottom: 14px; letter-spacing: -1px; }
+        .pain-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #1a1a1a; }
+        .pain-card p { font-size: 13px; color: #666; line-height: 1.7; }
+        .pain-card p .cause { color: #999; }
+        .pain-card p .arrow { color: #FF4D4F; font-weight: 600; margin: 0 2px; }
+        .pain-card p .effect { color: #333; font-weight: 500; }
+
+        /* ====== 架构图区 ====== */
+        .arch-section { background: linear-gradient(180deg, #F0F7FF 0%, #fff 100%); padding: 60px 0; }
+        .arch-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .arch-svg-container { width: 100%; overflow-x: auto; }
+
+        /* ====== 核心能力区（5卡片布局） ====== */
+        .core-section { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .core-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+        .core-card { background: #fff; border-radius: 16px; padding: 32px 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; transition: transform 0.3s, box-shadow 0.3s; width: calc((100% - 48px) / 3); box-sizing: border-box; }
+        .core-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(22,119,255,0.10); }
+        .core-card-num { font-size: 28px; font-weight: 800; color: #1677FF; line-height: 1; margin-bottom: 12px; letter-spacing: -1px; }
+        .core-card h3 { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .core-card .desc { font-size: 14px; color: #888; line-height: 1.6; margin-bottom: 18px; }
+        .core-card ul { list-style: none; margin: 0; padding: 0; }
+        .core-card li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #555; padding: 7px 0; }
+        .core-card li::before { content:''; width: 6px; height: 6px; border-radius: 50%; background: #52C41A; flex-shrink: 0; }
+
+        /* ====== 案例区 ====== */
+        .case-section { background: #FAFBFC; padding: 60px 0; }
+        .case-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .case-header { text-align: center; margin-bottom: 36px; }
+        .case-header h2 { font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 0; }
+        .case-header p { font-size: 15px; color: #888; }
+        .case-badge { display: inline-block; padding: 8px 24px; background: #F0F7FF; color: #1677FF; border-radius: 20px; font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+        .case-content { background: #fff; border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,0.06); overflow: hidden; display: flex; }
+        .case-left { width: 280px; flex-shrink: 0; background: linear-gradient(180deg, #F0F7FF 0%, #E6F4FF 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 24px; gap: 20px; }
+        .case-logo { width: 100px; height: 100px; border-radius: 16px; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(22,119,255,0.12); overflow: hidden; }
+        .case-logo img { width: 80px; height: 80px; object-fit: contain; }
+        .case-logo-placeholder { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; }
+        .case-name { font-size: 16px; font-weight: 700; color: #1a1a1a; text-align: center; line-height: 1.5; }
+        .case-right { flex: 1; padding: 40px 44px; display: flex; align-items: center; }
+        .case-right p { font-size: 17px; color: #333; line-height: 2; margin: 0; }
+        .case-right strong { color: #1677FF; }
+
+        /* ====== CTA ====== */
+        .cta-section { background: linear-gradient(135deg, #0A4D8C 0%, #1677FF 50%, #4096FF 100%); min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 50px 20px; position: relative; overflow: hidden; }
+        .cta-section::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%); border-radius:50%; }
+        .cta-text { font-size: 24px; color: #fff; text-align: center; line-height: 1.5; position: relative; z-index: 1; }
+        .cta-text .hl { color: #FFE066; font-weight: 600; }
+        .cta-btn { padding: 14px 44px; background: #fff; color: #1677FF; border: none; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; position: relative; z-index: 1; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+        /* ====== Footer ====== */
+
+        .contact-info p { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 2; }
+        .contact-info a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+
+        /* ====== 响应式 ====== */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .banner { height: auto; padding: 60px 0; }
+            .banner-title { font-size: 26px; }
+            .banner-content-wrapper { flex-direction: column; gap: 24px; }
+            .banner-showcase { width: 100%; justify-content: center; overflow-x: auto; padding-bottom: 8px; }
+            .banner-showcase img { width: 110px; min-width: 110px; }
+            .pain-cards { grid-template-columns: repeat(2, 1fr); }
+            .core-grid { flex-direction: column; align-items: center; }
+            .core-card { width: 100%; max-width: 420px; }
+            .case-data-grid { grid-template-columns: 1fr; }
+            .case-content { flex-direction: column; }
+            .case-left { width: 100%; padding: 32px 24px; }
+            .case-right { padding: 32px 24px; }
+
+        }
+    </style>
+    <link rel="stylesheet" href="site-shell.css" data-page-node-id="vBX4WJOkfzpgjBnRcHE87O">
+    <link rel="stylesheet" href="lead-form.css" data-page-node-id="KDmzmi16lTmDFOyJDOFDeS">
+  <link rel="stylesheet" href="ai-advisor.css">
+<link rel="stylesheet" href="refresh.css">
+</head>
+<body data-page-node-id="N1VlqXp5yPZ8UvSjXxLYMd">
+    <!-- 导航 -->
+    <header class="site-header" data-page-node-id="ZFlQoPeXpjEW2j8jT9WVbC">
+    <nav class="shell nav" aria-label="主导航" data-page-node-id="gwQ0ARqyvkoHoxRqirtVVz">
+      <a class="brand" href="index.html" aria-label="智诊科技首页" data-page-node-id="WtA1FxKT2ZuVyC1MJxme5j"><span class="brand-mark" data-page-node-id="DGGxXDVz32mpjHarGf7eMV">◉</span><span data-page-node-id="E6xAPkZhxIKtExJzrZXHdu"><b data-page-node-id="DrDq0UsdKmxJ3GbnC1crdT">智诊科技</b><small data-page-node-id="NwO3qLqJhzW915kzOj4oPt">WiseDiag</small></span></a>
+      <button class="mobile-menu" type="button" aria-label="打开导航" data-page-node-id="6npZHnEyfebKHyXW0bH5Ak">☰</button>
+      <div class="nav-links" data-page-node-id="CLCS2BZ2bfnYdSUOsV7DA3">
+        <a href="index.html" data-page-node-id="5OUUqyDa1ryMTHaQXLlWeS">首页</a><a href="wisediag-model.html" data-page-node-id="0eAuENC1iEA30h4oSDqxnB">WiseDiag 医学大模型</a><a href="haoban-ai.html" data-page-node-id="hIhXOIhR2XyH4FZi4oLGWb">好伴 AI</a>
+        <div class="products-menu" data-page-node-id="M2SeTF8mSPIy6Yoe88qHaF">
+          <button class="nav-trigger" type="button" aria-haspopup="true" data-page-node-id="dwyfhdwgpvQBDof8Drr9B1">产品服务 <span data-page-node-id="XivbKdoqLTaulbFvF0i053">⌄</span></button>
+          <div class="mega-menu svc-panel" data-page-node-id="aoADr6d7SdAwTOA5KSFejA">
+            <div class="svc-head" data-page-node-id="SMtbRhA7ZWXmX7wS8X3Hme"><div data-page-node-id="hSARARMt3SXUW5GYUIrIqC"><strong data-page-node-id="cOEoeeNEq4GyaFkUDBopxL">产品服务</strong></div><p data-page-node-id="oFwJqCD8G3voHsv5dvNn7A">智多星提供共享底座，支撑智小伴、智小医、智小检、智小药、智小康五个应用产品与 WiseClaw 智能体平台，点击查看对应页面。</p></div>
+            <div class="svc-grid" data-page-node-id="XXlgAxFt85GpNo6oC7JpdI">
+                
+                <a class="svc-card" href="product-services.html#care" data-page-node-id="q1UEdoW4W1wsFOBQ9rmBra"><i data-page-node-id="eIx5Irqv8D6EIRDZIt3pYc">CARE</i><span class="svc-t" data-page-node-id="TOmc2xntV6GsfUqOL0nF3R"><b data-page-node-id="3mh579jyEqjNQ3DJEGcGSM">智小伴</b><small data-page-node-id="Vs26ONoqIfOh2hrQb2Yk7T">Wise Care</small></span><em data-page-node-id="ioaZWBByMdHDKnlQCk7dMJ"><span>医院</span><span>互联网医院</span><span>慢病管理中心</span><span>康养机构</span></em></a>
+                <a class="svc-card" href="product-services.html#clinical" data-page-node-id="bUN0s0BERAA5recGVvrGlC"><i data-page-node-id="ODU9b55Wssi62bjOlsU7FK">CLIN</i><span class="svc-t" data-page-node-id="0aqqBb5r28lvGA6IT0oTZt"><b data-page-node-id="MASPRoiawXGPu9MpeVSfBO">智小医</b><small data-page-node-id="gVF9OW0oiz0pDM34lIQUsS">Wise Clinical</small></span><em data-page-node-id="IEr9769DABzGgQGBsw8u9T"><span>公立医院</span><span>互联网医院</span><span>县域医共体</span><span>私立医疗</span></em></a>
+                <a class="svc-card" href="product-services.html#diagnostics" data-page-node-id="UXO9cKPJ1kwTEAbJcBoyMy"><i data-page-node-id="NaAKvEBVcYz0M0oqmRYXkM">DX</i><span class="svc-t" data-page-node-id="O8WYhr79y9qTObPj4MPWPM"><b data-page-node-id="LRjRUBnaTMpTQNQlcv3ZLQ">智小检</b><small data-page-node-id="uSrDTD9CSA9vqiB2mfMbdz">Wise Diagnostics</small></span><em data-page-node-id="gK6Ap7TpGqe2DeNShvshFF"><span>IVD 与检验</span><span>体检中心</span><span>医院检验科</span><span>第三方医检</span></em></a>
+                <a class="svc-card span-half" href="product-services.html#pharma" data-page-node-id="ZA2F2RngmXg6XgB2WxERo3"><i data-page-node-id="tFLuyRVCjmvg5xJjQzuIHK">RX</i><span class="svc-t" data-page-node-id="VaO3NAk3GfxagNv2vqHRzL"><b data-page-node-id="uODY0DfZqrUGlb3fJuzFAS">智小药</b><small data-page-node-id="O9tp0cyXniTAP1CWoXwOoP">Wise Pharma</small></span><em data-page-node-id="X95IUG1eZA5oNk0COKptxA"><span>药企</span><span>医疗器械</span><span>医药流通</span><span>临床研究</span></em></a>
+                <a class="svc-card span-half" href="product-services.html#workforce" data-page-node-id="lR3Hd1WRTO2kZTJSdqZC2g"><i data-page-node-id="xCABSxaE9GwzfAqcXfXzI8">WF</i><span class="svc-t" data-page-node-id="FaHc83glP71BprNQUWoemu"><b data-page-node-id="vhjuAiTVQFRcvHOAqddfRi">智小康</b><small data-page-node-id="r7c4gnvC0b4Fc6HL5Kyt73">Wise Workforce</small></span><em data-page-node-id="Nk95BinWrBsJtCMheQQXeG"><span>大型企业</span><span>健康险</span><span>体检中心</span><span>职业健康</span></em></a>
+                <a class="svc-card wide" href="product-services.html#wiseclaw" data-page-node-id="MGUMqzA3sOdodGHwAASohz"><i data-page-node-id="fjUmqtehlufeNq2MAvuhAa">CLAW</i><span class="svc-t" data-page-node-id="MjNq8fUuBOa6hKuHxzLyOW"><b data-page-node-id="ZbP7PJxcldERN1oyzRRNpb">WiseClaw</b><small data-page-node-id="vKqJCS7KTJROAbJHO5Yr9e">Agent OS</small></span><em data-page-node-id="GHGumfBoalMJXwasYNvnqx"><span data-page-node-id="V7TW3YQpBP3AcHw9913yTH">智能体构建</span><span data-page-node-id="fHCPM805At1ht570uairJa">流程编排</span><span data-page-node-id="yL7bk5Dz8kGz2Cdlvbn1i9">安全治理</span><span data-page-node-id="Xx1fs5L4vb6sosJsvj1XdY">快速接入</span></em></a>
+<a class="svc-card wide" href="product-services.html#foundation" data-page-node-id="WUsl6GMJ8jYStc1SKnZk2y"><i data-page-node-id="mnMeUSmvlU3QLhWqr1JxlF">BASE</i><span class="svc-t" data-page-node-id="g3mrFMBQhz9wWBy1NCjC6S"><b data-page-node-id="dNNesXVVPLxVQhLnomgYLS">智多星</b><small data-page-node-id="vZNhHandss7ZCysC0APsGQ">Wise Foundation</small></span><em data-page-node-id="pnrbNsWf37L9nuqtsVU0YP"><span data-page-node-id="IbWr58FkTVc4GLCrUWs5ZI">医疗模型</span><span data-page-node-id="m8lAP7oRSa6jGBJhAuAA4q">知识证据</span><span data-page-node-id="JULCStHo2WVJvAGq4j93g4">数据治理</span><span data-page-node-id="SjbqFK5fBf2WGT1U7JtUSN">智能编排</span></em></a>
+                
+            </div>
+          </div>
+        </div>
+        <div class="products-menu solutions-menu" data-page-node-id="xLKRTnHA0EcvcvCeeKBA8C">
+          <button class="nav-trigger is-current" type="button" aria-haspopup="true" data-page-node-id="xk5PggAPqwMFfot4QYYLnf">解决方案 <span data-page-node-id="k6lFLGQTtC0PHvuqGqVAyj">⌄</span></button>
+          <div class="mega-menu solution-mega" data-page-node-id="oudunDb5cBtBrCQh8C3vbD">
+            <div class="mega-intro" data-page-node-id="XFMHneemHw6XzzckYYOW35"><div data-page-node-id="Uu3sxzdhgKr0O7kZ77Wfjl"><span data-page-node-id="5JuPvjpeYRsmotzxEVT3zE">行业解决方案</span><strong data-page-node-id="7I2u856Y8llKvJIBIIAt9z">解决方案</strong></div><p data-page-node-id="xArCFL2Lmcw6beg4pnzHuF">让医疗 AI 能力融入真实业务流程。</p></div>
+            <div class="mega-body solution-body" data-page-node-id="ZgJhQjRsFPvKtLDrHgkmJ4">
+              <section class="product-matrix" data-page-node-id="Bd4lzSmI8ExH9FbWErgqRB">
+                <p data-page-node-id="Jrwtr6fzuGTaUe7ptafF92">行业解决方案</p>
+                <div class="product-grid solution-grid" data-page-node-id="i1cOPFtbz1Z6El875F3Egs">
+                  <a href="solution-pharma.html" data-page-node-id="zNliDj1JsGlke3Bhflzblx"><b data-page-node-id="lMeaB9K2qoBgzCeQfjAjn9">药企</b><small data-page-node-id="U6YnUXikaLHRU0xwMnmHqD">学术推广 · 患者管理 · 临床研究</small></a>
+                  <a href="solution-ivd.html" data-page-node-id="na4MXLs5laWhReNMvd0g5Q"><b data-page-node-id="vuEckCpll3OwnCCvc1hclJ">IVD 体外诊断</b><small data-page-node-id="s4FgOkdfDUYrx681UsoLZQ">报告解读 · 检后服务</small></a>
+                  <a href="solution-internet-hospital.html" class="is-current" data-page-node-id="a9JRQ3zk9VfEABD9WEhgqp"><b data-page-node-id="aFrwHUAE9LrGh4ekHOiIJF">互联网医院</b><small data-page-node-id="DnGKDnrKozpfW0dcRziN3t">在线问诊 · 随访运营</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="QHVSCLPoWoGYJEQ0CEm3u2"><b data-page-node-id="zHuugpzbzOEmrQqFBZC65C">体检中心</b><small data-page-node-id="EOZmWlz9esLEWe7RjYplnx">团检报告辅助解读</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="FefwKMxHGvAH02lOO8wjX8"><b data-page-node-id="B4w8lhDYHz7MM8ff2UkPJn">药房 / 医药流通</b><small data-page-node-id="qXTBdDg4suD1psruMGK7Pk">店员助手 · 药品资料查询</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="43hrC7sgqWLwhqPneBpyF6"><b data-page-node-id="cFsE7Zj1fWDveNKWSzlKD5">商业健康保险</b><small data-page-node-id="sfOLa0TwGFDpoIIj4amLP3">核保理赔 · 健管服务</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="EobatoJzsCvu4bl1bLIdrQ"><b data-page-node-id="xGdCxKxEyzuo76AZ4iOUCe">医美机构</b><small data-page-node-id="VeucAfcQEH6SXHxYWuAPZG">术前咨询 · 术后随访</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="OZRPxgzg7eCam2UCxCZIhl"><b data-page-node-id="0NNvyHeoPdtGusVImw4jNx">中医养生</b><small data-page-node-id="3uYIYH6Sgp0QAW7ysQ0eAF">健康资料 · 养生科普</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="cQcHwL2UTGIHfYQHUDxnxa"><b data-page-node-id="qwj2Yix0aYdobpKaa4uBS0">营养保健品</b><small data-page-node-id="GKlHsWd1HelenFxu9XG3Oy">营养咨询 · 复购运营</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="6QAnrQgGB5Bzw2B17hMXIN"><b data-page-node-id="WdjrKsssjYi2P5sVxno6Hu">模算智一体机</b><small data-page-node-id="gsjAHIyCPJnwHIhWrNzHsr">软硬一体本地部署</small></a>
+                </div>
+                <p class="matrix-note" data-page-node-id="lSYF08TjQCZFaGF77bqAIH">其他场景可结合 WiseClaw 平台能力共同评估</p>
+              </section>
+            </div>
+          </div>
+        </div>
+        <a href="enterprise-news.html" data-page-node-id="Uez97FWTY82vpz7Uo1vqYK">企业动态</a><a href="about.html" data-page-node-id="uuxFWnnhD3wVoslXGclqcS">走进智诊</a>
+      </div>
+      <a class="nav-cta" href="#consult" data-page-node-id="gaMl4FJcSJipc938PiZxLZ" data-lead="合作申请">合作申请 <span data-page-node-id="6DEGLnRtCQexdEet4tjErs">↗</span></a>
+    </nav>
+  </header>
+
+  <nav class="crumb-bar" aria-label="面包屑导航" data-page-node-id="WH5WEA6B7ugsaZmxwOyF87">
+    <div class="shell crumb-inner" data-page-node-id="35Ba4lJu9RRNJ3kfuHtOEo">
+      <ol class="crumb" data-page-node-id="uOAnOh8DROyXQUMFe32HX0">
+        <li data-page-node-id="miSR0ENg7iMSRyqQKdHq14"><a href="index.html" data-page-node-id="Wqpb0iCTCAr6hYzZMEqZKd">首页</a></li>
+        <li data-page-node-id="Wemksczw3vn3Z4xQhiz9Ex"><a href="solutions.html" data-page-node-id="NgRKUPnhEi59wWCSy44LxM">解决方案</a></li>
+        <li aria-current="page" data-page-node-id="hPN6UQUKX6nXXYJUFExYw9">互联网医院解决方案</li>
+      </ol>
+      <a class="crumb-back" href="solutions.html" data-page-node-id="G3mLwOmuXt03FgqxOLHtXq"><span data-page-node-id="XQVOl3oYtEACHzs7Xwar6G">←</span> 返回解决方案总览</a>
+    </div>
+  </nav>
+
+    <main data-page-node-id="2qvEtdHkluASg5pi3b2RQ8">
+        <!-- ============ Banner ============ -->
+        <section class="banner" role="banner" data-page-node-id="pmT4CQ5uwFYmgi2u6voaSW">
+            <div class="banner-content-wrapper" data-page-node-id="dd89gv3clv8GCVKpk8uxyX">
+                <div class="banner-content" data-page-node-id="qJPyIcPPnUc6mLHdNc4uV7">
+                    <h1 class="banner-title" data-page-node-id="X461qof0LRzeG2MyBHmwKs">让互联网医院从单次问诊<br data-page-node-id="fJw2p8SbQxknRFHFjlYVPL">升级为<span class="hl" data-page-node-id="zv7oiyLsmWszLFXO0H7GLr">持续的患者服务</span></h1>
+                    <div class="banner-text" data-page-node-id="NBH8Q76k1x2M4APNMzI3QJ">
+                        为互联网医院提供诊前信息采集、资料整理和诊后随访支持。医生负责问诊、诊断与处方开具，AI 仅辅助信息处理，不替代医生执业。
+                    </div>
+                    <div class="banner-buttons" data-page-node-id="kp2l3DAfjiyzl4dDRxd1a6">
+                        <a href="#consult" class="banner-btn banner-btn-primary" data-page-node-id="dp61wFMyz4hFNBVuS3QfBP">获取方案</a>
+                        <a href="#customer-case" class="banner-btn banner-btn-secondary" data-page-node-id="C8EoQjUHRqtkYxreFLyfxc">应用内容</a>
+                    </div>
+                </div>
+                <!-- 右侧系统展示 -->
+                <div class="banner-showcase" data-page-node-id="ffFLW0xFir2sUjNgzXVDUl">
+                    <img src="images/chat-ui.png" alt="AI对话界面" data-page-node-id="CFRpGig7aweWvQfX9E8i3X">
+                    <img src="images/profile-ui.jpg" alt="健康档案界面" data-page-node-id="tA9aNvQYlX3BPcC8Ybgzv4">
+                    <img src="images/report-ui.jpg" alt="报告解读界面" data-page-node-id="tpirYpCBpo1R6EByEKSni8">
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 痛点区 ============ -->
+        <section class="section" data-page-node-id="4tUMG1X7FCvaTMEL0Yqwza">
+            <div class="section-h1" data-page-node-id="S23M1XxeBhjDDskhAAH89c">行业痛点</div>
+            <div class="pain-cards" data-page-node-id="8HnpQHVWHXOobanBIJNe10">
+                <!-- 痛点1 -->
+                <div class="pain-card" data-page-node-id="pjYRwFQMLdrEWo022n1u3Z">
+                    <div class="pain-num" data-page-node-id="pzBDXQYaZ1E5YO9qcn8FKO">01</div>
+                    <h3 data-page-node-id="JFIN9R5Da4cAO8j6u0sbUO">医生服务时间有限</h3>
+                    <p data-page-node-id="QJbsdllDIDONKyCrL08rSO">医生在线时间有限，咨询与复诊需求增长后，平台服务能力难以同步扩张。</p>
+                </div>
+                <!-- 痛点2 -->
+                <div class="pain-card" data-page-node-id="DNrLUWDtPc0rwOLFKnh6FB">
+                    <div class="pain-num" data-page-node-id="sQzYegUdEOAcUek1LhoOsE">02</div>
+                    <h3 data-page-node-id="QXtGArSr38ldAE5xQElXON">高频重复咨询消耗人工</h3>
+                    <p data-page-node-id="m6MNdUvYWECsF8xeCAwy7E">流程说明与资料收集需要重复沟通；个体报告解读、用药和复查问题仍需由专业人员判断。</p>
+                </div>
+                <!-- 痛点3 -->
+                <div class="pain-card" data-page-node-id="6NqrIHkYtLnETEH0AwCDPl">
+                    <div class="pain-num" data-page-node-id="5DMSjaPFblhv9HQ2ma92EF">03</div>
+                    <h3 data-page-node-id="tGFlgNbQCc8QTap9te3LsP">诊后服务衔接不足</h3>
+                    <p data-page-node-id="8JB8oKh1B9SRy7welO65ce">患者问诊后缺少持续联系与随访记录，医护团队难以及时了解后续服务需求。</p>
+                </div>
+                <!-- 痛点4 -->
+                <div class="pain-card" data-page-node-id="fp7hCFCGWpZSzg5ciDPXuG">
+                    <div class="pain-num" data-page-node-id="9hFKhy1YFOmE5EstO3uEjx">04</div>
+                    <h3 data-page-node-id="ESK8mbn7ohzVyJAG2LS6RB">诊后服务缺少承接</h3>
+                    <p data-page-node-id="V8TboQNZOcoRVOCFozsWM3">在线问诊与后续随访、慢病管理之间缺少衔接，需要明确的服务安排与协作记录。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 架构图 ============ -->
+        <section class="arch-section" id="arch" data-page-node-id="D85qFRYn5VmYpAn4TZId78">
+            <div class="arch-wrap" data-page-node-id="SM30iWTuPR0RxFF37z2XID">
+                <div class="section-title" data-page-node-id="7GnsCiEntCNiiXBkhSDnZR">AI<span class="accent" data-page-node-id="7xtxQlUOCqq0AxDtP2bN8n">·</span>互联网医院智慧服务引擎</div>
+                <div class="section-subtitle" data-page-node-id="7pC6R1jqVEAIFXlOjOpM5h">基于 WiseDiag 医学大模型的诊前、诊中与诊后辅助方案</div>
+                <div class="arch-svg-container" data-page-node-id="7RPCmhbsfNhCUItAAg20Cy">
+                    <svg viewBox="0 0 1060 480" style="width:100%; min-width: 800px;" xmlns="http://www.w3.org/2000/svg" data-page-node-id="QCf6GkCWuA2TTRVUfsQXv7">
+                        <defs data-page-node-id="KQvD9KiZhxyyypO7E0U8MV">
+                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1" data-page-node-id="ykS9i7YLvW4dtitI2fVdwu">
+                                <stop offset="0%" stop-color="#1677FF" data-page-node-id="VxcmgB8WmQVwY7p2Cbqbjj"/><stop offset="100%" stop-color="#0A4D8C" data-page-node-id="W6HFvpVAx2uHffRsG079nH"/>
+                            </linearGradient>
+                            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1" data-page-node-id="QIA3oBWjGESyOuG9eeA1QA">
+                                <stop offset="0%" stop-color="#F0F7FF" data-page-node-id="6RtpZzLfYdGic96wx95jWt"/><stop offset="100%" stop-color="#E6F4FF" data-page-node-id="Rkvr1oMqae8XU2oERAk90f"/>
+                            </linearGradient>
+                            <filter id="shadow" data-page-node-id="TLHT6bOcs3Ue9E9LDxf22o"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08" data-page-node-id="McVy15rT9O1IYEyY71jL3h"/></filter>
+                        </defs>
+
+                        <!-- L0: 核心引擎 -->
+                        <rect x="350" y="20" width="360" height="70" rx="12" fill="url(#g1)" filter="url(#shadow)" data-page-node-id="okmJ7lJe3aAA1HkeoHvz78"/>
+                        <text x="530" y="50" text-anchor="middle" fill="#fff" font-size="18" font-weight="700" data-page-node-id="xZMJDDGVofoAlxQT5wDL1q">WiseDiag 医学大模型</text>
+                        <text x="530" y="72" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" data-page-node-id="JsdceASAa2A7F0tOYav1ox">医学知识检索 · 资料整理 · 人工复核</text>
+
+                        <!-- 连线 L0→L1 -->
+                        <line x1="430" y1="90" x2="200" y2="140" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="n3vXtPNNzMr8pa1JAU6BPT"/>
+                        <line x1="530" y1="90" x2="530" y2="140" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="I5veNxaxHux5KR834ZOugS"/>
+                        <line x1="630" y1="90" x2="860" y2="140" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="hm5VLqpvfrNNnC3kztZVfH"/>
+
+                        <!-- L1: 三大AI角色 -->
+                        <!-- 角色1 -->
+                        <rect x="60" y="140" width="280" height="90" rx="12" fill="#fff" stroke="#1677FF" stroke-width="1.5" filter="url(#shadow)" data-page-node-id="0BOwnu5c4q1x221T5IbxZD"/>
+                        <rect x="60" y="140" width="280" height="32" rx="12" fill="#1677FF" data-page-node-id="YVDWajxTjCBkKEha36C0jP"/>
+                        <rect x="60" y="152" width="280" height="20" fill="#1677FF" data-page-node-id="HY4qoFRWsYwgAKrghVGLjv"/>
+                        <text x="200" y="161" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" data-page-node-id="MEVnDSwGA7VMyqE6XoyWkW">诊前</text>
+                        <text x="200" y="195" text-anchor="middle" fill="#555" font-size="12" data-page-node-id="DMYUpgxN4FCcvTUY2TFSaK">智能导诊 · 症状采集 · 科室推荐</text>
+                        <text x="200" y="215" text-anchor="middle" fill="#555" font-size="12" data-page-node-id="a9RczBnQHjM33eUG5GVkDs">导诊参考 · 人工咨询入口</text>
+
+                        <!-- 角色2 -->
+                        <rect x="390" y="140" width="280" height="90" rx="12" fill="#fff" stroke="#1677FF" stroke-width="1.5" filter="url(#shadow)" data-page-node-id="2jNGUa08j8bZ5lc75AEjAf"/>
+                        <rect x="390" y="140" width="280" height="32" rx="12" fill="#1677FF" data-page-node-id="KZCfjrr5XxCFpNk2kg7Shs"/>
+                        <rect x="390" y="152" width="280" height="20" fill="#1677FF" data-page-node-id="i8Onn7PZUsdC1Si9eAkiRA"/>
+                        <text x="530" y="161" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" data-page-node-id="Il7GKXrgbqRPcz97jfToGp">诊中</text>
+                        <text x="530" y="195" text-anchor="middle" fill="#555" font-size="12" data-page-node-id="96mkyGtqfkIFJ7aYlLPX5l">AI 采集整理 · 医生问诊</text>
+                        <text x="530" y="215" text-anchor="middle" fill="#555" font-size="12" data-page-node-id="eVsXpAVHapWsrMhpIzbA7C">病历草稿 · 医生审核</text>
+
+                        <!-- 角色3 -->
+                        <rect x="720" y="140" width="280" height="90" rx="12" fill="#fff" stroke="#1677FF" stroke-width="1.5" filter="url(#shadow)" data-page-node-id="ZHyDOX3Bx3Px8EzWiNbvC5"/>
+                        <rect x="720" y="140" width="280" height="32" rx="12" fill="#1677FF" data-page-node-id="ZNe1KXRJFzxYPAEa1VGcF1"/>
+                        <rect x="720" y="152" width="280" height="20" fill="#1677FF" data-page-node-id="WPqnOWcxXBpohvOIuFcQH9"/>
+                        <text x="860" y="161" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" data-page-node-id="lUcVYucCpw1CQE9xM7eIb2">诊后</text>
+                        <text x="860" y="195" text-anchor="middle" fill="#555" font-size="12" data-page-node-id="BkBdgDqIIDEiMd96mMGYU9">患者群运营 · 随访管理</text>
+                        <text x="860" y="215" text-anchor="middle" fill="#555" font-size="12" data-page-node-id="3Pfl6PGfnRSLuKiYE5cGCy">授权档案 · 复诊提醒</text>
+
+                        <!-- 连线 L1→L2 -->
+                        <line x1="200" y1="230" x2="200" y2="270" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="HpCPrjdf2VzH4Th0MumizT"/>
+                        <line x1="530" y1="230" x2="530" y2="270" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="iVIehW8nzNafMM7NuPCOPh"/>
+                        <line x1="860" y1="230" x2="860" y2="270" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="WyYBdVBfjENqUlj2sj4aNi"/>
+
+                        <!-- L2: 触达渠道 -->
+                        <rect x="80" y="270" width="240" height="56" rx="10" fill="url(#g2)" stroke="#D6E4FF" stroke-width="1" data-page-node-id="ihj9HLeSsrmyDGGgJCmsXB"/>
+                        <text x="200" y="295" text-anchor="middle" fill="#1677FF" font-size="13" font-weight="600" data-page-node-id="gzN9zcGxehhVYI0ZSjGKP7">APP · 小程序 · 微信</text>
+                        <text x="200" y="313" text-anchor="middle" fill="#888" font-size="11" data-page-node-id="OwRa1xidVFAjE7rBYy9rut">挂号入口 · 智能导诊</text>
+
+                        <rect x="410" y="270" width="240" height="56" rx="10" fill="url(#g2)" stroke="#D6E4FF" stroke-width="1" data-page-node-id="tFdvWFDgRJytsJGbvSQ4s1"/>
+                        <text x="530" y="295" text-anchor="middle" fill="#1677FF" font-size="13" font-weight="600" data-page-node-id="SBNqNS40Gv8Wc6fVxF596l">图文 / 视频问诊</text>
+                        <text x="530" y="313" text-anchor="middle" fill="#888" font-size="11" data-page-node-id="F3waeW5mxmSKRxKH5O7MUg">AI 信息辅助 · 医生开具处方</text>
+
+                        <rect x="740" y="270" width="240" height="56" rx="10" fill="url(#g2)" stroke="#D6E4FF" stroke-width="1" data-page-node-id="VbYJrQBr8lG7DFWZtaL0Jb"/>
+                        <text x="860" y="295" text-anchor="middle" fill="#1677FF" font-size="13" font-weight="600" data-page-node-id="QQYOVuIq9ktFzBSXePoRvx">主动式随访引擎</text>
+                        <text x="860" y="313" text-anchor="middle" fill="#888" font-size="11" data-page-node-id="8UdYXJ7W5LO2V2hdnrdtdw">按医嘱提醒 · 随访记录 · 档案管理</text>
+
+                        <!-- 底部：业务闭环 -->
+                        <line x1="200" y1="326" x2="200" y2="365" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="nUAW2qts5WAPhNY9OHAofa"/>
+                        <line x1="530" y1="326" x2="530" y2="365" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="1HJsUlokbUavP8fvdSdneJ"/>
+                        <line x1="860" y1="326" x2="860" y2="365" stroke="#ADC6FF" stroke-width="2" stroke-dasharray="6,4" data-page-node-id="D2VDc38giBBhBirDtDXVFh"/>
+
+                        <!-- 业务闭环背景 - 与上行触达渠道完全对齐 -->
+                        <rect x="80" y="368" width="900" height="72" rx="12" fill="#F5F9FF" stroke="#D6E4FF" stroke-width="1" data-page-node-id="eAOockKX99XQ05zDX4VzqC"/>
+
+                        <!-- 7胶囊+6箭头，严格居中，左右各63px边距 -->
+                        <rect x="143" y="382" width="90" height="34" rx="17" fill="#1677FF" filter="url(#shadow)" data-page-node-id="HO9QL1U831FOFJwDDyUYDE"/>
+                        <text x="188" y="404" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-page-node-id="sE8y5rjvtaHhhTZJquBDjs">AI预问诊</text>
+                        <text x="245" y="405" text-anchor="middle" fill="#1677FF" font-size="15" font-weight="700" data-page-node-id="Ean7VWqIx8D44FsxcZTecg">›</text>
+                        <rect x="257" y="382" width="90" height="34" rx="17" fill="#1677FF" filter="url(#shadow)" data-page-node-id="rG4Dt4JIPdZfPUoCbpguzs"/>
+                        <text x="302" y="404" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-page-node-id="X06jJR1yd8cPUqyeeX5DHE">智能导诊</text>
+
+                        <text x="359" y="405" text-anchor="middle" fill="#52C41A" font-size="15" font-weight="700" data-page-node-id="2cbAmU5Gpj0hHJzjrHqZ8R">›</text>
+                        <rect x="371" y="382" width="90" height="34" rx="17" fill="#52C41A" filter="url(#shadow)" data-page-node-id="5aSk3aIQ9SHW6SC3GGar3y"/>
+                        <text x="416" y="404" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-page-node-id="qjGrEvhXcCQy92GJMXiq3v">AI辅助问诊</text>
+                        <text x="473" y="405" text-anchor="middle" fill="#52C41A" font-size="15" font-weight="700" data-page-node-id="dTDAw4nAVa4O2Is83WN7KE">›</text>
+                        <rect x="485" y="382" width="90" height="34" rx="17" fill="#52C41A" filter="url(#shadow)" data-page-node-id="mYPx55TgAQFwjABmeaPeC4"/>
+                        <text x="530" y="404" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-page-node-id="9zYEC0PHDVeUYDBoTMoiQj">医生作出诊断</text>
+                        <text x="587" y="405" text-anchor="middle" fill="#52C41A" font-size="15" font-weight="700" data-page-node-id="UTBjpDlrnANuAkZUkhucB4">›</text>
+                        <rect x="599" y="382" width="90" height="34" rx="17" fill="#52C41A" filter="url(#shadow)" data-page-node-id="iPnz327SMhCGPBVitsSfgo"/>
+                        <text x="644" y="404" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-page-node-id="f5kmZN7qOyfnJDPv3mAdTh">医生开具处方</text>
+
+                        <text x="701" y="405" text-anchor="middle" fill="#FA8C16" font-size="15" font-weight="700" data-page-node-id="EeIFPYqgAIBHELavn7gbDF">›</text>
+                        <rect x="713" y="382" width="90" height="34" rx="17" fill="#FA8C16" filter="url(#shadow)" data-page-node-id="0bxYDUibaVZITVb9o45Knk"/>
+                        <text x="758" y="404" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-page-node-id="b58GDrTRfWupIFp3jKcIAI">诊后随访</text>
+                        <text x="815" y="405" text-anchor="middle" fill="#FA8C16" font-size="15" font-weight="700" data-page-node-id="WbpQfXL5EkNna6V205CRNf">›</text>
+                        <rect x="827" y="382" width="90" height="34" rx="17" fill="#FA8C16" filter="url(#shadow)" data-page-node-id="GW8DUKhGEoiLy4hrAIPjC4"/>
+                        <text x="872" y="404" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-page-node-id="tk46puqNwxeDvxa5c8qLOI">复诊管理</text>
+
+                        <text x="530" y="430" text-anchor="middle" fill="#888" font-size="11" data-page-node-id="1gk5EWJphzurPDKnLWwZYB">AI 辅助采集整理 · 医生负责诊断与处方</text>
+
+                        <!-- 数据标签 -->
+                        <rect x="80" y="450" width="180" height="24" rx="12" fill="#52C41A" opacity="0.1" data-page-node-id="9mn0VMFm0xFOtam3RKqRPT"/>
+                        <text x="170" y="466" text-anchor="middle" fill="#389E0D" font-size="11" font-weight="600" data-page-node-id="buGHuOSOJTkoo7kKd3XD1P">患者服务支持</text>
+
+                        <rect x="440" y="450" width="180" height="24" rx="12" fill="#52C41A" opacity="0.1" data-page-node-id="JQtdkxFJDCePdz4pZejqCq"/>
+                        <text x="530" y="466" text-anchor="middle" fill="#389E0D" font-size="11" font-weight="600" data-page-node-id="pF8vzzvhpxARLsKCE8D003">机构流程协作</text>
+
+                        <rect x="800" y="450" width="180" height="24" rx="12" fill="#52C41A" opacity="0.1" data-page-node-id="nYtN7UyRLOnhhraKMQW6ya"/>
+                        <text x="890" y="466" text-anchor="middle" fill="#389E0D" font-size="11" font-weight="600" data-page-node-id="LyltE4ZfNjqeT4nZv8ZGHK">专家授权助手</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 核心能力区 ============ -->
+        <section class="core-section" data-page-node-id="MU7UN2ecJPQukLbetIRtel">
+            <div class="section-title" data-page-node-id="8Xdn8AM9MZGCCyQAHm6COm">核心<span class="accent" data-page-node-id="EKmv4537ZIlOdXFDO3konW">能力</span></div>
+            <div class="section-subtitle" data-page-node-id="IjCqEHPLsPD8Lh5a0LPGhS">衔接诊前、诊中与诊后服务，由医生主导诊疗</div>
+
+            <div class="core-grid" data-page-node-id="xkeGmAEBM3j92Y6S6KlJiI">
+                <!-- 01 AI智能导诊 -->
+                <div class="core-card" data-page-node-id="6IRUotDdlC66KjYEgJYu2z">
+                    <div class="core-card-num" data-page-node-id="qon0mZKH4oiSiv3CeALe4A">01</div>
+                    <h3 data-page-node-id="dEMFuLtmXuTibS2JasZQO3">智能导诊</h3>
+                    <p class="desc" data-page-node-id="I8AjQhGHIAWlesTibvrh4U">通过对话整理患者诉求，按机构规则提供科室与医生选择参考；疑难或紧急情况转人工处理。</p>
+                    <ul data-page-node-id="PFrliVfXGJTdAMFiqVbNOQ">
+                        <li data-page-node-id="ycxljkbrYFCSeJ4OcUin72">多轮对话症状采集与意图识别</li>
+                        <li data-page-node-id="OD7RFNCkDlbL2HPFSDcaYS">科室与医生选择参考</li>
+                        <li data-page-node-id="UdosIdJpJKIQpwvYjlFOBP">提供挂号信息与人工咨询入口</li>
+                    </ul>
+                </div>
+
+                <!-- 02 专家分身 -->
+                <div class="core-card" data-page-node-id="S2PBPkGJycwjPruQBFfx4Z">
+                    <div class="core-card-num" data-page-node-id="XEsPmaHohIAphvY8qeF3zW">02</div>
+                    <h3 data-page-node-id="6WlFnYN732uJGzhycUjR0o">专家授权 AI 助手</h3>
+                    <p class="desc" data-page-node-id="dvGaNiarok2zvrI7oDBIEd">基于医生授权且经审核的资料构建 AI 助手，支持科普与服务说明；不复刻医生执业，不代替医生诊疗。</p>
+                    <ul data-page-node-id="Uu915PkYmtcZDxEuGFk4jp">
+                        <li data-page-node-id="h6KqtUUgFJ2WWP1Y1Qm6vO">经审核的科普资料与服务问答</li>
+                        <li data-page-node-id="zNHoABqHOR4nrnb06TqDN5">明确 AI 身份 · 个体诊疗问题转医生</li>
+                        <li data-page-node-id="HQLMtvgdbn0VuIpiAyyDll">内容更新与对外发布须经人工审核</li>
+                    </ul>
+                </div>
+
+                <!-- 03 AI辅助问诊 -->
+                <div class="core-card" data-page-node-id="3c73f6Hb7zsOqHw0hmoalH">
+                    <div class="core-card-num" data-page-node-id="V9cVQfvBCo9Aw5DBet9MAS">03</div>
+                    <h3 data-page-node-id="rOzsubTG47d0DEm8HQcXOs">辅助问诊</h3>
+                    <p class="desc" data-page-node-id="BW6lV4W1fGi4zCWiueA63M">AI 辅助采集和整理患者信息、拟写病历草稿；医生核实信息并独立完成诊断与处方开具。</p>
+                    <ul data-page-node-id="73ZrxbTGBoW6loYsAyE3uF">
+                        <li data-page-node-id="cqdwjWntpbHKQ3me8BsR1L">诊疗相关资料检索 · 供医生参考</li>
+                        <li data-page-node-id="sdWxDqS9WE6rrQ5a7Jx9Xb">关键信息自动追问</li>
+                        <li data-page-node-id="xHhnizyOClOJHfdBAPeq3G">病历草稿整理 · 医生审核确认</li>
+                    </ul>
+                </div>
+
+                <!-- 04 医学材料解读 -->
+                <div class="core-card" data-page-node-id="LUANSsfAUMK0CHj2xk0KGa">
+                    <div class="core-card-num" data-page-node-id="QrfWYqLexqMRfZ3kcRRXnF">04</div>
+                    <h3 data-page-node-id="yZUTsseIQqIbIZqkLmC8JL">医学材料解读</h3>
+                    <p class="desc" data-page-node-id="TqmEfaIWN2KbHgP8EEIWoB">通过文字识别提取患者授权上传的医疗材料，辅助结构化整理；识别结果需核对，临床意义由医生判断。</p>
+                    <ul data-page-node-id="uLwO9T0FeMZnQJlQpZaIw3">
+                        <li data-page-node-id="HiVAlXDWE1c1cz9yiP3ESc">病历、处方、票据、药盒识别</li>
+                        <li data-page-node-id="SxYRzWzShZ4YdFtjCPCcVI">数据结构化与编码标准化</li>
+                        <li data-page-node-id="Kn964dB2B69Db8CXE6oosq">历史报告对比与趋势分析</li>
+                    </ul>
+                </div>
+
+                <!-- 05 私域运营 -->
+                <div class="core-card" data-page-node-id="KhBhIxbnmkTyxsBoiqDD9F">
+                    <div class="core-card-num" data-page-node-id="XgnDTzvg4nTs56WYFpuOd0">05</div>
+                    <h3 data-page-node-id="JDKnxnR8BGIXcJzYmHXbgr">患者随访协作</h3>
+                    <p class="desc" data-page-node-id="HuW10swmDmBYRBgHNSnwQB">按授权与医护确认的计划安排随访、整理反馈；异常线索提示人工核实，不自动作出医疗处置。</p>
+                    <ul data-page-node-id="b4LewZPRjwUCsaPv4FAXA6">
+                        <li data-page-node-id="fGyhioDwfRkDDEkkbTHhPD">按医嘱发送复查、用药与随访提醒</li>
+                        <li data-page-node-id="QjqBgww6F3hGo013vzhS5f">慢病随访记录与复诊提醒</li>
+                        <li data-page-node-id="nODUHnjYeLTUbaVHXaqIGV">风险线索提示 · 转交医护人员</li>
+                    </ul>
+                </div>
+
+                <!-- 06 个人健康档案 -->
+                <div class="core-card" data-page-node-id="HxJ4A9U7Nj9Du3E1cSEbMF">
+                    <div class="core-card-num" data-page-node-id="rLMY09uWuZ43pU6iLW5Ov1">06</div>
+                    <h3 data-page-node-id="zwuW3jIBFaBA8wtWANLEzc">个人健康档案</h3>
+                    <p class="desc" data-page-node-id="PP7qMjzIrKoNCDilFdajTa">根据用户授权整理和更新健康档案，按适用要求、授权范围与服务规则保存，不承诺永久留存。</p>
+                    <ul data-page-node-id="KiXqjMNlpyyb8fDwdnREfP">
+                        <li data-page-node-id="BCBYWosoq4ixnfNwbo2ft4">按授权范围与保存期限归档</li>
+                        <li data-page-node-id="6aXz6pRz2I9vOYnC5XPIPF">健康记录对比 · 异常线索提示</li>
+                        <li data-page-node-id="lzGDQZJnxMaAm8R0HoqVjz">按授权联系患者 · 支持随访协作</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 客户案例 ============ -->
+        <section class="case-section" id="customer-case" data-page-node-id="SbpBMC5TG9Mv8FFJVvtsyJ">
+            <div class="case-wrap" data-page-node-id="0VEKANhSMl2Wzk511vGa8A">
+                <div class="case-header" data-page-node-id="KEOmLjUzhF8f5FyN4pKBMG">
+                    <div class="case-badge" data-page-node-id="ED9N0DhBdAe3iLluzoLfPA">行业应用内容</div>
+                </div>
+                <div class="case-content" data-page-node-id="0nsGlQvwMDsm5mmYLCTBWH">
+                    <div class="case-left" data-page-node-id="lB292HWMG0bC6WB4nir3Yo">
+                        <div class="case-logo" data-page-node-id="yuRi0bIQBiYUvf9qDIDTu3">
+                            <img src="images/furui-logo.png" alt="成都福瑞互联网医院管理有限公司" style="width: 80px; height: 80px; object-fit: contain;" data-page-node-id="BsQTcyJqgsh9Er29pVXCWs">
+                        </div>
+                        <div class="case-name" data-page-node-id="fibXO1LOLkyYXBCggDSC7r">成都福瑞<br data-page-node-id="ZJ2diP6QYyDztZgcj6LNZB">互联网医院</div>
+                    </div>
+                    <div class="case-right" data-page-node-id="n2K5Q6cVptp0nsNYgue9XE">
+                        <p data-page-node-id="C4bTNKDDc9s7EpQjIEVoVK">
+                            互联网医院应用可围绕<strong data-page-node-id="4mbuZSVUFBXrFO2A0qHt5H">AI 患者服务与随访支持</strong>展开，包括诊前资料采集、报告信息整理、健康档案与随访记录。医生负责诊断、处方与个体化诊疗建议，AI 仅提供信息辅助；档案按授权范围和服务规则保存，实施内容按项目确认。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CTA ============ -->
+        <section class="cta-section" id="consult" data-page-node-id="fh8GXpmfpjGVMvfBLvsIqO">
+            <div class="cta-text" data-page-node-id="Kj7Bw1S8n0A6t0rz32YQn6">
+                即刻咨询 · 获取智诊科技 <span class="hl" data-page-node-id="eDjcQ6YQVo9AVEY7EhC05w">互联网医院行业AI解决方案</span>
+            </div>
+            <a href="#contact" class="cta-btn" data-lead="互联网医院解决方案咨询" data-page-node-id="z0tay6N7bzliYR63Vway6N">联系我们</a>
+        </section>
+    
+
+  <section class="industry-switch" data-page-node-id="SI5Wbabi4wk2COGTZUMrl3">
+    <div class="switch-inner" data-page-node-id="Dus8K3JcJ6nYaYXzcqpNYP">
+      <div class="switch-head" data-page-node-id="2WMqBg6NRKLZ00grYVDLh6">
+        <div data-page-node-id="eS1FqExymm8lioApIIV9Zb">
+          
+          <h2 data-page-node-id="8gMwipptWjBI2ThCW50OUM">了解其他行业的应用方案</h2>
+        </div>
+        <a class="switch-all" href="solutions.html" data-page-node-id="JAACCTdtJdD5QlvjaLLD0V"><span data-page-node-id="YPGD0PhjGtlMfJyxaaRLPN">←</span> 返回解决方案总览</a>
+      </div>
+      <div class="switch-grid" data-page-node-id="mdvROdTBPQtimUEmXtchE2">
+          <a class="switch-card" href="solution-pharma.html" data-page-node-id="pm94YREWXFCK7YefswRDc0"><i data-page-node-id="KEU5EJBhZfls3M93QHaRgA">◈</i><b data-page-node-id="OvW25vBvCcVMOeuRUP9b8S">药企解决方案</b><small data-page-node-id="tUunAWeRbZm9pJpuc1K0OS">学术推广 · 患者管理 · 临床研究</small><em data-page-node-id="xTiNyAk08NvpYvxQ3PxZ7m">查看完整方案 →</em></a>
+          <a class="switch-card" href="solution-ivd.html" data-page-node-id="NABk9JIwbMFmvmsg8GeBZP"><i data-page-node-id="GnFcnct9oG5NjihOwY9eoe">◫</i><b data-page-node-id="R2M6vxTvyyk5NY6zSCC24u">IVD 体外诊断解决方案</b><small data-page-node-id="Y51J96ToqAoJ3iyHFzohrI">报告解读 · 检后服务 · 健康管理</small><em data-page-node-id="Q5uyBtIt4pylhhY4lOruJC">查看完整方案 →</em></a>
+          <a class="switch-card is-current" href="solution-internet-hospital.html" aria-current="page" data-page-node-id="cVIV5oz3RCw6NMUzkAAEcW"><i data-page-node-id="eMScP8lXzuoehZj2wQJDBu">⌘</i><b data-page-node-id="xpwZrSQYfcoVftLUv4dZbi">互联网医院解决方案</b><small data-page-node-id="NDvXPVcPSNJC52cX306MPX">在线问诊 · 分诊导诊 · 随访运营</small><em data-page-node-id="RriGONdCV0Rx9V6BRZZpWv">当前页面</em></a>
+      </div>
+    </div>
+  </section>
+      <section class="lead-section" id="contact">
+      <div class="lead-inner">
+        
+        <h2 class="lead-title">获取互联网医院 AI 落地方案</h2>
+        <p class="lead-sub">围绕在线问诊、分诊导诊、随访运营与合规质控，提供可落地的智能化路径与实施建议。</p>
+        <ul class="lead-contacts"><li>电话 <b>15336530072</b></li><li>邮箱 <b>marketing@wisediag.com</b></li><li>地址 <b>杭州市临平区杭州智能健康谷A栋7楼</b></li></ul>
+        <div class="cta-form-wrap"><form class="lf-form lf-host" novalidate=""></form><p class="cta-inline-note" style="margin:14px 0 0;text-align:left;color:#8b98ad;font-size:12px;line-height:1.7;">提交后顾问将尽快联系您，就业务场景、适用能力与接入方式进一步沟通。</p></div>
+      </div>
+    </section>
+  </main>
+  <!-- footer:v2026-09-03-r4 -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+
+      <!-- 列 1：公司信息 + 关注智诊 -->
+      <div class="footer-company">
+        <a class="brand" href="index.html">
+          <img class="brand-mark" src="assets/footer/logo-wisediag.png" alt="智诊科技 WiseDiag">
+          <span><b>杭州智诊科技有限公司</b><small>WiseDiag</small></span>
+        </a>
+        <p class="addr">
+          <span>地址：浙江省杭州市临平区杭州智能健康谷A栋7楼</span>
+          <span class="line2">杭州智诊科技有限公司</span>
+        </p>
+
+        <div class="social-block">
+          <p class="title">关注智诊</p>
+          <div class="social-grid">
+            <a class="social-item" href="javascript:void(0)" aria-label="微信公众号">
+              <img src="assets/footer/icon-wechat.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-wechat.png" alt="微信公众号二维码"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="小红书">
+              <img src="assets/footer/icon-xhs.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-xhs.png" alt="小红书二维码"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="知乎">
+              <img src="assets/footer/icon-zhihu.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-zhihu.png" alt="知乎二维码"></span>
+            </a>
+            <a class="social-item" href="https://github.com/WiseDiag" target="_blank" rel="noopener" aria-label="GitHub">
+              <img src="assets/footer/icon-github.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-github.png" alt="GitHub 二维码"><small>github.com/WiseDiag</small></span>
+            </a>
+          </div>
+          <div class="social-caption">
+            <span>公众号</span>
+            <span>小红书</span>
+            <span>知乎</span>
+            <span>GitHub</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 列 2：WiseDiag医学多模态大模型 -->
+      <div>
+        <h3>WiseDiag医学多模态大模型</h3>
+        <div class="nav-double">
+          <a href="wisediag-model.html">模型架构</a>
+          <a href="haoban-ai.html">好伴AI(iOS版)</a>
+          <a href="wisediag-model.html#advantages">技术优势</a>
+          <a href="haoban-ai.html">好伴AI(安卓版)</a>
+          <a href="solutions.html">应用场景</a>
+          <span></span>
+          <a href="haoban-ai.html">立即体验</a>
+          <span></span>
+          <a href="wisediag-model.html#api">API接口</a>
+        </div>
+      </div>
+
+      <!-- 列 3：走进智诊 -->
+      <div>
+        <h3>走进智诊</h3>
+        <div class="nav-double">
+          <a href="about.html">走进智诊</a>
+          <a href="about.html#company">公司介绍</a>
+          <a href="about.html#milestones">发展历程</a>
+          <a href="about.html#honors">认证与荣誉</a>
+          <span></span>
+          <a href="enterprise-news.html">企业动态</a>
+          <span></span>
+          <a href="#contact" data-lead="申请合作">申请合作</a>
+        </div>
+      </div>
+
+      <!-- 列 4：联系我们 + 二维码 -->
+      <div class="footer-contact">
+        <h3>联系我们</h3>
+        <a class="email" href="mailto:marketing@wisediag.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3z M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.5"/></svg>
+          邮箱：marketing@wisediag.com
+        </a>
+        <a class="tel" href="tel:15336530072">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2 1c1 3 2 4 5 5l1-2 5 2v4c0 1-1 2-2 2C9 21 3 15 3 6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+          电话：15336530072
+        </a>
+        <div class="qr">
+          <img src="assets/footer/qr-consult.png" alt="扫码快捷咨询二维码">
+          <div>
+            <strong>扫码快捷咨询</strong>
+            <small>留下您的联系方式<br>专属顾问 1 对 1 对接</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部条 -->
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 杭州智诊科技有限公司　保留所有权利</span>
+      <span class="beian">
+        <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">浙公网安备 33011302000671号</a>
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener">浙ICP备2023052183号-1</a>
+        <a href="https://dxzhgl.miit.gov.cn/#/home" target="_blank" rel="noopener">增值电信业务经营许可证 浙B2-20241217</a>
+      </span>
+    </div>
+  </footer>
+  
+  
+  
+  
+
+  <script>
+    // 移动端导航
+    const menuButton = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => navLinks.classList.toggle('is-open'));
+  </script>
+  <script src="nav-menu.js" defer></script>
+  <script src="lead-form.js" defer></script>
+  <script src="ai-advisor.js" defer></script>
+<script src="refresh.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="PcMHaSGi0JCM5B2jnm72Gj">
+<head data-page-node-id="KdjYSi6DCPfmtu9eub08LW">
+<meta charset="UTF-8" data-page-node-id="ve2fiO2mVOQkKAqGPNZ3md">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="eAJKErfPLr1T6IDtgDUSvu">
+<title>智诊科技官网 · 评审候选版总览</title>
+<style>
+  :root {
+    --blue: #0649ff; --teal: #16bed1; --green: #1fa97f; --orange: #ff9b45;
+    --ink: #17233c; --sub: #5b6b84; --line: #e3eaf4; --mist: #f5f8fc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink); background:
+      radial-gradient(900px 420px at 12% -8%, rgba(6,73,255,.10), transparent 60%),
+      radial-gradient(760px 380px at 92% 4%, rgba(22,190,209,.12), transparent 55%),
+      linear-gradient(180deg, #f7fbff, #eef4ff 46%, #f8fbff);
+    min-height: 100vh; padding: 56px 20px 80px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--blue); background: rgba(6,73,255,.07); border: 1px solid rgba(6,73,255,.18); padding: 6px 14px; border-radius: 999px; }
+  h1 { font-size: 34px; line-height: 1.25; margin: 18px 0 10px; font-weight: 800; }
+  h1 b { color: var(--blue); }
+  .lede { color: var(--sub); font-size: 15.5px; line-height: 1.8; max-width: 720px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 34px; }
+  .meta span { font-size: 12.5px; color: var(--sub); background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; }
+  .meta b { color: var(--ink); }
+  h2 { font-size: 20px; margin: 38px 0 6px; font-weight: 800; }
+  .h2sub { color: var(--sub); font-size: 13.5px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  a.card {
+    display: block; text-decoration: none; color: inherit; background: rgba(255,255,255,.88);
+    border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px;
+    box-shadow: 0 6px 22px rgba(24,58,110,.06); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    position: relative; overflow: hidden;
+  }
+  a.card::after { content: "↗"; position: absolute; right: 14px; top: 14px; color: var(--blue); font-weight: 700; opacity: .55; }
+  a.card:hover { transform: translateY(-3px); border-color: rgba(6,73,255,.35); box-shadow: 0 12px 30px rgba(24,58,110,.12); }
+  .card .no { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--teal); }
+  .card h3 { font-size: 16.5px; margin: 6px 0 6px; font-weight: 700; }
+  .card p { font-size: 12.8px; color: var(--sub); line-height: 1.65; }
+  .card .tag { display: inline-block; margin-top: 10px; font-size: 11px; color: var(--blue); background: rgba(6,73,255,.07); border-radius: 6px; padding: 3px 8px; font-weight: 600; }
+  .panel { background: rgba(255,255,255,.9); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; box-shadow: 0 6px 22px rgba(24,58,110,.05); }
+  .panel + .panel { margin-top: 12px; }
+  ul.tick { list-style: none; }
+  ul.tick li { padding: 8px 0 8px 26px; position: relative; font-size: 14px; line-height: 1.7; color: var(--ink); border-bottom: 1px dashed var(--line); }
+  ul.tick li:last-child { border-bottom: 0; }
+  ul.tick li::before { content: "✓"; position: absolute; left: 2px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: rgba(31,169,127,.12); color: var(--green); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  ul.todo { list-style: none; }
+  ul.todo li { padding: 8px 0 8px 26px; position: relative; font-size: 14px; line-height: 1.7; border-bottom: 1px dashed var(--line); }
+  ul.todo li:last-child { border-bottom: 0; }
+  ul.todo li::before { content: "!"; position: absolute; left: 2px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: rgba(255,155,69,.16); color: var(--orange); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  ul.todo b { color: var(--ink); }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px) { .twocol { grid-template-columns: 1fr; } h1 { font-size: 27px; } }
+  .stat { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .stat div { flex: 1 1 150px; background: rgba(255,255,255,.9); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 24px; font-weight: 800; color: var(--blue); }
+  .stat small { color: var(--sub); font-size: 12px; }
+  footer { margin-top: 44px; text-align: center; color: #77859a; font-size: 12.5px; line-height: 1.8; }
+  .howto { font-size: 13.5px; color: var(--sub); line-height: 1.8; }
+  .howto code { background: var(--mist); border: 1px solid var(--line); border-radius: 5px; padding: 1px 7px; font-size: 12.5px; color: var(--ink); }
+</style>
+  <link rel="stylesheet" href="lead-form.css">
+  <style>
+  .topnav { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 0 0 34px; padding: 14px 0; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.94); backdrop-filter: blur(12px); }
+  .topnav .tn-brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -.03em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .topnav .tn-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-left: auto; }
+  .topnav .tn-links a { color: var(--sub); text-decoration: none; font-size: 13.5px; white-space: nowrap; }
+  .topnav .tn-links a:hover { color: var(--blue); }
+  .topnav .tn-cta { display: inline-flex; align-items: center; min-height: 34px; padding: 0 15px; border-radius: 999px; background: var(--blue); color: #fff !important; font-size: 13px; font-weight: 600; text-decoration: none; }
+  @media (max-width: 760px) { .topnav { gap: 10px; padding: 10px 0; } .topnav .tn-links { gap: 12px; margin-left: 0; width: 100%; overflow-x: auto; } .topnav .tn-cta { display: none; } }
+  </style>
+<link rel="stylesheet" href="refresh.css">
+</head>
+<body data-page-node-id="oAqjrz3dP1ZGxcQWakcWGS">
+<div class="wrap" data-page-node-id="Q8neCyYAHXS7kGZtvCU1dE">
+<nav class="topnav" aria-label="官网主导航">
+  <a class="tn-brand" href="index.html">智诊科技 <small>WiseDiag</small></a>
+  <div class="tn-links">
+    <a href="index.html">首页</a>
+    <a href="wisediag-model.html">WiseDiag 医学大模型</a>
+    <a href="haoban-ai.html">好伴 AI</a>
+    <a href="product-services.html">产品服务</a>
+    <a href="solutions.html">解决方案</a>
+    <a href="enterprise-news.html">企业动态</a>
+    <a href="about.html">走进智诊</a>
+    <a class="tn-cta" href="#contact" data-lead="合作申请">合作申请</a>
+  </div>
+</nav>
+<span class="kicker" data-page-node-id="w9OmEJBu61LljTEU8QhBI1">WISEDIAG · 内部评审版</span>
+  <h1 data-page-node-id="6uXXNdBGw0GQhLF1PsnP52">智诊科技官网 · <b data-page-node-id="xArC1prRvDVLEzdY79gbL7">评审候选版总览</b></h1>
+  <p class="lede" data-page-node-id="Vt05oLqyznB0guL5YWtrMB">本页汇总官网改版的评审候选内容，供团队查看页面并逐项验收，不是可直接正式上线的版本。下方卡片可用于本地预览；外部资源、交互及接口仍需在目标环境验证。完成文案证据核对、后端联调与发布验收后，方可安排上线。</p>
+  <div class="meta" data-page-node-id="85DcUeR0vBRdgnHfOMbwUu">
+    <span data-page-node-id="537uYAW0BpZPj2W30bnI3a">版本 <b data-page-node-id="nG5Wh5BQchOgIrnwdMkdDL">v2026.09.17</b></span>
+    <span data-page-node-id="HjBrIvGn2hAzPv7DYHa4TU">页面 <b data-page-node-id="MGpW5ulFLyzYNrO2BWBwjn">10 个</b></span>
+    <span data-page-node-id="j5QozZA3g4td1k7DlKlWzk">回归测试 <b data-page-node-id="8oLBoCOVTleTWScZGOwnvI">上轮 77/77，待本轮复测</b></span>
+    <span data-page-node-id="ssvWGaWhEfQNM8gihviXvA">本地资源引用 <b data-page-node-id="mkJCSplEC0e2Y2n8jGLcTs">待本轮复核</b></span>
+    <span data-page-node-id="QotQ54W8uJu0Y2kLEvAVhz">依赖 <b data-page-node-id="wbWXkHqP4tffcYMIh9GYDI">静态页面 · 主要为相对路径，含外部资源</b></span>
+  </div>
+
+  <h2 data-page-node-id="euArX0dBovsCBniExxFRcQ">一、页面导航</h2>
+  <p class="h2sub" data-page-node-id="uVLEFgSmObEqQIw2PTalsT">一级导航 7 项，对应 10 个候选页面（不含本总览）；产品服务为单页 9 视图：总览 + 8 个分项。</p>
+  <div class="grid" data-page-node-id="p4NHLvFg9occR3ahOqAKfa">
+    <a class="card" href="index.html" data-page-node-id="pndEAd7phY1K5j32JhAdkV"><span class="no" data-page-node-id="z6TSbtRPApi5FQM7poxWGB">01</span><h3 data-page-node-id="op9or0wFnQMETVeqAEhFMy">首页</h3><p data-page-node-id="Sr53iWhzLRfeVw9wP9rh1s">品牌首屏轮播 → 核心数字 → 六宫格能力 → 好伴 AI → 案例 → 伙伴墙 → 合作 CTA</p><span class="tag" data-page-node-id="CQwsaymSX8B0CSh2VCEYGh">主入口</span></a>
+    <a class="card" href="wisediag-model.html" data-page-node-id="3YfJXXCVNGAjDWeFMCCcTO"><span class="no" data-page-node-id="EJgY5C90yOUpPEHTT6U6Pp">02</span><h3 data-page-node-id="KoDSON2GHMDvjKyp61Ot0Q">WiseDiag 医学大模型</h3><p data-page-node-id="X8STgGLVOTQD2UDWAvOWMf">五大能力、架构、优势、开放平台 API 与快速接入</p><span class="tag" data-page-node-id="9ueDzbsCcyNYzPDC8AxZgz">能力底座</span></a>
+    <a class="card" href="haoban-ai.html" data-page-node-id="eXBZ7QyhoCzDs1KDZGfCz4"><span class="no" data-page-node-id="xu27TaqBNvaUytRarOXVAD">03</span><h3 data-page-node-id="tPQlT2nZq2vcuZHZ5Sde0B">好伴 AI</h3><p data-page-node-id="lJVnU0nQ0HLngaZK8b0QS6">C 端家庭健康助手，含「智三多」多年体检报告联合解读</p><span class="tag" data-page-node-id="ClbtM6aRWnn0DXiX4zZEJa">C 端产品</span></a>
+    <a class="card" href="product-services.html" data-page-node-id="OdZAmP9sgQG9UgiX8PLYcV"><span class="no" data-page-node-id="mi1G6BRgU9SAIKuzjvlnLK">04</span><h3 data-page-node-id="DTHpA6IG00hEEYQgACuj6f">产品服务</h3><p data-page-node-id="8QP5GCJDc1KrqYyjAiN2BK">单页 9 视图：总览 + 8 个分项（五应用产品、智多星底座、WiseClaw Agent OS、部署体系备用）</p><span class="tag" data-page-node-id="k5QRj3UBxPwuiwfrhCvHup">路由中心</span></a>
+    <a class="card" href="solutions.html" data-page-node-id="3QkAnnIhk0fClQ2FFfmgOi"><span class="no" data-page-node-id="RBWRfXlmGlVo5aSTCSUSxz">05</span><h3 data-page-node-id="4jDr80Ud3gIpHxHO49nik9">解决方案</h3><p data-page-node-id="k358Ac8XQPqwovvZLo5aOu">三条主线详情 + 案例库 + 合作伙伴；下拉覆盖 10 行业</p><span class="tag" data-page-node-id="ZvOL3LiCSG59vVOOKcFGyz">行业方案</span></a>
+    <a class="card" href="solution-pharma.html" data-page-node-id="2rOxVzkj79vePM6mb94J7x"><span class="no" data-page-node-id="RvwYZ135q7eNcjq0PGmlUw">06</span><h3 data-page-node-id="ocxZeHEdOMVBA6mJco8GeV">药企方案</h3><p data-page-node-id="BK1DdtnLEKFXgaUAyzHqKa">药企行业独立详情页</p><span class="tag" data-page-node-id="QM8IyVWsrxM2foXQJ0HeoM">行业页</span></a>
+    <a class="card" href="solution-ivd.html" data-page-node-id="FfQJee6lZFXholl9hER6xZ"><span class="no" data-page-node-id="EdKt7t7VhEaQ4uNtjyWZw2">07</span><h3 data-page-node-id="gxR8ujwSkVCkej45LI9fDR">IVD 方案</h3><p data-page-node-id="Sc5T5AclRGAU8AT7h30Nu1">体外诊断行业独立详情页</p><span class="tag" data-page-node-id="nlqz3e5M0KJAqptNP1YAs3">行业页</span></a>
+    <a class="card" href="solution-internet-hospital.html" data-page-node-id="mpOtH64dkU2AJBKZiK8Gwf"><span class="no" data-page-node-id="JAtOBmKwDf7yKmIMYDn3l3">08</span><h3 data-page-node-id="SjFq3NJzfieCHSZuxoF2rF">互联网医院方案</h3><p data-page-node-id="yxzr04eNLDYG7u1uxTHltK">互联网医院行业独立详情页</p><span class="tag" data-page-node-id="SyVgsaNGB83kaM3ECS7cpK">行业页</span></a>
+    <a class="card" href="enterprise-news.html" data-page-node-id="DyYYKXJiptfa0anrfDhRn9"><span class="no" data-page-node-id="4AaWgyqZnulsBI3VYLFVSl">09</span><h3 data-page-node-id="UxH9PtBHiLzw1StmHB7DpC">企业动态</h3><p data-page-node-id="kzNRiDJbgrpDlH9B1CGUfc">全部 + 5 类筛选，14 条历史动态，右侧抽屉展示详情</p><span class="tag" data-page-node-id="pE4tMcDl9BLGsCn15naFS7">内容</span></a>
+    <a class="card" href="about.html" data-page-node-id="v2DDPMuf4QWUcNfi2InLDa"><span class="no" data-page-node-id="JX5BzBE9xzb2mL7w132DW3">10</span><h3 data-page-node-id="735mvnHP5DCXEAD6fo6oQx">走进智诊</h3><p data-page-node-id="Y8Sjbfr0udFVdhjf5bzy4a">宣传片 → 公司介绍 → 发展历程 → 认证荣誉 → 合作 CTA</p><span class="tag" data-page-node-id="QeG3YzDwSeqwGpUHAz1nKn">品牌</span></a>
+  </div>
+
+  
+  <h2>二、2026-09-17 文案改版记录（上轮）</h2>
+  <p class="h2sub">以下为上轮改版方向的摘要，不代表本轮已核验其他页面或完成上线验收。历史宣传表述不作为当前对外口径，涉及数字、认证与评测的内容仍须核对证据。</p>
+  <div class="twocol">
+    <div class="panel">
+      <ul class="tick">
+        <li><b>首页信任信息调整</b>：上轮围绕评测记录、认证材料、服务规模与合作资源调整展示。相关排名、认证范围、服务人次与机构数量须逐项确认来源、时间和统计口径，不据此作普遍能力承诺。</li>
+        <li><b>模型页评测信息调整</b>：上轮在 <code>#assessment</code> 集中呈现评测记录，并调整模型对比内容。不同榜单、版本和任务条件需分别说明；企业动态中的 V2 历史成绩不得用 V3 成绩替换，具体成绩以该期原始榜单为准。</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <ul class="tick">
+        <li><b>解决方案页定位调整</b>：上轮围绕医疗 AI 与业务流程的衔接，梳理医疗健康行业场景。场景展示不等于已完成交付，实际范围以项目约定和验收为准。</li>
+        <li><b>产品服务体系化</b>：lead 改为「1 个模型底座 + 1 个医疗智能中枢 + X 个持续扩展的产品」；产品名双语化：智多星 · Wise Foundation、智小伴 · Wise Care、智小医 · Wise Clinical、智小检 · Wise Diagnostics、智小药 · Wise Pharma；补充 WISE Nexus Stack 四种部署形态。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>三、2026-09-17 检查修复记录（上轮）</h2>
+  <p class="h2sub">保留上轮记录供复测对照，以下不作为本轮检查结果。</p>
+  <div class="twocol">
+    <div class="panel">
+      <ul class="tick">
+        <li><b>模型页小屏导航修复（高危）</b>：该页 <code>@media(max-width:780px)</code> 把 <code>.nav-links</code> 设为 <code>display:none</code>，但缺汉堡按钮，导致手机上主导航完全不可达。已补 <code>.mobile-menu</code> 按钮、展开面板样式与切换脚本（点链接自动收起、同步 aria-expanded）。</li>
+        <li><b>行业页联系口径统一</b>：药企 / IVD / 互联网医院三页原「联系我们」按钮指向已废弃的旧版 contact 邮箱，现改为 <code>data-lead</code> 主题按钮；全站只剩 marketing@wisediag.com 一个联系口径。</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <ul class="tick">
+        <li><b>回归测试扩充</b>：新增 <code>tests/mobile-nav.test.mjs</code>（6 条），覆盖汉堡按钮存在性、脚本绑定、展开规则、无重复 ID、行业页禁用废弃邮箱。</li>
+        <li><b>资源与结构审计</b>：上轮记录涉及页面资源、内链、锚点、ID 与图片替代文本。本轮全站审计尚待执行，不能沿用上轮结论作为当前通过状态。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 data-page-node-id="Ej2BOleLAUHmnpB641ghuh">四、转化链路整理记录与待验收边界</h2>
+  <p class="h2sub" data-page-node-id="RwVlsO5Dpef7CB5H4CVqei">以下保留此前的界面整理记录；表单、客服与线索接收仍需联调验收，页面展示不等于服务已上线。</p>
+  <div class="twocol" data-page-node-id="O6pepRUdkMH0ZxBVJHQlXg">
+    <div class="panel" data-page-node-id="aWobfCkhLqHC1Mxgc3jFYL">
+      <ul class="tick" data-page-node-id="omEVBgOeswOutHsNv7reLA">
+        <li data-page-node-id="VU6QCRYavwQuoOmc3OgoFy"><b data-page-node-id="SuF347aaCEA4ATw19kviwW">统一留咨表单</b>：全站「方案咨询 / 合作申请 / 预约演示」等入口统一进入同一弹窗表单，7 项字段 + 必选<b data-page-node-id="JoxURVXlgymRBLA3TTAEtt">「您从哪里了解到智诊」来源渠道</b>。新表单即将调整：未接后端时须明确提示「演示」，不得显示提交成功或暗示线索已送达；接入后须验证真实接收结果。</li>
+        <li data-page-node-id="CddFyaGzuJPzXmeBYhU0nZ"><b data-page-node-id="R38bEDbicVZ4ZHRFzy8Dmm">AI 在线客服「小智」界面记录</b>：此前按 PRD 整理悬浮入口、身份分流、需求收集和咨询引导。对话处理、线索接收与邮件通知仍待后端联调；界面演示不代表真实在线人工服务或线索已送达。</li>
+        <li data-page-node-id="Z7SvQx25bWT6dVNbx7R68l"><b data-page-node-id="4CmZFex0S7ArxiWOSjLGRL">跳转与导航整理</b>：此前整理删除区块后的咨询入口、导航、页脚与页面元信息；本轮仍需复测内链、锚点及弹窗触发行为。</li>
+        <li data-page-node-id="hXclAF79IL8dGCZcp59R4N"><b data-page-node-id="EAq2HpKf6VLLmDGcWAjzHb">静态弹窗整理</b>：此前移除陈旧静态弹窗；运行时是否存在重复实例或重复 ID，仍须结合新表单复测。</li>
+      </ul>
+    </div>
+    <div class="panel" data-page-node-id="whLqKcp1rGyKpTFni8EC77">
+      <ul class="tick" data-page-node-id="MBkXJaNfHxVWyN88slQ1PK">
+        <li data-page-node-id="dT9Ul0WV3MuzEelA7Ndk13"><b data-page-node-id="QQLe7HOGuBjWltlCxd0LHs">走进智诊页结构整理</b>：新增「发展历程」大标题；合作 CTA 更新为「与智诊一起，共建医疗AI美好未来。」；删除社会责任与招聘招募区块。</li>
+        <li data-page-node-id="GTqjdkf1OR2vbbsyG7MjCg"><b data-page-node-id="ZF4b9KDUATBDXcYb9ULyLE">按钮口径统一</b>：全站咨询类按钮统一为「合作申请」并携带 data-lead 主题。</li>
+        <li data-page-node-id="qJEe8HkMKnRtR7q5DAoAle"><b data-page-node-id="YBPm9PffjKuFiko9PeEmXf">联系方式单一口径</b>：marketing@wisediag.com / 15336530072 / 杭州智能健康谷A栋7楼。</li>
+        <li data-page-node-id="IcnXiGn33IO9MAoSFibw8G"><b data-page-node-id="RrNCOnx2TMrOS2yCl8x7tg">robots.txt / sitemap.xml</b> 的域名、索引范围与抓取规则需在正式发布前核对，不能仅替换域名后直接上线。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 data-page-node-id="CIeUNsPfLKzWH29jqDMSqp">五、质量状态（上轮记录，待本轮复测）</h2>
+  <div class="stat" data-page-node-id="i1JPR9wnGky6NRMmljG71N">
+    <div data-page-node-id="6jcdNJkViab3YulUZC8wbK"><b data-page-node-id="CRaqhnSWKJFo7x2g07AGpp">上轮 77/77</b><small data-page-node-id="mFCzV7UtC9jqFqHgWyoX3X">上轮回归记录，待本轮复测</small></div>
+    <div data-page-node-id="i9xsta5IFjLT20afODPbqc"><b data-page-node-id="RZ4PtxAXbfCAiHSBaNulsL">待复核</b><small data-page-node-id="YaDR7DvZYDAfacCNXaXNvf">缺失本地资源（全量引用审计）</small></div>
+    <div data-page-node-id="d7XAe1Igi0BkCD7MhFV7Bb"><b data-page-node-id="7a7TIHJIOJKLltaIL61czS">待复核</b><small data-page-node-id="bt6iS3k4EHMd9PZgKycuHJ">重复 ID / 静态弹窗残留</small></div>
+    <div data-page-node-id="TdRlIsCa2seSH1FrSereBP"><b data-page-node-id="guUfJYEewhGx2HHR2VkJa0">待联调</b><small data-page-node-id="YcHmVeKFpvpy65oB1QGCAc">AI 顾问、统一表单与后端接收</small></div>
+  </div>
+
+  <h2 data-page-node-id="4tQjpSWyDQc6KdF0chMQsp">六、上线前待验收事项</h2>
+  <div class="panel" data-page-node-id="F3Rf4nztz2NPRlCgfDUjR5">
+    <ul class="todo" data-page-node-id="vYlj6ye1ueQuw49sVEaeHp">
+      <li data-page-node-id="FDr6M2edl7xXGINDbTtNFe"><b data-page-node-id="PA15FgXXY2Vd1HqM7r2S1x">表单与 AI 客服后端接口</b>：设置 <code data-page-node-id="ibpMt1hLGFUbL3PEr7TANE">window.WISEDIAG_LEAD_ENDPOINT</code> 后，需验证请求发送、后端接收、错误反馈与隐私授权。新表单待调整：未配置后端时仅作演示，不显示成功，不把浏览器本地记录视为已提交；客服线索同样需要验收。</li>
+      <li data-page-node-id="yiL3IDEl5HYaHO6oJlkC4K"><b data-page-node-id="sHfZr3UPHhMWcAuI1GoquC">线索邮件</b>：后端按 PRD 将线索发送至 marketing@wisediag.com，主题「【官网线索】{企业名称}-{联系人}-{日期}」。</li>
+      <li data-page-node-id="9UcnHVeQdFGYSUONMWwJB8"><b data-page-node-id="xSgmlU5gCkxNxFvzCV3qYm">Google Fonts 自托管</b>：页面使用外部字体服务，访问情况需在目标网络验证；自托管方案及字体许可仍待确认。</li>
+      <li data-page-node-id="IR5n9kTRQOpcl9GMrbWS79"><b data-page-node-id="pyAN7UiBlO5M60FoYkv6jv">主域替换</b>：sitemap.xml / robots.txt 中 <code data-page-node-id="BY7NFyCbKkWvFPWah3QdTM">www.wisediag.com</code> 按实际域名调整。</li>
+      <li data-page-node-id="Tjy9aqQrSSycQi4s29KYQt"><b data-page-node-id="sTyRD47dxaZbxaDwySmDBh">外链与素材版权核对</b>：重新清点外链与 CDN 素材，核对可访问性、证书展示范围及 Logo 授权；上轮数量不作为本轮统计结果。</li>
+      <li data-page-node-id="YXRaoJipoH2rBpYMl87UHb"><b data-page-node-id="pHGcsTDuE0iXiHFgZlaAvU">首页数字口径签字</b>：首页涉及机构覆盖、服务人次一类的对外数字，需确认统计口径与来源后再发布。</li>
+    </ul>
+  </div>
+
+  <h2 data-page-node-id="KUp0JWrFfhLowIIjPKq49i">七、预览与后续交付说明</h2>
+  <div class="panel" data-page-node-id="gFZBE6HHKMVcKuaIszDyFS">
+    <p class="howto" data-page-node-id="Fy4RS4AOzxyFEPGH3fXRYc">
+      · <b data-page-node-id="FWiaz50I86Q1huOIiqtnAn">本地查看</b>：可双击页面查看静态内容；外部字体、视频、交互及接口是否可用，需在目标环境另行验证。<br data-page-node-id="POA3vWUs4GVRSkq5BSYH7Y">
+      · <b data-page-node-id="vAlgBo8kMgzCv7qyQch47r">发布准备</b>：完成待验收事项后，再由负责人员安排部署。页面主要使用相对路径，同时含外部字体、视频及链接；站点入口为 <code data-page-node-id="zGuxE19jcpqmpEj64mmUS0">index.html</code>。<br data-page-node-id="Cv5FHhlZg032LyR44RyGmL">
+      · <b data-page-node-id="pdTUJFpNOhLA2lGSB7bswI">演示数据边界</b>：未接后端不代表提交成功；即使浏览器保留了 <code data-page-node-id="5AbSIRyDV6Xaab9kD9GKvJ">localStorage</code>记录，也不代表企业已收到需求。演示时请勿输入真实个人或健康信息，新表单实际行为仍待联调验收。<br data-page-node-id="8bIJnyDMUWsEYdUFJsql6Z">
+      · 详细维护文档见同目录 <code data-page-node-id="QB5TYLWdZkOTfhK5p4OPrx">交付说明.md</code>。
+    </p>
+  </div>
+
+  <h2>八、本次中文文案清理说明</h2>
+  <div class="panel">
+    <ul class="tick">
+      <li><b>编辑范围</b>：本轮仅调整 about.html、enterprise-news.html 与本总览的中文内容，不涉及其他文件、英文版本、发布操作或记忆写入。</li>
+      <li><b>公司介绍</b>：补全公司主语，将自主研发的医学模型表述为辅助理解、资料整理与推理分析的工具；收窄绝对化能力承诺，保留已有历程与具体荣誉。</li>
+      <li><b>历史新闻</b>：同步卡片与详情的表述，保留日期、ID 和版本语境。V2 当时公布的 77.0 分仍归属 V2，具体成绩以该期原始榜单为准，不新增未经核验的引用。</li>
+      <li><b>评审与表单状态</b>：统一为评审候选版；产品服务按「总览 + 8 个分项」共 9 视图说明。三个页面同步演示提示，新表单逻辑仍待调整与验收，未接后端不得视为提交成功。</li>
+    </ul>
+    <p class="howto">本次文案清理不等于全站测试通过。上轮 77/77 仅作历史记录，待本轮复测；荣誉、融资、合作事件、产品发布及评测记录仍须依据原始材料确认。未提供证据的事实不因保留或润色而视为已核实。</p>
+  </div>
+
+      <section class="lead-section" id="contact">
+      <div class="lead-inner">
+        
+        <h2 class="lead-title">留下您的合作需求</h2>
+        <p class="lead-sub">本页为评审候选版，以下用于查看合作申请界面。如需沟通具体产品、行业方案或合作方式，请通过电话或邮箱联系。</p>
+        <ul class="lead-contacts"><li>电话 <b>15336530072</b></li><li>邮箱 <b>marketing@wisediag.com</b></li><li>地址 <b>杭州市临平区杭州智能健康谷A栋7楼</b></li></ul>
+        <div class="cta-form-wrap"><form class="lf-form lf-host" novalidate=""></form><p class="cta-inline-note" style="margin:14px 0 0;text-align:left;color:#8b98ad;font-size:12px;line-height:1.7;">当前表单仅供演示，尚未接入后端，不代表需求已送达。请勿填写真实个人或健康信息；如需合作，请通过页面所列电话或邮箱联系。</p></div>
+      </div>
+    </section>
+  <!-- footer:v2026-09-03-r4 -->
+  <footer class="site-footer">
+    <div class="footer-grid" data-page-node-id="drhS2vWPMRL4Fa7dLGr1jg">
+
+      <!-- 列 1：公司信息 + 关注智诊 -->
+      <div class="footer-company" data-page-node-id="KnajN6xl8TgHHWnlKtpNUk">
+        <a class="brand" href="index.html" data-page-node-id="gJNt052nEGSqxcgagTHyGi">
+          <img class="brand-mark" src="assets/footer/logo-wisediag.png" alt="智诊科技 WiseDiag" data-page-node-id="nj8d5X1nycPz1u0y4fqJxd">
+          <span data-page-node-id="QV4Hy9J0Cmxm97PZ0cjZHD"><b data-page-node-id="nkFB3GWKPNC9eVGIa2xVt5">杭州智诊科技有限公司</b><small data-page-node-id="QAe1SD7KNEOOUEFDFsSntM">WiseDiag</small></span>
+        </a>
+        <p class="addr" data-page-node-id="hc2WQiMPbcKuVvj0Osa8XQ">
+          <span data-page-node-id="uxIbnz8Dl841Kzo3qGzfDY">地址：浙江省杭州市临平区杭州智能健康谷A栋7楼</span>
+          <span class="line2" data-page-node-id="QgwWqpNxNc9EkIlzsZEBkQ">杭州智诊科技有限公司</span>
+        </p>
+
+        <div class="social-block" data-page-node-id="xQZc6dNFBAoJ4ykfYGEiNE">
+          <p class="title" data-page-node-id="j1lddOqdAbJsRVSKlRB6EL">关注智诊</p>
+          <div class="social-grid" data-page-node-id="nCy1DaB1bXoV5Nb5VgMWFA">
+            <a class="social-item" href="javascript:void(0)" aria-label="微信公众号" data-page-node-id="IHLWIxjUO41UKVhv75R9mh">
+              <img src="assets/footer/icon-wechat.png" alt="" data-page-node-id="VVLXxKsezfiZUcjBXeM0bq">
+              <span class="social-qr" data-page-node-id="Tj5p8SFxzIQugipjZvsWzM"><img src="assets/footer/qr-wechat.png" alt="微信公众号二维码" data-page-node-id="PaS6hpiOVrTt1OKI8tYDDV"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="小红书" data-page-node-id="NOYcrsRBrA62n6mY6ARYEA">
+              <img src="assets/footer/icon-xhs.png" alt="" data-page-node-id="aXCOy9N2D2Kpu6UlD8pXtD">
+              <span class="social-qr" data-page-node-id="mfSs8chCJfw8ZSBPxc0qa1"><img src="assets/footer/qr-xhs.png" alt="小红书二维码" data-page-node-id="gehLtExhU9YCYAEP6wnBCl"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="知乎" data-page-node-id="qnFYSkO19sOKqWXQ1D0DbJ">
+              <img src="assets/footer/icon-zhihu.png" alt="" data-page-node-id="N2SdcpJsCUbNnJ7LeE8RVg">
+              <span class="social-qr" data-page-node-id="5epLBXDaIFQBcpFeg5HGYV"><img src="assets/footer/qr-zhihu.png" alt="知乎二维码" data-page-node-id="HALygqNpACYhVvcyMgtNYM"></span>
+            </a>
+            <a class="social-item" href="https://github.com/WiseDiag" target="_blank" rel="noopener" aria-label="GitHub" data-page-node-id="QkQ4EMyDUNXFlWECOdyyXK">
+              <img src="assets/footer/icon-github.png" alt="" data-page-node-id="OAdR9FEhfKYaU5LXOyserz">
+              <span class="social-qr" data-page-node-id="ndJdyJ2qg6FY0CP77aebtT"><img src="assets/footer/qr-github.png" alt="GitHub 二维码" data-page-node-id="lIr341wFoxhCVXOaOy9vU0"><small data-page-node-id="cJkL0e3VC25jVXz5BNpgHm">github.com/WiseDiag</small></span>
+            </a>
+          </div>
+          <div class="social-caption" data-page-node-id="XH7KazCY71BmDxPsUo0Sos">
+            <span data-page-node-id="MKPYRRiMFNzGNjbJFm19wM">公众号</span>
+            <span data-page-node-id="cLB3MKxRvi59bLJF2zF5iM">小红书</span>
+            <span data-page-node-id="GsqvQHvHBMwSdfckq34ooC">知乎</span>
+            <span data-page-node-id="qtBR8YqDHerVaTJrDbuVrB">GitHub</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 列 2：WiseDiag医学多模态大模型 -->
+      <div data-page-node-id="JOFgTd2luHFUlRz91XeG3E">
+        <h3 data-page-node-id="CKGllBr749uJlzr92M0SF3">WiseDiag医学多模态大模型</h3>
+        <div class="nav-double" data-page-node-id="GGEZg2wFW8suBBAGwBF7Gf">
+          <a href="wisediag-model.html" data-page-node-id="ps1AgrkEBh4P0Ce9bGPdmr">模型架构</a>
+          <a href="haoban-ai.html" data-page-node-id="VxdGDINHlKhGfbaobR25FK">好伴AI(iOS版)</a>
+          <a href="wisediag-model.html#advantages" data-page-node-id="QPitrvwFujkDzB8nnYuF1b">技术优势</a>
+          <a href="haoban-ai.html" data-page-node-id="EnYS2n6ha8lNaFDSBaEQxX">好伴AI(安卓版)</a>
+          <a href="solutions.html" data-page-node-id="oIxSDLPX4xwUO0wLq63yGu">应用场景</a>
+          <span data-page-node-id="pKo6LqCXuc7jZfQjT2UWSG"></span>
+          <a href="haoban-ai.html" data-page-node-id="QbuSnDsIaGGgUR9bkRfs01">立即体验</a>
+          <span data-page-node-id="R8clSqVI7BQjzrOrNOi6zP"></span>
+          <a href="wisediag-model.html#api" data-page-node-id="ryHvHu3xzdapjb6he03VxZ">API接口</a>
+        </div>
+      </div>
+
+      <!-- 列 3：走进智诊 -->
+      <div data-page-node-id="PUdOOzTjs2IJiNREuXyOCN">
+        <h3 data-page-node-id="fXXMEfsHOcbFVEqCFe5NpP">走进智诊</h3>
+        <div class="nav-double" data-page-node-id="GMStHcgJsN1uRmcCVWWcFj">
+          <a href="about.html" data-page-node-id="nCQkkja6D1kgXnBeBpLcZi">走进智诊</a>
+          <a href="about.html#company" data-page-node-id="pEO4gBNurRhJcEdzGyAf8W">公司介绍</a>
+          <a href="about.html#milestones" data-page-node-id="K2kvSLFZe6cXzIHBK1NdhY">发展历程</a>
+          <a href="about.html#honors" data-page-node-id="Xfp13FJ31F3UW3naIeGE68">认证与荣誉</a>
+          <span data-page-node-id="2MYCSNHDAUe6hr8VXMHTWS"></span>
+          <a href="enterprise-news.html" data-page-node-id="EWiLlkeIOFF2mmQlBjj9bM">企业动态</a>
+          <span data-page-node-id="CPWASQmUmli36qghknhGiL"></span>
+          <a href="#contact" data-lead="申请合作" data-page-node-id="9ble5vBUBg3gxC1iMuGsAD">申请合作</a>
+        </div>
+      </div>
+
+      <!-- 列 4：联系我们 + 二维码 -->
+      <div class="footer-contact" data-page-node-id="z4L5Urj36dbXWoed4YbpKt">
+        <h3 data-page-node-id="mXOL9uZInM6om7Nl5DzuuO">联系我们</h3>
+        <a class="email" href="mailto:marketing@wisediag.com" data-page-node-id="MBLSyafXhAL0WhPRE6qQUx">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" data-page-node-id="kl8BY7U2PTYiqRSXpzHBSH"><path d="M3 6h18v12H3z M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.5" data-page-node-id="Ea77uQzeRpXB8JbmOY1Txv"></path></svg>
+          邮箱：marketing@wisediag.com
+        </a>
+        <a class="tel" href="tel:15336530072" data-page-node-id="CzNwIOf7vfMbTAlwMD9vGI">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" data-page-node-id="DCanUvM3K5O4XYWdlInA8V"><path d="M5 4h4l2 5-2 1c1 3 2 4 5 5l1-2 5 2v4c0 1-1 2-2 2C9 21 3 15 3 6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.5" data-page-node-id="bl9BDjTugy8oYSuMFvYIoK"></path></svg>
+          电话：15336530072
+        </a>
+        <div class="qr" data-page-node-id="4W6bKUmRxTm7iXFqdJaq6y">
+          <img src="assets/footer/qr-consult.png" alt="扫码快捷咨询二维码" data-page-node-id="1fdBKq4EmSgscC3QyKnPjU">
+          <div data-page-node-id="OF7tFhbSlLhCJLEbJmbcPu">
+            <strong data-page-node-id="7oAe7mxhnw53kacuDR1oea">扫码快捷咨询</strong>
+            <small data-page-node-id="icBVizlQkXokNEk2DO8HbF">留下您的联系方式<br data-page-node-id="6AJcLpIFhaDuOalCb7udW6">专属顾问 1 对 1 对接</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部条 -->
+    <div class="footer-bottom" data-page-node-id="Izevg2HbxOG6NBQihz3H3Z">
+      <span class="copyright" data-page-node-id="EdjY4ot5Eo4WIeZ8vfzl0p">© 2026 杭州智诊科技有限公司　保留所有权利</span>
+      <span class="beian" data-page-node-id="tqpbulPww8pPSeVVHxHWbV">
+        <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener" data-page-node-id="hmaDCrRYcoyTaJw8UcEOiD">浙公网安备 33011302000671号</a>
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener" data-page-node-id="k8q0NmYf3GRmmCA16rDj6U">浙ICP备2023052183号-1</a>
+        <a href="https://dxzhgl.miit.gov.cn/#/home" target="_blank" rel="noopener" data-page-node-id="mDac7YS5SQQrFUAhv9GIR8">增值电信业务经营许可证 浙B2-20241217</a>
+      </span>
+    </div>
+  </footer>
+</div>
+  <script src="nav-menu.js" defer></script>
+  <script src="lead-form.js" defer></script>
+<script src="refresh.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 上线前请把 https://www.wisediag.com 替换为实际主域 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.wisediag.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.wisediag.com/wisediag-model.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.wisediag.com/haoban-ai.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.wisediag.com/product-services.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.wisediag.com/solutions.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.wisediag.com/solution-pharma.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.wisediag.com/solution-ivd.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.wisediag.com/solution-internet-hospital.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.wisediag.com/enterprise-news.html</loc><priority>0.6</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.wisediag.com/about.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+</urlset>

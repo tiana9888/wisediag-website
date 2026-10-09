@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 994" width="1200" height="994" role="img" aria-label="WiseDiag 医学多模态大模型架构图" font-family='"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif'>
+  <defs>
+    <linearGradient id="coreGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0649ff"/>
+      <stop offset="52%" stop-color="#0a63ff"/>
+      <stop offset="100%" stop-color="#16bed1"/>
+    </linearGradient>
+    <marker id="arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#b9c4d6"/>
+    </marker>
+  </defs>
+  <text x="16" y="51" font-size="9.5" font-weight="800" fill="#94a3b8" text-anchor="start" letter-spacing="1.4">APPLICATION</text><text x="16" y="70" font-size="13" font-weight="700" fill="#071637" text-anchor="start">应用场景</text>
+  <rect x="160" y="14" width="237" height="86" rx="14" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="278.5" y="50" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">HOSPITAL</text>
+  <text x="278.5" y="73" font-size="14" font-weight="700" fill="#17243c" text-anchor="middle">医疗机构</text>
+  <rect x="411" y="14" width="237" height="86" rx="14" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="529.5" y="50" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">PHARMA &amp; IVD</text>
+  <text x="529.5" y="73" font-size="14" font-weight="700" fill="#17243c" text-anchor="middle">药企与 IVD</text>
+  <rect x="662" y="14" width="237" height="86" rx="14" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="780.5" y="50" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">INTERNET HOSPITAL</text>
+  <text x="780.5" y="73" font-size="14" font-weight="700" fill="#17243c" text-anchor="middle">互联网医疗</text>
+  <rect x="913" y="14" width="237" height="86" rx="14" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="1031.5" y="50" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">HEALTH MANAGEMENT</text>
+  <text x="1031.5" y="73" font-size="14" font-weight="700" fill="#17243c" text-anchor="middle">健康管理</text>
+  <path d="M350 106 V 140" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M960 106 V 140" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M655 104 V 139" stroke="#b9c4d6" stroke-width="1.4" marker-end="url(#arw)"/>
+  <text x="16" y="183" font-size="9.5" font-weight="800" fill="#94a3b8" text-anchor="start" letter-spacing="1.4">DELIVERY</text><text x="16" y="202" font-size="13" font-weight="700" fill="#071637" text-anchor="start">接入与部署</text>
+  <rect x="160" y="146" width="237" height="86" rx="14" fill="#f9fbfe" stroke="#e8eef7" stroke-width="1"/>
+  <text x="278.5" y="182" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">API / SDK</text>
+  <text x="278.5" y="205" font-size="13" font-weight="700" fill="#17243c" text-anchor="middle">API 与 SDK 调用</text>
+  <rect x="411" y="146" width="237" height="86" rx="14" fill="#f9fbfe" stroke="#e8eef7" stroke-width="1"/>
+  <text x="529.5" y="182" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">WORKFLOW</text>
+  <text x="529.5" y="205" font-size="13" font-weight="700" fill="#17243c" text-anchor="middle">智能体工作流编排</text>
+  <rect x="662" y="146" width="237" height="86" rx="14" fill="#f9fbfe" stroke="#e8eef7" stroke-width="1"/>
+  <text x="780.5" y="182" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">INTEGRATION</text>
+  <text x="780.5" y="205" font-size="13" font-weight="700" fill="#17243c" text-anchor="middle">业务系统集成</text>
+  <rect x="913" y="146" width="237" height="86" rx="14" fill="#f9fbfe" stroke="#e8eef7" stroke-width="1"/>
+  <text x="1031.5" y="182" font-size="9" font-weight="800" fill="#94a3b8" text-anchor="middle" letter-spacing="1">DEPLOYMENT</text>
+  <text x="1031.5" y="205" font-size="13" font-weight="700" fill="#17243c" text-anchor="middle">公有云 · 私有化 · 混合</text>
+  <path d="M350 238 V 272" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M960 238 V 272" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M655 236 V 271" stroke="#b9c4d6" stroke-width="1.4" marker-end="url(#arw)"/>
+  <text x="16" y="333" font-size="9.5" font-weight="800" fill="#94a3b8" text-anchor="start" letter-spacing="1.4">ORCHESTRATION</text><text x="16" y="352" font-size="13" font-weight="700" fill="#071637" text-anchor="start">智能体与安全编排</text>
+  <rect x="160" y="278" width="237" height="122" rx="14" fill="#f2f7ff" stroke="#dbe7fb" stroke-width="1"/>
+  <text x="178" y="318" font-size="13.5" font-weight="700" fill="#071637" text-anchor="start">任务规划与工具调用</text>
+  <text x="178" y="348" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">拆解多步任务，调用知识库</text>
+  <text x="178" y="367" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">与业务系统工具完成闭环</text>
+  <rect x="411" y="278" width="237" height="122" rx="14" fill="#f2f7ff" stroke="#dbe7fb" stroke-width="1"/>
+  <text x="429" y="318" font-size="13.5" font-weight="700" fill="#071637" text-anchor="start">受控医学证据引用</text>
+  <text x="429" y="348" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">定位指南原文、版本与来源</text>
+  <text x="429" y="367" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">区分事实、推断与未知</text>
+  <rect x="662" y="278" width="237" height="122" rx="14" fill="#f2f7ff" stroke="#dbe7fb" stroke-width="1"/>
+  <text x="680" y="318" font-size="13.5" font-weight="700" fill="#071637" text-anchor="start">风险分级与人工升级</text>
+  <text x="680" y="348" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">识别红旗信号与关键条件</text>
+  <text x="680" y="367" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">条件不足时转交医生或药师</text>
+  <rect x="913" y="278" width="237" height="122" rx="14" fill="#f2f7ff" stroke="#dbe7fb" stroke-width="1"/>
+  <text x="931" y="318" font-size="13.5" font-weight="700" fill="#071637" text-anchor="start">全程留痕与合规审计</text>
+  <text x="931" y="348" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">保留输入条件与判断规则</text>
+  <text x="931" y="367" font-size="10.5" font-weight="400" fill="#718098" text-anchor="start">结果与依据可追溯复核</text>
+  <path d="M350 406 V 440" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M960 406 V 440" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M655 404 V 439" stroke="#b9c4d6" stroke-width="1.4" marker-end="url(#arw)"/>
+  <text x="16" y="540" font-size="9.5" font-weight="800" fill="#94a3b8" text-anchor="start" letter-spacing="1.4">MODEL CORE</text><text x="16" y="559" font-size="13" font-weight="700" fill="#071637" text-anchor="start">模型核心</text>
+  <rect x="160" y="446" width="990" height="200" rx="18" fill="url(#coreGrad)" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+  <text x="190" y="490" font-size="23" font-weight="800" fill="#fff" text-anchor="start">WiseDiag 医学多模态大模型</text>
+  <text x="190" y="514" font-size="10" font-weight="700" fill="#ffffff" text-anchor="start" letter-spacing="1.6" opacity="0.66">MEDICAL MULTIMODAL FOUNDATION MODEL</text>
+  <rect x="190" y="534" width="188.4" height="84" rx="12" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.34)" stroke-width="1"/>
+  <text x="204" y="560" font-size="10" font-weight="800" fill="#ffffff" text-anchor="start" opacity="0.6">01</text>
+  <text x="204" y="582" font-size="13.5" font-weight="700" fill="#fff" text-anchor="start">医学知识理解</text>
+  <text x="204" y="602" font-size="10" font-weight="400" fill="#ffffff" text-anchor="start" opacity="0.78">教材 · 指南 · 共识 · 文献</text>
+  <rect x="390.4" y="534" width="188.4" height="84" rx="12" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.34)" stroke-width="1"/>
+  <text x="404.4" y="560" font-size="10" font-weight="800" fill="#ffffff" text-anchor="start" opacity="0.6">02</text>
+  <text x="404.4" y="582" font-size="13.5" font-weight="700" fill="#fff" text-anchor="start">多模态资料解析</text>
+  <text x="404.4" y="602" font-size="10" font-weight="400" fill="#ffffff" text-anchor="start" opacity="0.78">病历 · 报告 · 处方 · 影像</text>
+  <rect x="590.8" y="534" width="188.4" height="84" rx="12" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.34)" stroke-width="1"/>
+  <text x="604.8" y="560" font-size="10" font-weight="800" fill="#ffffff" text-anchor="start" opacity="0.6">03</text>
+  <text x="604.8" y="582" font-size="13.5" font-weight="700" fill="#fff" text-anchor="start">临床逻辑推理</text>
+  <text x="604.8" y="602" font-size="10" font-weight="400" fill="#ffffff" text-anchor="start" opacity="0.78">风险识别 · 追问 · 线索关联</text>
+  <rect x="791.2" y="534" width="188.4" height="84" rx="12" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.34)" stroke-width="1"/>
+  <text x="805.2" y="560" font-size="10" font-weight="800" fill="#ffffff" text-anchor="start" opacity="0.6">04</text>
+  <text x="805.2" y="582" font-size="13.5" font-weight="700" fill="#fff" text-anchor="start">医学安全评审</text>
+  <text x="805.2" y="602" font-size="10" font-weight="400" fill="#ffffff" text-anchor="start" opacity="0.78">准确 · 完整 · 安全 · 可读</text>
+  <rect x="991.6" y="534" width="188.4" height="84" rx="12" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.34)" stroke-width="1"/>
+  <text x="1005.6" y="560" font-size="10" font-weight="800" fill="#ffffff" text-anchor="start" opacity="0.6">05</text>
+  <text x="1005.6" y="582" font-size="13.5" font-weight="700" fill="#fff" text-anchor="start">智能体服务能力</text>
+  <text x="1005.6" y="602" font-size="10" font-weight="400" fill="#ffffff" text-anchor="start" opacity="0.78">规划 · 工具 · 流程协同</text>
+  <path d="M350 652 V 686" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M960 652 V 686" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M655 650 V 685" stroke="#b9c4d6" stroke-width="1.4" marker-end="url(#arw)"/>
+  <text x="16" y="762" font-size="9.5" font-weight="800" fill="#94a3b8" text-anchor="start" letter-spacing="1.4">FOUNDATION</text><text x="16" y="781" font-size="13" font-weight="700" fill="#071637" text-anchor="start">知识与数据底座</text>
+  <rect x="160" y="692" width="319.3333333333333" height="152" rx="14" fill="#f7f9fd" stroke="#e8eef7" stroke-width="1"/>
+  <text x="178" y="724" font-size="13.5" font-weight="700" fill="#071637" text-anchor="start">医学知识库</text>
+  <rect x="178" y="738" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="246.33333333333331" y="757.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">教材与专著</text>
+  <rect x="324.66666666666663" y="738" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="392.99999999999994" y="757.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">指南与共识</text>
+  <rect x="178" y="776" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="246.33333333333331" y="795.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">循证文献</text>
+  <rect x="324.66666666666663" y="776" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="392.99999999999994" y="795.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">药品说明书</text>
+  <rect x="495.3333333333333" y="692" width="319.3333333333333" height="152" rx="14" fill="#f7f9fd" stroke="#e8eef7" stroke-width="1"/>
+  <text x="513.3333333333333" y="724" font-size="13.5" font-weight="700" fill="#071637" text-anchor="start">真实世界数据</text>
+  <rect x="513.3333333333333" y="738" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="581.6666666666666" y="757.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">病历与病程</text>
+  <rect x="659.9999999999999" y="738" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="728.3333333333333" y="757.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">检验检查报告</text>
+  <rect x="513.3333333333333" y="776" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="581.6666666666666" y="795.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">处方与用药</text>
+  <rect x="659.9999999999999" y="776" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="728.3333333333333" y="795.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">影像与病理</text>
+  <rect x="830.6666666666666" y="692" width="319.3333333333333" height="152" rx="14" fill="#f7f9fd" stroke="#e8eef7" stroke-width="1"/>
+  <text x="848.6666666666666" y="724" font-size="13.5" font-weight="700" fill="#071637" text-anchor="start">专家与评测资产</text>
+  <rect x="848.6666666666666" y="738" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="917" y="757.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">专家标注</text>
+  <rect x="995.3333333333333" y="738" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="1063.6666666666665" y="757.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">病种任务包</text>
+  <rect x="848.6666666666666" y="776" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="917" y="795.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">安全红线集</text>
+  <rect x="995.3333333333333" y="776" width="136.66666666666666" height="30" rx="8" fill="#fff" stroke="#e5eaf2" stroke-width="1"/>
+  <text x="1063.6666666666665" y="795.5" font-size="10.5" font-weight="400" fill="#5b6b84" text-anchor="middle">评测基准</text>
+  <path d="M350 850 V 884" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M960 850 V 884" stroke="#dbe3ef" stroke-width="1" stroke-dasharray="3 5"/><path d="M655 848 V 883" stroke="#b9c4d6" stroke-width="1.4" marker-end="url(#arw)"/>
+  <text x="16" y="928" font-size="9.5" font-weight="800" fill="#94a3b8" text-anchor="start" letter-spacing="1.4">TRAINING &amp; EVAL</text><text x="16" y="947" font-size="13" font-weight="700" fill="#071637" text-anchor="start">训练与评测</text>
+  <rect x="160" y="890" width="990" height="88" rx="16" fill="#071637" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+  <text x="188" y="928" font-size="15" font-weight="800" fill="#fff" text-anchor="start">训练与评测闭环</text>
+  <text x="188" y="952" font-size="11" font-weight="400" fill="#ffffff" text-anchor="start" opacity="0.66">医学持续预训练 · 专家偏好对齐 · 安全红线对齐</text>
+  <rect x="696" y="916" width="134" height="36" rx="10" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+  <text x="763" y="939" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">HealthBench</text>
+  <rect x="842" y="916" width="134" height="36" rx="10" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+  <text x="909" y="939" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">MedXpertQA</text>
+  <rect x="988" y="916" width="134" height="36" rx="10" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+  <text x="1055" y="939" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">DoctorBench</text>
+  <path d="M1150 934 H1178 V546 H1160" fill="none" stroke="#b9c4d6" stroke-width="1.4" stroke-dasharray="5 5" marker-end="url(#arw)"/>
+  <text x="1193" y="740" font-size="10.5" font-weight="600" fill="#718098" transform="rotate(-90 1193 740)" text-anchor="middle">评测反馈 · 持续迭代</text>
+</svg>

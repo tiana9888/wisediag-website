@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="MfX17EX66GGHE89uTTMJ5T" data-dm-ref="1"><head data-page-node-id="aLHpcWyz1dYMh6lgNiYHku">
+  <meta charset="utf-8" data-page-node-id="QSYBAMvErEryLMoCOtZhqy">
+  <meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="6PVux812zNCeOSwePhXp4e">
+  <link rel="icon" href="assets/footer/logo-wisediag.png">
+  <title>好伴 AI｜家庭健康 AI 伙伴｜智诊科技</title>
+  <meta name="description" content="好伴 AI 面向家庭健康管理，提供健康咨询、家庭档案、长期记忆、拍照解读、图片与 PDF 综合分析、多学科专家 AI 支持和多份体检报告趋势分析。在用户授权和可用资料范围内，帮助整理健康信息，为日常管理与就医沟通做好准备。" data-page-node-id="NuZsC8hlVPgZrT5OSaqyNU">
+  <link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="xPEu63BbY2kWmvpx7WZzjL">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" data-page-node-id="CCAKx68BgGy1inDtxEezvH">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;700;800&amp;display=swap" rel="stylesheet" data-page-node-id="xHojUaRxIejmuYCxUbzrOV">
+  <link rel="stylesheet" href="styles.css" data-page-node-id="2MVu4axMNNPt83sunt2gpr">
+  <style>
+    :root{
+      --navy:#071637; --blue:#0649ff; --cyan:#16bed1; --green:#1fa97f; --orange:#ff9b45;
+      --ink:#17233c; --muted:#77859a; --mist:#f5f8fc; --line:#e3eaf4;
+      --r:18px; --shadow:0 22px 60px rgba(20,45,90,.12); --soft:0 14px 34px rgba(24,58,110,.08);
+    }
+    html{scroll-behavior:smooth}
+    body{background:#fff;overflow-x:hidden}
+
+    /* ===== 通用版块 ===== */
+    .hb-section{padding:92px 0;background:#fff}
+    .hb-section.mist{background:var(--mist)}
+    .hb-kicker{margin:0 0 12px;color:var(--blue);font:800 11px/1 Manrope,sans-serif;letter-spacing:.14em}
+    .hb-title{max-width:840px;margin:0;font-size:clamp(28px,3.2vw,44px);line-height:1.22;letter-spacing:-.045em}
+    .hb-title em{color:var(--blue);font-style:normal}
+    .hb-lede{max-width:760px;margin:16px 0 0;color:var(--muted);font-size:15px;line-height:1.85}
+
+    /* ===== Hero ===== */
+    .hb-hero{position:relative;overflow:hidden;padding:64px 0 78px;
+      background:
+        radial-gradient(circle at 14% 0%,rgba(22,190,209,.16),transparent 30%),
+        radial-gradient(circle at 84% 8%,rgba(6,73,255,.14),transparent 32%),
+        linear-gradient(180deg,#f7fbff 0%,#eef4ff 46%,#f8fbff 100%)}
+    .hb-hero:after{position:absolute;inset:0;opacity:.5;pointer-events:none;
+      background-image:linear-gradient(#9ab8ff1f 1px,transparent 1px),linear-gradient(90deg,#9ab8ff1f 1px,transparent 1px);
+      background-size:58px 58px;mask-image:linear-gradient(90deg,#000,transparent 72%);content:""}
+    .hb-hero-layout{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center}
+    .hb-eyebrow{display:inline-flex;align-items:center;gap:9px;min-height:34px;padding:8px 14px;border-radius:999px;
+      background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.9);color:#2a4f8c;font-size:13px;font-weight:800;
+      box-shadow:0 12px 26px rgba(38,84,140,.09)}
+    .hb-eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(31,169,127,.16)}
+    .hb-hero h1{margin:22px 0 18px;font-size:clamp(40px,4.6vw,64px);line-height:1.12;letter-spacing:-.05em;font-weight:900}
+    .hb-hero h1 em{display:block;color:var(--blue);font-style:normal}
+    .hb-hero p{max-width:620px;margin:0;color:#5b6b84;font-size:16.5px;line-height:1.85}
+    .hb-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .hb-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 23px;
+      border-radius:999px;font-size:14.5px;font-weight:800;transition:.2s}
+    .hb-btn.primary{color:#fff;background:linear-gradient(135deg,#0a55ff,#16bed1);box-shadow:0 15px 30px rgba(6,73,255,.26)}
+    .hb-btn.primary:hover{transform:translateY(-2px);box-shadow:0 20px 38px rgba(6,73,255,.32)}
+    .hb-btn.ghost{color:#1b2c48;background:rgba(255,255,255,.82);border:1px solid #d9e6fb;box-shadow:0 12px 26px rgba(38,84,140,.08)}
+    .hb-btn.ghost:hover{transform:translateY(-2px);border-color:#b9d0fb;background:#fff}
+    .hb-scan{width:19px;height:19px;border:2px solid currentColor;border-radius:5px;position:relative;flex:none}
+    .hb-scan:before,.hb-scan:after{content:"";position:absolute;top:3px;width:4px;height:4px;border-radius:1px;background:currentColor}
+    .hb-scan:before{left:3px}
+    .hb-scan:after{right:3px;box-shadow:-5px 6px 0 currentColor}
+    .hb-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:660px;margin-top:38px}
+    .hb-metrics div,.hb-metrics a{padding:17px 16px 19px;border-radius:14px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);box-shadow:var(--soft)}
+      .hb-metrics a{display:block;text-decoration:none;transition:.2s}
+      .hb-metrics a:hover{transform:translateY(-3px);border-color:#bcd2fb;background:#fff;box-shadow:0 16px 32px rgba(22,50,96,.13)}
+    .hb-metrics b{display:block;color:var(--navy);font-size:25px;letter-spacing:-.03em;line-height:1}
+    .hb-metrics span{display:block;margin-top:8px;color:var(--muted);font-size:12px;line-height:1.55;font-weight:600}
+
+    /* Hero 视觉 */
+    .hb-visual{position:relative;min-height:620px;display:grid;place-items:center}
+    .hb-halo{position:absolute;inset:26px 0 10px 30px;border-radius:36px;transform:rotate(-2deg);
+      background:linear-gradient(160deg,rgba(255,255,255,.75),rgba(255,255,255,.35)),
+                 radial-gradient(circle at 72% 16%,rgba(22,190,209,.2),transparent 34%),
+                 radial-gradient(circle at 16% 82%,rgba(255,155,69,.16),transparent 34%);
+      border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow)}
+    .hb-phone{position:relative;z-index:4;width:min(330px,72vw);padding:13px;border-radius:42px;
+      background:linear-gradient(180deg,#fff,#ddeaf9);border:1px solid #fff;box-shadow:0 28px 70px rgba(18,52,100,.24)}
+    .hb-phone:before{content:"";position:absolute;left:50%;top:11px;width:84px;height:21px;transform:translateX(-50%);
+      border-radius:0 0 15px 15px;background:#eef5ff;z-index:2}
+    .hb-phone img{display:block;width:100%;border-radius:32px}
+    .hb-phone-mini{position:absolute;z-index:3;width:172px;padding:8px;border-radius:26px;overflow:hidden;
+      background:linear-gradient(180deg,#fff,#e2efff);border:1px solid rgba(255,255,255,.96);box-shadow:0 20px 46px rgba(22,62,116,.18)}
+    .hb-phone-mini img{display:block;width:100%;border-radius:20px}
+    .hb-phone-mini.left{left:14px;top:150px;transform:rotate(-7deg)}
+    .hb-phone-mini.right{right:-6px;bottom:78px;transform:rotate(6deg)}
+    .hb-float{position:absolute;z-index:5;width:216px;padding:15px 16px;border-radius:14px;
+      background:rgba(255,255,255,.9);border:1px solid #fff;box-shadow:var(--soft);backdrop-filter:blur(12px)}
+    .hb-float b{display:block;font-size:14.5px;font-weight:800}
+    .hb-float span{display:block;margin-top:7px;color:var(--muted);font-size:11.5px;line-height:1.6}
+    .hb-float.top{top:112px;left:0}
+    .hb-float.bottom{right:0;bottom:92px}
+    .hb-bars{display:grid;grid-template-columns:1fr .8fr 1.12fr;gap:5px;align-items:end;height:38px;margin-top:10px}
+    .hb-bars i{display:block;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),var(--blue))}
+    .hb-bars i:nth-child(1){height:48%}
+    .hb-bars i:nth-child(2){height:72%;background:linear-gradient(180deg,var(--orange),#ffc383)}
+    .hb-bars i:nth-child(3){height:92%}
+
+    /* ===== 核心能力 ===== */
+    .hb-cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+    .hb-cap{min-height:238px;padding:25px;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:.2s}
+    .hb-cap:hover{transform:translateY(-4px);border-color:#bcd2fb;box-shadow:0 18px 38px rgba(18,38,75,.1)}
+    .hb-cap i{display:grid;width:44px;height:44px;place-items:center;margin-bottom:18px;border-radius:13px;color:#fff;
+      background:linear-gradient(135deg,#0a55ff,#16bed1);font-size:17px;font-weight:800;font-style:normal;box-shadow:0 12px 24px rgba(6,73,255,.22)}
+    .hb-cap i.green{background:linear-gradient(135deg,var(--green),#57cfae)}
+    .hb-cap i.orange{background:linear-gradient(135deg,var(--orange),#ffc383)}
+    .hb-cap h3{margin:0 0 10px;font-size:18.5px;letter-spacing:-.02em}
+    .hb-cap p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+
+    /* ===== 专家 AI 分身 ===== */
+    .hb-expert-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:24px;margin-top:42px;align-items:stretch}
+    .hb-expert-summary{padding:34px;border-radius:var(--r);color:var(--ink);box-shadow:var(--shadow);
+      border:1px solid #dbe6f8;background:radial-gradient(circle at 82% 8%,#16bed126,transparent 34%),linear-gradient(150deg,#f4f8ff,#e7efff 60%,#eaf2ff)}
+    .hb-expert-summary h3{margin:0 0 14px;font-size:26px;line-height:1.3;letter-spacing:-.04em}
+    .hb-expert-summary p{margin:0;color:#5b6b84;font-size:14px;line-height:1.85}
+    .hb-hospitals{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+    .hb-hospitals span{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #d5e2f7;
+      color:#33445f;font-size:12.5px;font-weight:700}
+    .hb-expert-summary .hb-btn.primary{margin-top:26px}
+    /* ===== 专家分身 Tab ===== */
+    .hb-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+    .hb-tab{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 20px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#5b6b84;font:700 14px inherit;cursor:pointer;transition:.18s}
+    .hb-tab:hover{border-color:#bcd2fb;color:var(--blue)}
+    .hb-tab.on{border-color:var(--blue);background:var(--blue);color:#fff;box-shadow:0 10px 22px rgba(6,73,255,.24)}
+    .hb-expert-cards.hb-expert-panel{display:none}
+    .hb-expert-cards.hb-expert-panel.on{display:grid;animation:hbFade .28s ease}
+    @keyframes hbFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .hb-expert-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .hb-card{padding:24px;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--soft)}
+    .hb-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr 172px;gap:24px;align-items:center;
+      background:linear-gradient(135deg,#f3f8ff,#eaf2ff)}
+    .hb-card small{display:block;margin-bottom:9px;color:var(--blue);font:800 11px/1 Manrope,sans-serif;letter-spacing:.12em}
+    .hb-card h3{margin:0 0 10px;font-size:23px;letter-spacing:-.035em}
+    .hb-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+    .hb-orbit{position:relative;height:126px;border-radius:50%;
+      background:radial-gradient(circle at 50% 50%,rgba(6,73,255,.16),transparent 36%),
+                 radial-gradient(circle at 50% 50%,transparent 43%,rgba(22,190,209,.2) 44%,transparent 46%),
+                 radial-gradient(circle at 50% 50%,transparent 64%,rgba(6,73,255,.12) 65%,transparent 67%)}
+    .hb-orbit i{position:absolute;display:grid;width:44px;height:44px;place-items:center;border-radius:50%;color:#fff;
+      background:linear-gradient(135deg,#0a55ff,#16bed1);box-shadow:0 12px 24px rgba(6,73,255,.24);font-style:normal;font-size:13px;font-weight:800}
+    .hb-orbit i:nth-child(1){left:66px;top:2px}
+    .hb-orbit i:nth-child(2){right:16px;top:44px;background:linear-gradient(135deg,var(--green),#57cfae)}
+    .hb-orbit i:nth-child(3){left:26px;bottom:8px;background:linear-gradient(135deg,var(--orange),#ffc383)}
+
+    /* ===== 体检报告趋势 ===== */
+    .hb-trend-layout{display:grid;grid-template-columns:.86fr 1.14fr;gap:26px;margin-top:40px;align-items:stretch}
+    .hb-story{display:grid;gap:12px;align-content:start}
+    .hb-story article{padding:22px;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--soft)}
+    .hb-story b{display:block;margin-bottom:8px;font-size:17px;letter-spacing:-.02em}
+    .hb-story span{color:var(--muted);font-size:13px;line-height:1.75}
+    .hb-panel{min-height:520px;padding:26px;border:1px solid #dde7f4;border-radius:var(--r);background:#fff;box-shadow:var(--shadow)}
+    .hb-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:26px}
+    .hb-panel-head h3{margin:0 0 8px;font-size:22px;letter-spacing:-.035em}
+    .hb-panel-head p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+    .hb-years{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+    .hb-years span{padding:7px 11px;border-radius:999px;background:#eef4ff;color:#446080;font-size:12px;font-weight:800}
+    .hb-years span.on{color:#fff;background:var(--blue)}
+    .hb-chart{position:relative;height:206px;padding:22px 8px 32px 32px;border-radius:14px;border:1px solid #e6eef9;
+      background:linear-gradient(180deg,rgba(6,73,255,.05) 0 1px,transparent 1px 50px),
+                 linear-gradient(90deg,rgba(6,73,255,.06) 0 1px,transparent 1px 74px),#f8fbff}
+    .hb-chart svg{position:absolute;left:52px;right:30px;top:42px;height:120px;width:calc(100% - 82px);overflow:visible}
+    .hb-axis{position:absolute;left:32px;right:26px;bottom:10px;display:flex;justify-content:space-between;color:#7f93ad;font-size:12px;font-weight:700}
+    .hb-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:16px}
+    .hb-chips div{padding:14px;border-radius:14px;background:#f6f9fe;border:1px solid #e6eef9}
+    .hb-chips b{display:block;margin-bottom:6px;font-size:13.5px}
+    .hb-chips span{color:var(--muted);font-size:11.5px;line-height:1.55}
+    .hb-loop{display:grid;grid-template-columns:repeat(4,1fr);margin-top:26px;overflow:hidden;border:1px solid var(--line);
+      border-radius:var(--r);background:#fff;box-shadow:0 16px 40px rgba(22,50,96,.07)}
+    .hb-loop article{min-height:184px;padding:25px;border-right:1px solid var(--line)}
+    .hb-loop article:last-child{border-right:0}
+    .hb-loop b{display:grid;width:34px;height:34px;place-items:center;margin-bottom:17px;border-radius:50%;color:#fff;background:var(--blue);font-size:14px;font-weight:800}
+    .hb-loop h3{margin:0 0 9px;font-size:18.5px;letter-spacing:-.02em}
+    .hb-loop p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+
+    /* ===== 多端体验 ===== */
+    .hb-download{padding:92px 0;
+      background:radial-gradient(circle at 80% 4%,#16bed118,transparent 32%),
+                 radial-gradient(circle at 8% 90%,#0649ff1a,transparent 34%),linear-gradient(180deg,#f2f7ff,#fff)}
+    .hb-download .hb-kicker{color:var(--blue)}
+    .hb-download .hb-lede{color:#5b6b84}
+    .hb-download-grid{display:grid;grid-template-columns:1fr 1fr .82fr;gap:14px;margin-top:40px}
+    .hb-dl{min-height:318px;padding:25px;border-radius:var(--r);background:#fff;border:1px solid #e0e9f6;box-shadow:0 20px 44px rgba(20,45,90,.09)}
+    .hb-dl h3{margin:0 0 11px;font-size:22px;letter-spacing:-.03em}
+    .hb-dl p{margin:0 0 20px;color:var(--muted);font-size:13.5px;line-height:1.8}
+    .hb-qr{display:grid;width:146px;height:146px;place-items:center;margin-bottom:18px;border-radius:14px;background:#fff;
+      border:8px solid #fff;box-shadow:0 14px 30px rgba(20,45,90,.14);overflow:hidden}
+    .hb-qr img{display:block;width:100%;height:100%;object-fit:contain}
+    .hb-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .hb-tags span{padding:7px 11px;border-radius:999px;background:#e7efff;color:var(--blue);font-size:12px;font-weight:800}
+    .hb-dl.device{background:linear-gradient(160deg,#fff8f2,#ffefe0);border-color:#f5ddc2}
+
+    /* ===== 平台价值 ===== */
+    .hb-value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+    .hb-value{min-height:230px;padding:27px;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--soft);transition:.2s}
+    .hb-value:hover{transform:translateY(-4px);border-color:#bcd2fb}
+    .hb-value small{display:block;margin-bottom:16px;color:var(--blue);font:800 11px/1 Manrope,sans-serif;letter-spacing:.12em}
+    .hb-value h3{margin:0 0 11px;font-size:22px;letter-spacing:-.035em}
+    .hb-value p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.8}
+
+    .hb-disclaimer{margin:26px 0 0;color:#8b98ad;font-size:12px;line-height:1.7}
+
+      /* ===== 智三多专区 ===== */
+      .hb-zsd-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+      .hb-zsd-mark{display:inline-flex;align-items:center;gap:10px;padding:9px 17px 9px 13px;border-radius:999px;
+        background:linear-gradient(135deg,#0a55ff,#16bed1);color:#fff;box-shadow:0 14px 30px rgba(6,73,255,.24)}
+      .hb-zsd-mark b{font-size:17px;letter-spacing:-.02em}
+      .hb-zsd-mark span{padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.24);font:800 10.5px/1 Manrope,sans-serif;letter-spacing:.12em}
+      .hb-zsd-pos{color:#5b6b84;font-size:13.5px;line-height:1.6}
+
+      .hb-zsd-three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+      .hb-zsd-three article{padding:24px;border-radius:var(--r);border:1px solid #dde7f4;background:#fff;box-shadow:var(--soft)}
+      .hb-zsd-key{display:inline-flex;align-items:center;gap:7px;margin-bottom:13px;padding:7px 13px;border-radius:999px;
+        background:#e7efff;color:var(--blue);font-size:14.5px;font-weight:800;letter-spacing:-.01em}
+      .hb-zsd-key i{width:7px;height:7px;border-radius:50%;background:var(--blue);font-style:normal}
+      .hb-zsd-three h4{margin:0 0 9px;font-size:19px;letter-spacing:-.03em}
+      .hb-zsd-three p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+
+      .hb-sub-title{margin:52px 0 0;font-size:23px;letter-spacing:-.035em}
+      .hb-sub-note{margin:11px 0 0;color:#5b6b84;font-size:13.5px;line-height:1.8}
+
+      .hb-zsd-flow{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px;overflow:hidden;
+        border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:0 16px 40px rgba(22,50,96,.07)}
+      .hb-zsd-flow article{position:relative;min-height:172px;padding:24px 26px;border-right:1px solid var(--line)}
+      .hb-zsd-flow article:last-child{border-right:0}
+      .hb-zsd-flow article:after{content:"";position:absolute;top:50%;right:-6px;width:11px;height:11px;
+        margin-top:-6px;border-top:2px solid #b7c9ea;border-right:2px solid #b7c9ea;transform:rotate(45deg)}
+      .hb-zsd-flow article:last-child:after{display:none}
+      .hb-zsd-flow b{display:block;margin-bottom:12px;color:var(--blue);font:800 11.5px/1 Manrope,sans-serif;letter-spacing:.14em}
+      .hb-zsd-flow h4{margin:0 0 9px;font-size:18.5px;letter-spacing:-.02em}
+      .hb-zsd-flow p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.8}
+
+      .hb-zsd-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+      .hb-zsd-case{display:flex;flex-direction:column;padding:24px;border-radius:var(--r);border:1px solid #dde7f4;
+        background:linear-gradient(165deg,#f8fbff,#f1f7ff);box-shadow:var(--soft)}
+      .hb-zsd-case-tag{display:inline-flex;align-self:flex-start;margin-bottom:14px;padding:6px 11px;border-radius:999px;
+        background:#fff;border:1px solid #d5e2f7;color:#33445f;font-size:11.5px;font-weight:800}
+      .hb-zsd-case h4{margin:0 0 5px;font-size:18.5px;letter-spacing:-.03em}
+      .hb-zsd-case .hb-zsd-who{margin:0 0 14px;color:#8b98ad;font-size:12px}
+      .hb-zsd-case dl{margin:0 0 15px;padding:14px 0 0;border-top:1px dashed #d8e4f5}
+      .hb-zsd-case dt{margin-bottom:5px;color:#8b98ad;font-size:11px;font-weight:800;letter-spacing:.06em}
+      .hb-zsd-case dd{margin:0 0 12px;color:#33445f;font-size:12.5px;line-height:1.75}
+      .hb-zsd-case dd:last-child{margin-bottom:0}
+      .hb-zsd-out{margin-top:auto;padding-top:15px;border-top:1px solid #dde7f4}
+      .hb-zsd-out span{display:block;margin-bottom:7px;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.06em}
+      .hb-zsd-out p{margin:0;color:#33445f;font-size:13px;line-height:1.8;font-weight:700}
+
+      .hb-zsd-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:34px;
+        padding:30px 34px;border-radius:var(--r);border:1px solid #dbe6f8;box-shadow:var(--shadow);
+        background:radial-gradient(circle at 88% 10%,#16bed126,transparent 38%),linear-gradient(150deg,#f4f8ff,#e7efff 60%,#eaf2ff)}
+      .hb-zsd-cta h4{margin:0 0 9px;font-size:23px;letter-spacing:-.035em}
+      .hb-zsd-cta p{margin:0;max-width:560px;color:#5b6b84;font-size:13.5px;line-height:1.8}
+      .hb-zsd-cta .hb-btn.primary{margin-top:0}
+
+      @media (max-width:900px){
+        .hb-zsd-three{grid-template-columns:1fr}
+        .hb-zsd-flow{grid-template-columns:repeat(2,1fr)}
+        .hb-zsd-flow article:nth-child(2){border-right:0}
+        .hb-zsd-flow article:nth-child(1),.hb-zsd-flow article:nth-child(2){border-bottom:1px solid var(--line)}
+        .hb-zsd-flow article:nth-child(2):after{display:none}
+        .hb-zsd-cases{grid-template-columns:1fr}
+        .hb-zsd-cta{padding:26px 22px}
+      }
+
+    @media (max-width:1050px){
+      .hb-hero-layout,.hb-expert-layout,.hb-trend-layout{grid-template-columns:1fr;gap:34px}
+      .hb-visual{min-height:580px}
+      .hb-cap-grid,.hb-value-grid{grid-template-columns:repeat(2,1fr)}
+      .hb-download-grid{grid-template-columns:1fr 1fr}
+      .hb-dl.device{grid-column:span 2;min-height:auto}
+      .hb-loop{grid-template-columns:repeat(2,1fr)}
+      .hb-loop article:nth-child(2){border-right:0}
+      .hb-loop article:nth-child(1),.hb-loop article:nth-child(2){border-bottom:1px solid var(--line)}
+    }
+    @media (max-width:760px){
+      .hb-section,.hb-download{padding:58px 0}
+      .hb-hero{padding:36px 0 54px}
+      .hb-hero h1{font-size:36px}
+      .hb-hero p{font-size:15px}
+      .hb-metrics{display:none}
+      .hb-visual{min-height:500px}
+      .hb-halo{inset:20px 0 18px}
+      .hb-phone{width:min(320px,86vw);border-radius:34px}
+      .hb-phone img{border-radius:26px}
+      .hb-phone-mini,.hb-float{display:none}
+      .hb-cap-grid,.hb-value-grid,.hb-chips,.hb-loop,.hb-download-grid{grid-template-columns:1fr}
+      .hb-dl.device{grid-column:auto}
+      .hb-dl,.hb-card,.hb-cap,.hb-value{min-height:auto}
+      .hb-card.featured{grid-column:auto;grid-template-columns:1fr}
+      .hb-orbit{display:none}
+      .hb-loop article,.hb-loop article:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}
+      .hb-loop article:last-child{border-bottom:0}
+      .hb-panel{min-height:auto;padding:20px}
+      .hb-panel-head{display:grid;gap:12px}
+      .hb-years{justify-content:flex-start}
+      .hb-chart{height:184px}
+    }
+  </style>
+  <link rel="stylesheet" href="lead-form.css" data-page-node-id="fPzAvjzhwoMcbv4cob1h1c">
+  <link rel="stylesheet" href="ai-advisor.css">
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style><link rel="stylesheet" href="refresh.css">
+</head>
+<body data-page-node-id="k1YyhTL1EhDLNEzYwgVdBt" style="">
+  <header class="site-header" data-page-node-id="xA8pnPZwA7C48S0fRP2d4A">
+    <nav class="shell nav" aria-label="主导航" data-page-node-id="b3M0B5qEd5SKRZFeTrcWtG">
+      <a class="brand" href="index.html" aria-label="智诊科技首页" data-page-node-id="uXGBqtyqBjaAIGMhPEF5y5">
+        <span class="brand-mark" data-page-node-id="2omLZDmB8BF3V8Y0Eaqr9W">◉</span>
+        <span data-page-node-id="4B1v4vmNITl1bzahf3eN5C"><b data-page-node-id="C0HkLW1uBMC0rqUmIgAuYH">智诊科技</b><small data-page-node-id="cutGCLCfXdGQtuXIfeheXC">WiseDiag</small></span>
+      </a>
+      <button class="mobile-menu" type="button" aria-label="打开导航" data-page-node-id="xXWvykHQd6ksY95MDUVQZp">☰</button>
+      <div class="nav-links" data-page-node-id="Gc4qOEIbe9HYtyCxPA387k">
+        <a href="index.html" data-page-node-id="hqMfJ0vGKQraGeaSbJqOFT">首页</a>
+        <a href="wisediag-model.html" data-page-node-id="yO1aeRUqxrfQLmH8fsAYiE">WiseDiag 医学大模型</a>
+        <a class="active" href="haoban-ai.html" aria-current="page" data-page-node-id="dTOU8OzOs0yMcTvzTSfAip">好伴 AI</a>
+        <div class="products-menu" data-page-node-id="rgAu9Tt5Wp0rHd8DHYrAGI">
+          <button class="nav-trigger" type="button" aria-haspopup="true" data-page-node-id="q1DfSGEOMmb37cL2ltyX7J">产品服务 <span data-page-node-id="z2AZQoYFeIcRhDOxiFMTBE">⌄</span></button>
+          <div class="mega-menu svc-panel" data-page-node-id="Rh2lwNzZo7c0VeqEJAkvUk">
+            <div class="svc-head" data-page-node-id="kHg6I5ZjGVRPthd05q4hjE"><div data-page-node-id="dB95xMdlcL0FHno7XdJR1K"><strong data-page-node-id="BBQUFCCpRO4mdclVMH9s6n">产品服务</strong></div><p data-page-node-id="PNnh3ZNOmdLXVNzvQL6zTS">一个共享底座、五个应用产品，配合 WiseClaw 智能体平台，按需查看对应页面。</p></div>
+            <div class="svc-grid" data-page-node-id="WZE3Cx2MCIhXXNg0awhGdP">
+              
+              <a class="svc-card" href="product-services.html#care" data-page-node-id="c41w6BVOWncyKCYNKn0tHV"><i data-page-node-id="eT6sNvxH0uLMQ1fTgYfQiW">CARE</i><span class="svc-t" data-page-node-id="vp4XZ0ClbmyzGdvhIbDAqU"><b data-page-node-id="cENg8Ay83E132Y2l74lWJP">智小伴</b><small data-page-node-id="Anx5vA9U549fiyzAcFFhh5">Wise Care</small></span><em data-page-node-id="uGL8LULT7oEYfAN7pyByMB"><span>医院</span><span>互联网医院</span><span>慢病管理中心</span><span>康养机构</span></em></a>
+              <a class="svc-card" href="product-services.html#clinical" data-page-node-id="N6Qgt1EqWRfQPtXY7btJbO"><i data-page-node-id="FqU51reCRhGcNq8vNPIbaR">CLIN</i><span class="svc-t" data-page-node-id="djK0lkOskRqBJHDqM4hg1W"><b data-page-node-id="WgTBbiN6eTCbvEPHfZcRUP">智小医</b><small data-page-node-id="W0kOpIfPEICHaw0lblNxR5">Wise Clinical</small></span><em data-page-node-id="b2TS2O0RVO7pVfttgpHecD"><span>公立医院</span><span>互联网医院</span><span>县域医共体</span><span>私立医疗</span></em></a>
+              <a class="svc-card" href="product-services.html#diagnostics" data-page-node-id="ebgIRnl9GmmddkNTF76cr9"><i data-page-node-id="aJRgdZH7BKwDOdwBTcxZcz">DX</i><span class="svc-t" data-page-node-id="MKCGoTlSJOuM4WQfljy6ck"><b data-page-node-id="rCSQCT4xyQJEBTWmKbw4FE">智小检</b><small data-page-node-id="OjAwhmwVfMjiA2XzrEYHX9">Wise Diagnostics</small></span><em data-page-node-id="rvCjpfbJ0WPDIJs6Eqf4LD"><span>IVD 与检验</span><span>体检中心</span><span>医院检验科</span><span>第三方医检</span></em></a>
+              <a class="svc-card span-half" href="product-services.html#pharma" data-page-node-id="ZnCWIEKn4J4kFWtVhOFJTv"><i data-page-node-id="GGiXXOQqUFpCS7Rdi89lgU">RX</i><span class="svc-t" data-page-node-id="7s5B7U7sUrgyLx84iTblsw"><b data-page-node-id="Pyg46w8ILJdX0erJ7jjCdk">智小药</b><small data-page-node-id="f4bu9XgJxRA6HUgAo9qV7X">Wise Pharma</small></span><em data-page-node-id="6MxGoWxyrXFyMayMNUPOkZ"><span>药企</span><span>医疗器械</span><span>医药流通</span><span>临床研究</span></em></a>
+              <a class="svc-card span-half" href="product-services.html#workforce" data-page-node-id="jV5ZRJbOumBQ7KpAhwMA33"><i data-page-node-id="NpiFlF82DAPEFB3rm7QUaO">WF</i><span class="svc-t" data-page-node-id="5Zo49sBhAl2AdK5nrb6xoX"><b data-page-node-id="BHKC5t5DODf70BqlAJSy5C">智小康</b><small data-page-node-id="IxTaD5LgbLCXzXHJRXeo6J">Wise Workforce</small></span><em data-page-node-id="eaBmIT9IdmBH1KPC3ErkHE"><span>大型企业</span><span>健康险</span><span>体检中心</span><span>职业健康</span></em></a>
+              <a class="svc-card wide" href="product-services.html#wiseclaw" data-page-node-id="FnTh12FlMugQfn9gukybhU"><i data-page-node-id="XhU1e3vOTeyObi1igEha61">CLAW</i><span class="svc-t" data-page-node-id="yRDpJGyhFfHSjWBGDJjRDn"><b data-page-node-id="9RPTvcodD6NMr3S7AoevoV">WiseClaw</b><small data-page-node-id="eLlJoI9WkNEFuxulmSBBfE">Agent OS</small></span><em data-page-node-id="uSx7WHyDojJWwPvD7x9JCU"><span data-page-node-id="JDTWbnTd131RpGytg8gueB">智能体构建</span><span data-page-node-id="1NqDarlYyBlhvdZsFkKk07">流程编排</span><span data-page-node-id="HOKmyVNOEysAy1yD4ca2UP">安全治理</span><span data-page-node-id="QSSvdGlw9kT7DuBnX87Vwy">快速接入</span></em></a>
+<a class="svc-card wide" href="product-services.html#foundation" data-page-node-id="GNALbPK1hLIAAvhLaCaKdc"><i data-page-node-id="YCMiifqnpgWdIqxU1EeFZ9">BASE</i><span class="svc-t" data-page-node-id="79XaHainAeBRNgY60U5KSI"><b data-page-node-id="6GdT8lz98l7P6pasxrTHHo">智多星</b><small data-page-node-id="0qq23MSau76ssB2c7OLeeZ">Wise Foundation</small></span><em data-page-node-id="RChG2TLCflg2CUgGSTbPvC"><span data-page-node-id="k99DEAIsMWK8ZtNIJGW23w">医疗模型</span><span data-page-node-id="c2zN9dvumttdHmIj4ePqku">知识证据</span><span data-page-node-id="3QMQbVCHADxX0VTOZnbLtg">数据治理</span><span data-page-node-id="PafiUKLIqdPzF03GArStfw">智能编排</span></em></a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="products-menu solutions-menu" data-page-node-id="xn8326gz4KaqPAAm16ToGo">
+          <button class="nav-trigger" type="button" aria-haspopup="true" data-page-node-id="IeUuKrfrGtdDExvsZryiik">解决方案 <span data-page-node-id="czKbxEi1zmkwOk630mgiG2">⌄</span></button>
+          <div class="mega-menu solution-mega" data-page-node-id="u2aPjM0VmI82o54rZ543SR">
+            <div class="mega-intro" data-page-node-id="osFLrCODfG7ddAy6nM77uF"><div data-page-node-id="iTcYwOBvg2qFE1CishnsdY"><span data-page-node-id="qck58J47teRiftoCvnlXDo">行业解决方案</span><strong data-page-node-id="VJnEGb3ELCetjg06YaijUR">解决方案</strong></div><p data-page-node-id="xOxGlO5gEFezKY52NK4iaI">让医疗 AI 能力融入真实业务流程。</p></div>
+            <div class="mega-body solution-body" data-page-node-id="PhQtYSOMp2X0iTyDzjnRuh">
+              <section class="product-matrix" data-page-node-id="Y8LZY0ex8HwiuuZJBPGOzi">
+                <p data-page-node-id="HCFqbKjCs3Fct88I0VLPtg">行业解决方案</p>
+                <div class="product-grid solution-grid" data-page-node-id="0cmDUeOypM09CS4ANNvske">
+                  <a href="solution-pharma.html" data-page-node-id="wP6QNtbVBoQb3runNfYSYL"><b data-page-node-id="S9X399CRyVC9ERzLSmm7Ac">药企</b><small data-page-node-id="Jp9HtURV8VfziRi2bjQPlX">学术推广 · 患者管理 · 临床研究</small></a>
+                  <a href="solution-ivd.html" data-page-node-id="p79R5CMX3ZP8vNnSdRQCIW"><b data-page-node-id="hl7LAV9XsXJzLXF0cfA4t5">IVD 体外诊断</b><small data-page-node-id="fWffoACEaE9MxkHe1cHcjV">报告解读 · 检后服务</small></a>
+                  <a href="solution-internet-hospital.html" data-page-node-id="HGw6pZqcCkKINUUaICCRr1"><b data-page-node-id="iB9Yz3Vo3SMA2MSzLDGsZF">互联网医院</b><small data-page-node-id="tA3JIgo4LV0QZcuJ3NFE76">在线问诊 · 随访运营</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="Z2yOfR3SlcwDVTwLtZDxsm"><b data-page-node-id="DziNZtplMf5lXbIVM56RrE">体检中心</b><small data-page-node-id="jljAi3B1R7qs5EbSZSvn18">团检报告深度解读</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="gb1H8Z0B1Kh8QxlSyYYVDu"><b data-page-node-id="aGeLI6cvz9GRUAoFKfKbZX">药房 / 医药流通</b><small data-page-node-id="wB3Y6hRxL3oWiNoMXNalWD">店员助手 · 用药指导</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="jU3K2aIr6U70DR9p93G3h7"><b data-page-node-id="ggFkEq8IBAgWN1HWNmubn8">商业健康保险</b><small data-page-node-id="0l1icLFBgpAhEbWzcLNQHD">核保理赔 · 健管服务</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="J9Jf4Y8VsnMX5sGR7Sb6Pn"><b data-page-node-id="R8Mahi7czlfFEnddwfM6cB">医美机构</b><small data-page-node-id="8OkPQi4CYb1AoZme0HZCb8">术前咨询 · 术后随访</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="8EYdes1FZmYiszUKQ8ympX"><b data-page-node-id="UCL6NJs30hjJJoLNQSevLH">中医养生</b><small data-page-node-id="R8uhZ3VWjsAvzFlID52WSs">体质辨识 · 调养建议</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="wsn3PQAxni3HldtiBOBkbl"><b data-page-node-id="ZcXa2CYPiX8CuzCwb0DQNk">营养保健品</b><small data-page-node-id="cDuzMncGWDHrTWAuaxr33z">营养咨询 · 复购运营</small></a>
+                  <a href="solutions.html#cases" data-page-node-id="RX2DM1v1VpYcuN0FRj06mM"><b data-page-node-id="ZSoRqiHz1XFVXZC1WuIn9v">模算智一体机</b><small data-page-node-id="dhDs89Ld4PWWpE4YWbJeTO">软硬一体本地部署</small></a>
+                </div>
+                <p class="matrix-note" data-page-node-id="b3uZku5qjEK176jWABbINr">未覆盖的场景可通过 WiseClaw 智能体平台共创搭建</p>
+              </section>
+            </div>
+          </div>
+        </div>
+        <a href="enterprise-news.html" data-page-node-id="BeVSGw1liFf6tHU5tHvQiC">企业动态</a>
+        <a href="about.html" data-page-node-id="FbeT4nkgB72omDcpp9AH4B">走进智诊</a>
+      </div>
+      <a class="nav-cta" href="#download" data-page-node-id="VCH5K9WOqMlK1phOlFbYTg">下载好伴 AI</a>
+    </nav>
+  </header>
+
+  <main id="top" data-page-node-id="ztqI25vTHAjcDxnWFFHLLx">
+    <!-- Hero -->
+    <section class="hb-hero" data-page-node-id="e1nGqWjQvAXbI8vpHLXFMQ">
+      <div class="shell hb-hero-layout" data-page-node-id="vwe5HFtZKBt1miDxSBA4p7">
+        <div data-page-node-id="R6tWlswKxSCE23oZxcPq8c">
+          <span class="hb-eyebrow" data-page-node-id="OtroPOiBFPyNl97l05Wnw5"><i aria-hidden="true" data-page-node-id="Jczpf4H56l6c3I1JHYkTrA"></i> 长期陪伴的家庭健康 AI</span>
+          <h1 data-page-node-id="k29mfoC6UKbnbHC110tD0q">让每个家庭拥有<em data-page-node-id="1X6OpaxIDHOqDAGMLskIHJ">自己的健康 AI 伙伴</em></h1>
+          <p data-page-node-id="Nt8FqqX4drNVw9UiE6dwRB">好伴 AI 面向家庭健康管理，提供健康咨询、家庭档案、长期记忆、拍照解读、图片与 PDF 综合分析、多学科专家 AI 支持和多份体检报告趋势分析。在用户授权和可用资料范围内，帮助整理健康信息，为日常管理与就医沟通做好准备。</p>
+          <div class="hb-actions" data-page-node-id="yoVMdwCNmLVN2C5LoPdyzE">
+            <a class="hb-btn primary" href="#download" data-page-node-id="h6jsRxqIhOVKG8NvSgkMHy"><span class="hb-scan" aria-hidden="true" data-page-node-id="dgj2bHONeYzj6T52jrkiAf"></span>扫码下载移动端 App</a>
+            <a class="hb-btn ghost" href="#download" data-page-node-id="cF5QHGVVBzEUTBxLGR08kM"><span class="hb-scan" aria-hidden="true" data-page-node-id="sDnKDXe2BWHCQdi1rCPmCZ"></span>打开小程序</a>
+          </div>
+          <div class="hb-metrics" data-page-node-id="CbhVd4RJXg34iqqonBCZ8e">
+            <div data-page-node-id="sllz2oQgP8HO4PRo9yuuPg"><b data-page-node-id="mX4RtSFmHFZiWIjP2rq0fC">多学科</b><span data-page-node-id="uWUF6qg4jzemCnT9cqKroD">专家 AI 支持，辅助理解健康信息</span></div>
+            <a href="#zhisanduo" data-page-node-id="uHGlpqhBB8Q5jgnpMy69Fw"><b data-page-node-id="hbMetricZsdB">智三多</b><span data-page-node-id="hbMetricZsdS">多年体检报告联合解读 →</span></a>
+            <div data-page-node-id="MdpRht9TeHBLCkSxKtuRwK"><b data-page-node-id="0Lrnd5EcuvUhfylHCO2hGs">长期</b><span data-page-node-id="tWnN6NydfvbGsUfml6GxJQ">沉淀家庭健康档案与个人记忆</span></div>
+          </div>
+        </div>
+
+        <div class="hb-visual" aria-label="好伴 AI 产品界面示意" data-page-node-id="RNb8gPI4bzvtLCYTqyLP1k">
+          <div class="hb-halo" aria-hidden="true" data-page-node-id="FlZoSygWLDhfcTRsfygqel"></div>
+          <div class="hb-phone-mini left" data-page-node-id="pJTVDBfME0KLw4VtGb8JKH"><img src="assets/health-archive.png" alt="好伴 AI 家庭健康档案界面" data-page-node-id="BBLE3j6m0pZQHUsQCupz5m"></div>
+          <div class="hb-float top" data-page-node-id="kARPqlfU5agixNZeSSAM8I">
+            <b data-page-node-id="jCCa93O5hSJHEkgY43KWOr">自动沉淀家庭健康档案</b>
+            <span data-page-node-id="pllTZZIKeIubJGEscReGEa">根据用户授权，将可用的问答、上传资料与解读结果整理到对应成员档案。</span>
+          </div>
+          <div class="hb-phone" data-page-node-id="vCqyG4D6xX260IX6eso6kC"><img src="assets/home-screen.png" alt="好伴 AI 移动端首页截图" data-page-node-id="Xc1kIEgu2UHvFEcvevGSYS"></div>
+          <div class="hb-phone-mini right" data-page-node-id="WWhk6t3KFKMgs6Hz8KlEcJ"><img src="assets/report-screen.png" alt="好伴 AI 体检报告解读界面" data-page-node-id="6AFAm94uQlidEGpS3CH9x5"></div>
+          <div class="hb-float bottom" data-page-node-id="RUjbIj5yrTL92lvXJSZ5pV">
+            <b data-page-node-id="lbssFDheYkwDR4BFiHoElK">多报告趋势识别</b>
+            <span data-page-node-id="sHVgaBC9svN6K4wGqzlzsT">跨年度对比关键指标，帮助用户看见长期变化。</span>
+            <div class="hb-bars" aria-hidden="true" data-page-node-id="xF6YMvVFv1VRfTDpRlRzYt"><i data-page-node-id="Z0H4KOv8PAcTsHhhoArgaA"></i><i data-page-node-id="WPa55ExplZlZmcCRqEkuw1"></i><i data-page-node-id="uCy1QhYzpcnEBFdjJOTCxR"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心能力 -->
+    <section class="hb-section" id="features" data-page-node-id="5UBZhbnBPA5nXAdBaVnb3h">
+      <div class="shell" data-page-node-id="RaI8MYIk5x6ITcT5Ah2tVp">
+        
+        <h2 class="hb-title" data-page-node-id="ovrl5PdZCX9j1eWSiFZ7fC" style="cursor: text;">从日常健康咨询，到<em data-page-node-id="iBT9kjrO5s7G7qeQFvNwMb" style="white-space: pre-wrap; cursor: text;">持续积累的家庭健康档案</em></h2>
+        <p class="hb-lede" data-page-node-id="215NIXcKOp3scsAKZrbobd">好伴 AI 将健康问答与家庭档案连接起来，在用户授权和可用档案范围内，辅助理解、整理与追踪健康信息。</p>
+
+        <div class="hb-cap-grid" data-page-node-id="NF54fgqfJCZEinBgowXyrh">
+          <article class="hb-cap" data-page-node-id="H3hr8eEN0Qk00zj03muRcZ">
+            <i data-page-node-id="yqCMFVbKsSCseOsA4gswps">问</i>
+            <h3 data-page-node-id="6TjQFkuMxv1cTYsK0dm04X">健康咨询问答</h3>
+            <p data-page-node-id="OHoSqd6ilsidHtREQydhbv">围绕日常症状、用药疑问、慢病管理、儿童健康、孕产问题和就医准备，提供清晰、可继续追问的健康咨询体验。</p>
+          </article>
+          <article class="hb-cap" data-page-node-id="ua2xQCGmxRFmuVBrXDK3RU">
+            <i class="green" data-page-node-id="yEcl5qmFOVurCsP6GcO4iL">档</i>
+            <h3 data-page-node-id="rxcwTckdd6wrYCQlSGusT7">自动创建家庭健康档案</h3>
+            <p data-page-node-id="eBrHg6cISYbPgD0HrXrDHG">根据用户授权，将对话、拍照、上传报告和体检解读中的可用信息自动整理到对应家庭成员档案，方便后续查看与补充。</p>
+          </article>
+          <article class="hb-cap" data-page-node-id="EpANFOTQDsPvUjqctwZQIA">
+            <i class="orange" data-page-node-id="ZQhjHp9VBL8uvLFJzdgh2Y">记</i>
+            <h3 data-page-node-id="6veHQR5MWEsP8ObHlZYDSr">长期记忆能力</h3>
+            <p data-page-node-id="S3gIqAwBKSxLOPPIEAPiY7">在用户授权和可用档案范围内，参考基础情况、历史问题、报告指标与关注重点，为后续咨询提供上下文；不代表所有信息都会被完整或永久保存。</p>
+          </article>
+          <article class="hb-cap" data-page-node-id="TQcHjys8osKy4txBrPElX6">
+            <i data-page-node-id="7OVNXUpOPQDGVTrX3BuAH1">拍</i>
+            <h3 data-page-node-id="FRrZtHVBNOcBUGtiXgE1sb">智能拍照 AI 解读</h3>
+            <p data-page-node-id="6mjFqLPp4wQXzwfEkB70Re">拍摄检查单、药盒、报告片段、皮肤状态或日常健康记录，AI 辅助提取信息、解释相关内容。图片解读不能用于确诊，识别结果需结合原始资料核对。</p>
+          </article>
+          <article class="hb-cap" data-page-node-id="OsUpBg10KUm9GQK15rrqoA">
+            <i class="green" data-page-node-id="tTJecwcDym9WgumtAOhpVk">析</i>
+            <h3 data-page-node-id="xiOfa4Ew2rSYscEA5bYy5j">图片与 PDF 混合分析</h3>
+            <p data-page-node-id="14GCJG6TGQCh3tEVQd9KTE">支持同时上传图片、PDF、检查报告、病历资料等多种材料，跨文件整合分析，减少用户自行查找和比对成本。</p>
+          </article>
+          <article class="hb-cap" data-page-node-id="EGW8fmifpVXnwyG21XbD4T">
+            <i class="orange" data-page-node-id="PNwMIihmQ5WFKiQhvDax9l">专</i>
+            <h3 data-page-node-id="Oc8NTy31weAGC1mlMqUSD9">多学科专家 AI 支持</h3>
+            <p data-page-node-id="Pe1ALHxDYDO6HipFX1kmsh">围绕多学科健康知识提供 AI 辅助，帮助用户理解常见健康问题、整理就医沟通要点。专家 AI 分身不代表专家本人实时接诊，也不替代诊断与治疗。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 专家 AI 分身 -->
+    <section class="hb-section mist" id="experts" data-page-node-id="7Bk5Y3C472dUWVrD9EQQly">
+      <div class="shell" data-page-node-id="B8M9JfGqEqYBHsMpQceZRh">
+        
+        <h2 class="hb-title" data-page-node-id="hLW6lrMc3myYr0bnKr8kuQ">以多学科知识，辅助<em data-page-node-id="933Y7a6Eg3FUEBGKiNTWI3">日常健康咨询与就医准备</em></h2>
+        <p class="hb-lede" data-page-node-id="x7Quo8OGLeGM7ueRgUEG8z">好伴 AI 提供多学科专家 AI 支持，辅助健康知识理解、报告阅读和就医准备。专家 AI 分身属于 AI 辅助能力，不代表专家本人实时接诊；实际诊断与治疗由具备资质的专业人员负责。</p>
+
+        <div class="hb-tabs" role="tablist" aria-label="专家分身学科分类" data-page-node-id="TabsExpertNew">
+          <button class="hb-tab on" type="button" role="tab" aria-selected="true" data-tab="all" data-page-node-id="TabAll">多学科总览</button>
+          <button class="hb-tab" type="button" role="tab" aria-selected="false" data-tab="ob" data-page-node-id="TabOb">妇产科</button>
+          <button class="hb-tab" type="button" role="tab" aria-selected="false" data-tab="ur" data-page-node-id="TabUr">泌尿与生殖</button>
+          <button class="hb-tab" type="button" role="tab" aria-selected="false" data-tab="on" data-page-node-id="TabOn">肿瘤</button>
+        </div>
+
+        <div class="hb-expert-layout" data-page-node-id="mjXu8qxHuORYvz8CDgi0yv">
+          <div class="hb-expert-summary" data-page-node-id="NufuoU6JHSQrhTvWW4X3FC">
+            <h3 data-page-node-id="QTLC6yrufHMlT9S73CopDW">多学科专家 AI 支持，帮助理清健康问题</h3>
+            <p data-page-node-id="1AdqwGj28YEXxPsfxsZt3W">专家 AI 分身围绕专业知识与家庭健康管理场景提供信息辅助，帮助理解问题、准备就医沟通。具体学科与可用能力以产品实际开放范围为准，不等同于人工专家服务。</p>
+            <div class="hb-hospitals" data-page-node-id="zF7BOwxUad90D1jGhFmHA4">
+              <span data-page-node-id="zbk0JyH4b7QHNiY9XmFW8y">上海市第一人民医院</span>
+              <span data-page-node-id="sgq3uicDC3u3Z6euvFGrF3">浙江大学医学院第二附属医院</span>
+              <span data-page-node-id="MIFUQAbL8ImAfjTZmHaslm">上海瑞金医院</span>
+              <span data-page-node-id="MQNDNXRGsj7Gy99SjZpBjT">浙江省肿瘤医院</span>
+            </div>
+            <a class="hb-btn primary" href="wisediag-model.html" data-page-node-id="OCNBhPz3DqJt3q9sN8fq0K">了解 WiseDiag 能力底座</a>
+          </div>
+
+          <div class="hb-expert-cards hb-expert-panel on" data-panel="all" role="tabpanel" data-page-node-id="O3UiGixGKAKl40DaPOvyXq">
+            <article class="hb-card featured" data-page-node-id="WIMHxtVOYobjsw8YYHtzts">
+              <div data-page-node-id="tq0zO8eXPgFs49LpY7zKGC">
+                
+                <h3 data-page-node-id="416KscbqW3CxQVRw0zAphl">用多学科视角整理健康信息</h3>
+                <p data-page-node-id="ACLwf99ksZe5rQJ5x7Lcuq">AI 分身辅助整理问题、解释报告内容和准备复诊材料。AI 输出需结合原始资料核对，涉及个体诊疗的问题应由专业人员判断。</p>
+              </div>
+              <div class="hb-orbit" aria-hidden="true" data-page-node-id="OcMApR0E9Dou03p1PkKh5O"><i data-page-node-id="XKfJvAlco0GTFRcbnCk2Os">妇产</i><i data-page-node-id="PGWflhcDwCbsGqzQztXmhn">泌尿</i><i data-page-node-id="wAvU3Tgu40YBbTrRJQLrHz">肿瘤</i></div>
+            </article>
+            <article class="hb-card" data-page-node-id="46pGIg5RXEcnyp6jzoo3Vi">
+              <small data-page-node-id="2suf1jAMG8Hz9TDg9bS8wQ">代表专家</small>
+              <h3 data-page-node-id="M75yygFKBqAdIGqmBpp23K">王利权</h3>
+              <p data-page-node-id="01GpB3bd4diZ004nt8dOrU">主任医师，妇产科方向。此处为专家信息展示，相关 AI 分身用于知识理解与沟通准备，不代表专家本人实时接诊。</p>
+            </article>
+            <article class="hb-card" data-page-node-id="knzM644YAGUzVXS99lKBR7">
+              <small data-page-node-id="2N3arrioJqlOpJ8Z2rDX4h">代表专家</small>
+              <h3 data-page-node-id="uZuAywMQqnCb5HCE4aqecS">徐晨</h3>
+              <p data-page-node-id="mu4ZWKPR3SSAw49ajBcJcI">教授 / 主任医师，泌尿科与生殖医学方向。此处为专家信息展示，相关 AI 分身辅助整理专科问题，不代表专家本人实时接诊。</p>
+            </article>
+          </div>
+
+          <div class="hb-expert-cards hb-expert-panel" data-panel="ob" role="tabpanel" data-page-node-id="PanelOb">
+            <article class="hb-card featured" data-page-node-id="PanelObFeat">
+              <div data-page-node-id="PanelObFeatTxt">
+                
+                <h3 data-page-node-id="stHuEKlHdKqSd7sKx2EXUy">孕产与女性健康，咨询前先理清问题</h3>
+                <p data-page-node-id="xtURqGlFLEhdEPhIFrsKrJ">围绕备孕、孕期、产后恢复与妇科咨询，AI 分身辅助理解健康知识、整理资料与提问要点；个体评估和诊疗安排仍由专业人员负责。</p>
+              </div>
+              <div class="hb-orbit" aria-hidden="true" data-page-node-id="PanelObOrbit"><i data-page-node-id="hNP5gl75fjzBRqRdSqpcC1">孕产</i><i data-page-node-id="KbuBvdz1GysLsrJkAEwmbe">妇科</i><i data-page-node-id="gxSfVRmKmGStTCO5SDVSpC">营养</i></div>
+            </article>
+            <article class="hb-card" data-page-node-id="46pGIg5RXEcnyp6jzoo3Vi-ob">
+              <small data-page-node-id="CcvMBDnzhkV4K2A8eJSKAR">代表专家</small>
+              <h3 data-page-node-id="G4NhLbWcBlaD7Q6PVxEHQK">王利权</h3>
+              <p data-page-node-id="FDxOnmrYqe2qw0aGlTiGiM">主任医师，妇产科方向。此处为专家信息展示，相关 AI 分身用于知识理解与沟通准备，不代表专家本人实时接诊。</p>
+            </article>
+            <article class="hb-card" data-page-node-id="PanelObMore">
+              <small data-page-node-id="F1zPdgTBRXsuzTv11Kr8wp">典型场景</small>
+              <h3 data-page-node-id="Hvg3CHWEG2SGbuAETPn0yM">从备孕到产后</h3>
+              <p data-page-node-id="RIf977zaFUDNKrfZnTGhTX">围绕孕周记录、产检报告、产后恢复与新生儿护理提出问题，获得信息整理与知识解释，便于进一步向专业人员咨询。</p>
+            </article>
+          </div>
+
+          <div class="hb-expert-cards hb-expert-panel" data-panel="ur" role="tabpanel" data-page-node-id="PanelUr">
+            <article class="hb-card featured" data-page-node-id="PanelUrFeat">
+              <div data-page-node-id="PanelUrFeatTxt">
+                
+                <h3 data-page-node-id="I7DSpdxPRS0v2XI9dWnJwD">泌尿与生殖健康，不再难以开口</h3>
+                <p data-page-node-id="wLOIySPvHafHsO0PjEtX1Y">围绕泌尿与生殖健康问题，AI 分身辅助整理症状描述、理解检查相关知识和准备就医提问，不代替医生作出诊断或治疗决定。</p>
+              </div>
+              <div class="hb-orbit" aria-hidden="true" data-page-node-id="PanelUrOrbit"><i data-page-node-id="EZ7jrWocDMlEmJC9TcGQNQ">泌尿</i><i data-page-node-id="vfSYSsXmN6cqg30xtz37eI">生殖</i><i data-page-node-id="fmvBtsK0mHpnb3iuovWKdR">男科</i></div>
+            </article>
+            <article class="hb-card" data-page-node-id="knzM644YAGUzVXS99lKBR7-ur">
+              <small data-page-node-id="98oS4VtO4Ue1rapi99JrCQ">代表专家</small>
+              <h3 data-page-node-id="jF806DsCEs8Op3BAvTfzL7">徐晨</h3>
+              <p data-page-node-id="SMTnAIPHOwqYJM1kptVPYe">教授 / 主任医师，泌尿科与生殖医学方向。此处为专家信息展示，相关 AI 分身辅助整理专科问题，不代表专家本人实时接诊。</p>
+            </article>
+            <article class="hb-card" data-page-node-id="PanelUrMore">
+              <small data-page-node-id="8F0irtpEiu604HcFXkGreA">典型场景</small>
+              <h3 data-page-node-id="IRKnrHOwAkVHu9eUGul6SM">症状理解与就医准备</h3>
+              <p data-page-node-id="bNQTDaFjZZec2z2kFYXbLo">体检指标异常解读、检查报告理解、就诊前的症状整理，帮助用户与医生更高效地沟通。</p>
+            </article>
+          </div>
+
+          <div class="hb-expert-cards hb-expert-panel" data-panel="on" role="tabpanel" data-page-node-id="PanelOn">
+            <article class="hb-card featured" data-page-node-id="PanelOnFeat">
+              <div data-page-node-id="PanelOnFeatTxt">
+                
+                <h3 data-page-node-id="AXpanFOQUAG72sZdmvXbFA">肿瘤相关咨询与随访，先把资料理清</h3>
+                <p data-page-node-id="fbbFCe2eWedRbeXn04GY6Z">围绕肿瘤相关知识，辅助阅读报告、整理随访资料与待咨询问题。筛查、治疗及康复安排应由专业人员结合具体情况确定。</p>
+              </div>
+              <div class="hb-orbit" aria-hidden="true" data-page-node-id="PanelOnOrbit"><i data-page-node-id="1lIu3pmSucEtiWWjTVczQy">肿瘤</i><i data-page-node-id="qeUZGtUWB4CdQlSzR7rbBr">随访</i><i data-page-node-id="VAk9F68bauIyLavN2FCBzp">营养</i></div>
+            </article>
+            <article class="hb-card" data-page-node-id="PanelOnHosp">
+              <small data-page-node-id="8FSJUkC2vGCxpZzKWF5F19">共建医院</small>
+              <h3 data-page-node-id="C3CPqBksmls9mwFVV3T2Vr">浙江省肿瘤医院</h3>
+              <p data-page-node-id="CrCidxCAYD2jTjL2NeZhFC">肿瘤专科经验共建方向之一。相关 AI 能力用于知识理解和资料整理，不代表医院或专家本人提供实时诊疗。</p>
+            </article>
+            <article class="hb-card" data-page-node-id="PanelOnMore">
+              <small data-page-node-id="QbAoyrMn5GxK8VVCa78Fhn">持续扩展</small>
+              <h3 data-page-node-id="BPXxaVFyhboVzuzwqQ7gUw">多学科专家 AI 支持</h3>
+              <p data-page-node-id="a0qsPvTt2wOKwvCHmERPZW">支持多学科健康知识咨询与资料理解，具体学科、专家分身及服务范围以产品实际开放内容为准。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 体检报告解读专项 -->
+    <section class="hb-section" id="zhisanduo" data-page-node-id="9S8YoiGn7pFJ2ClvZwxFBm">
+      <div class="shell" data-page-node-id="rtPtc9gnnj4zfSsXc14ru3">
+        
+
+        <div class="hb-zsd-head" data-page-node-id="ZSDheadRoot">
+          <div class="hb-zsd-mark" data-page-node-id="ZSDmark"><b data-page-node-id="ZSDmarkName">智三多</b></div>
+          <p class="hb-zsd-pos" data-page-node-id="ZSDpos">好伴 AI 旗下 · 面向个人和家庭的多年体检报告联合解读服务</p>
+        </div>
+
+        <h2 class="hb-title" data-page-node-id="6GPClOjr9JtfgFQuI376Do">不只解读一份报告，<em data-page-node-id="bk4EEs47SzMt5ZCFlSlgYj">更看见长期变化趋势</em></h2>
+        <p class="hb-lede" data-page-node-id="k7h34d7AZ637209NQCQa8A">历年报告分散保存，往往不便查找和对照。智三多将多份报告中的可用信息按时间整理，在核对指标名称、单位和参考区间等条件后辅助比较，汇总变化记录与待确认问题，供用户与专业人员沟通。</p>
+
+        <div class="hb-zsd-three" data-page-node-id="ZSDthreeRoot">
+          <article data-page-node-id="ZSDthree1">
+            <div class="hb-zsd-key" data-page-node-id="ZSDkey1"><i data-page-node-id="ZSDdot1"></i>多年</div>
+            <h4 data-page-node-id="ZSDh4a">把多年报告放在一起看</h4>
+            <p data-page-node-id="ZSDp1">按年份整理年度体检、复查与专项检查资料，对具备可比条件的指标进行对照，辅助查看已上传记录中的变化。</p>
+          </article>
+          <article data-page-node-id="ZSDthree2">
+            <div class="hb-zsd-key" data-page-node-id="ZSDkey2"><i data-page-node-id="ZSDdot2"></i>多学科</div>
+            <h4 data-page-node-id="ZSDh4b">把不同学科放在一起理解</h4>
+            <p data-page-node-id="ZSDp2">多学科 Agent 是 AI 智能体，按不同学科视角辅助整理报告内容与问题线索，再汇总供参考；不等同于人工专家会诊。</p>
+          </article>
+          <article data-page-node-id="ZSDthree3">
+            <div class="hb-zsd-key" data-page-node-id="ZSDkey3"><i data-page-node-id="ZSDdot3"></i>多维度</div>
+            <h4 data-page-node-id="ZSDh4c">从多个维度整理沟通要点</h4>
+            <p data-page-node-id="ZSDp3">结合用户授权提供的年龄、病史、用药及其他可用资料，整理待补充信息与就医沟通要点；复查和干预安排由专业人员确定。</p>
+          </article>
+        </div>
+
+        <div class="hb-trend-layout" data-page-node-id="F0MdfIlWCOhm1mCF2KtY1j">
+          <div class="hb-story" data-page-node-id="IeuZVUKyafw6Q9n77p1RcX">
+            <article data-page-node-id="JqkO5PKFaYuCaOEh1QquhA"><b data-page-node-id="2Gt9ZBmCmDFO7EX3QoHZj4">多年报告，集中查看</b><span data-page-node-id="R3KLjc0AsJalvRBKFsyHQ3">把已上传的年度体检、复查报告和专项检查放在一起整理，方便跨年份查找与对照。</span></article>
+            <article data-page-node-id="jhMifwUTbT57fjF8ONln0g"><b data-page-node-id="O5WayM7Rqu86R3MSJpIUyl">关键指标，辅助对照</b><span data-page-node-id="t2rf49hZGNVvSmjzPUYuLU">围绕血脂、血糖、肝肾功能、尿酸、血压等指标整理变化记录；医学意义需结合检测条件及个体情况由专业人员判断。</span></article>
+            <article data-page-node-id="MS6luslO6Ryi13tUKfGtci"><b data-page-node-id="X01mzeyKaER6xWksCyMhwa">授权归档，延续上下文</b><span data-page-node-id="1ozgE4Jp5uWRQL7NBavmwn">根据用户授权保存可用解读信息，后续咨询可参考已有档案；信息缺失或发生变化时仍需补充确认。</span></article>
+          </div>
+
+          <div class="hb-panel" aria-label="跨年度资料整理虚构流程示例" data-page-node-id="JZLnk6LKNvcUPoLclUPOA5">
+            <div class="hb-panel-head" data-page-node-id="OHrYCmJVPv3r5nzXM1pZbp">
+              <div data-page-node-id="7y5KB7AwiN0FB8yy127o83">
+                <h3 data-page-node-id="Xrm9G4lpLpBXuw4JXQB2hH">跨年度资料整理示例</h3>
+                <p data-page-node-id="EXCdQqyD2tmAJqDoH9Wtx4">虚构流程示例：按年份归集资料。下方连线仅为整理步骤示意，不表示医学指标或风险变化。</p>
+              </div>
+              <div class="hb-years" aria-hidden="true" data-page-node-id="vLCzkyMJH3pu2hgIZB3S6H"><span data-page-node-id="vS3E5nPIE52M6FA3cjUg9i">2024</span><span data-page-node-id="4zGUFRIH526jyzeKvghJPo">2025</span><span class="on" data-page-node-id="dXxdnQK0FDWBnYj5KA0Tpt">2026</span></div>
+            </div>
+
+            <div class="hb-chart" aria-hidden="true" data-page-node-id="IgDNGsmKmoDdTWVsSkeFAj">
+              <svg viewBox="0 0 500 140" preserveAspectRatio="none" role="img" aria-label="资料整理步骤示意连线，不表示医学数据" data-page-node-id="GcQ2Cq2tg5L6keER2MrBkJ">
+                <defs data-page-node-id="57C6CCiI46MghY3naqs210">
+                  <linearGradient id="hbLine" x1="0" x2="1" y1="0" y2="0" data-page-node-id="3GLL0eOE7s9ACWFfv8am7u">
+                    <stop stop-color="#16bed1" data-page-node-id="3GA3AoQCsul2WXBOZZFKEM"></stop>
+                    <stop offset=".52" stop-color="#0649ff" data-page-node-id="FFcWnXIDlJAAbc6lG3rGkF"></stop>
+                    <stop offset="1" stop-color="#ff9b45" data-page-node-id="rvIWLDoEC6VLT0IPnBft3H"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M 0 92 C 82 70, 118 82, 168 56 S 286 28, 342 62 S 430 116, 500 30" fill="none" stroke="url(#hbLine)" stroke-width="9" stroke-linecap="round" data-page-node-id="arDOkSDj5CRLBPWuUJOrP0"></path>
+                <circle cx="0" cy="92" r="9" fill="#16bed1" data-page-node-id="bhdjb3spuDMt6IuVFKoy3n"></circle>
+                <circle cx="168" cy="56" r="9" fill="#0649ff" data-page-node-id="0dkTGosp5cajR5sudR3Lmh"></circle>
+                <circle cx="342" cy="62" r="9" fill="#0649ff" data-page-node-id="mjuVU5VOM9HcPxC22mVyAu"></circle>
+                <circle cx="500" cy="30" r="9" fill="#ff9b45" data-page-node-id="MpJHPCV9mQSskjqUMsQXoE"></circle>
+              </svg>
+              <div class="hb-axis" data-page-node-id="mdKOX8UqfNcwEaGG2PN7Vl"><span data-page-node-id="O9A8aTcTuPHDCjDQlYgJ99">上传</span><span data-page-node-id="i6P5LSsU2I7gKLcdqXhRV1">归集</span><span data-page-node-id="tigifaPhu6rWAPBJj7VHpo">对照</span><span data-page-node-id="dvdx8bOUT9LdS7wN6EzDoi">整理</span></div>
+            </div>
+
+            <div class="hb-chips" data-page-node-id="8zyqbpeuKudWJx7suHuSVW">
+              <div data-page-node-id="2v4mweEw89Xgr8aFeEQw6x"><b data-page-node-id="FDtAJEZWJp16DLSHY8KfFg">资料归集</b><span data-page-node-id="VuFYtuEidLjA5gpCSzfNbg">按年份查看已上传资料</span></div>
+              <div data-page-node-id="kDUxJqJO6arf3UJRBt7sev"><b data-page-node-id="bpWKoYCDhq9SEiIgrZpTxi">信息核对</b><span data-page-node-id="p14ILHGy2SnpcJmlAgTrBR">对照日期、项目名称与单位</span></div>
+              <div data-page-node-id="BSLeHE71X6Bze02AOSr6Uv"><b data-page-node-id="j6nwF88xdyaa4wfTCISGzY">沟通准备</b><span data-page-node-id="pJ4qto3vPs4IH3GZaqn6Ut">整理待确认问题清单</span></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="hb-sub-title" data-page-node-id="ZSDflowTitle">一次联合解读，走完四步</h3>
+        <p class="hb-sub-note" data-page-node-id="ZSDflowNote">从整理已有资料、汇总待确认线索，到准备沟通清单、补充后续报告，智三多辅助衔接资料阅读与持续记录，不代替医学评估。</p>
+
+        <div class="hb-zsd-flow" data-page-node-id="ZSDflowRoot">
+          <article data-page-node-id="ZSDflow1"><b data-page-node-id="ZSDfb1">步骤 1</b><h4 data-page-node-id="ZSDfh1">资料整理</h4><p data-page-node-id="ZSDfp1">AI 核对指标名称、单位与参考区间等可比条件，整理跨年份记录；多学科 Agent 辅助汇总信息，不等同于人工专家会诊。</p></article>
+          <article data-page-node-id="ZSDflow2"><b data-page-node-id="ZSDfb2">步骤 2</b><h4 data-page-node-id="ZSDfh2">风险线索整理</h4><p data-page-node-id="ZSDfp2">结合可用资料汇总报告中的异常标记、变化记录与缺失信息，供专业人员核实；不据此预测疾病或作出风险结论。</p></article>
+          <article data-page-node-id="ZSDflow3"><b data-page-node-id="ZSDfb3">步骤 3</b><h4 data-page-node-id="ZSDfh3">沟通清单</h4><p data-page-node-id="ZSDfp3">将资料要点与待确认问题整理成就医沟通清单。是否复查、检查项目及诊疗优先级由专业人员判断。</p></article>
+          <article data-page-node-id="ZSDflow4"><b data-page-node-id="ZSDfb4">步骤 4</b><h4 data-page-node-id="ZSDfh4">补充报告与记录</h4><p data-page-node-id="ZSDfp4">上传新报告后，在用户授权和可用档案范围内继续对照、更新记录；变化的医学意义及治疗效果由专业人员评估。</p></article>
+        </div>
+
+        <h3 class="hb-sub-title" data-page-node-id="ZSDcaseTitle">跨年度资料整理示例</h3>
+        <p class="hb-sub-note" data-page-node-id="ZSDcaseNote">以下三个场景均为虚构流程示例，并非真实案例或脱敏案例，仅说明资料整理方式，不包含医学结论。</p>
+
+        <div class="hb-zsd-cases" data-page-node-id="ZSDcasesRoot">
+          <article class="hb-zsd-case" data-page-node-id="ZSDcase1">
+            <span class="hb-zsd-case-tag" data-page-node-id="ZSDct1">虚构示例 · 年度报告归集</span>
+            <h4 data-page-node-id="ZSDch1">不同年份的报告，如何对照</h4>
+            <p class="hb-zsd-who" data-page-node-id="ZSDcw1">虚构场景：整理个人历年体检资料</p>
+            <dl data-page-node-id="ZSDcd1">
+              <dt data-page-node-id="ZSDdt1">资料情况</dt>
+              <dd data-page-node-id="ZSDdd1">多份年度报告分散保存在图片和 PDF 中，查找同一项目需要反复翻阅。</dd>
+              <dt data-page-node-id="ZSDdt2">整理步骤</dt>
+              <dd data-page-node-id="ZSDdd2">上传资料后，按日期归集，核对项目名称、单位和参考区间；信息缺失或条件不一致时，不直接比较。</dd>
+            </dl>
+            <div class="hb-zsd-out" data-page-node-id="ZSDco1"><span data-page-node-id="ZSDcos1">整理结果示意</span><p data-page-node-id="ZSDcop1">形成按年份排列的资料摘要和待确认问题，方便查阅与就医沟通，不作风险或疾病判断。</p></div>
+          </article>
+
+          <article class="hb-zsd-case" data-page-node-id="ZSDcase2">
+            <span class="hb-zsd-case-tag" data-page-node-id="ZSDct2">虚构示例 · 多来源资料汇总</span>
+            <h4 data-page-node-id="ZSDch2">不同机构的资料，如何整理</h4>
+            <p class="hb-zsd-who" data-page-node-id="ZSDcw2">虚构场景：就医前汇总报告与记录</p>
+            <dl data-page-node-id="ZSDcd2">
+              <dt data-page-node-id="ZSDdt3">资料情况</dt>
+              <dd data-page-node-id="ZSDdd3">历年体检报告、检查资料和就诊记录来自不同机构，版式与项目名称不一致。</dd>
+              <dt data-page-node-id="ZSDdt4">整理步骤</dt>
+              <dd data-page-node-id="ZSDdd4">按资料来源、时间与主题汇总内容，列出需要核对或补充的信息，不将不同检测条件下的结果直接拼接为医学趋势。</dd>
+            </dl>
+            <div class="hb-zsd-out" data-page-node-id="ZSDco2"><span data-page-node-id="ZSDcos2">整理结果示意</span><p data-page-node-id="ZSDcop2">形成资料摘要与沟通清单，供专业人员查看；不推断隐藏病程，也不排列治疗优先级。</p></div>
+          </article>
+
+          <article class="hb-zsd-case" data-page-node-id="ZSDcase3">
+            <span class="hb-zsd-case-tag" data-page-node-id="ZSDct3">虚构示例 · 家庭成员记录</span>
+            <h4 data-page-node-id="ZSDch3">孩子的历年资料，如何归档</h4>
+            <p class="hb-zsd-who" data-page-node-id="ZSDcw3">虚构场景：监护人整理儿童健康资料</p>
+            <dl data-page-node-id="ZSDcd3">
+              <dt data-page-node-id="ZSDdt5">资料情况</dt>
+              <dd data-page-node-id="ZSDdd5">孩子的年度报告与日常记录保存在不同文件中，家长需要核对日期并区分家庭成员。</dd>
+              <dt data-page-node-id="ZSDdt6">整理步骤</dt>
+              <dd data-page-node-id="ZSDdd6">由监护人授权上传可用资料，确认成员与日期后按时间整理，列出缺失信息与待咨询问题。</dd>
+            </dl>
+            <div class="hb-zsd-out" data-page-node-id="ZSDco3"><span data-page-node-id="ZSDcos3">整理结果示意</span><p data-page-node-id="ZSDcop3">形成该成员的资料时间线，方便家长补充记录与咨询医生；不自动预警疾病或推断病因。</p></div>
+          </article>
+        </div>
+
+        <div class="hb-zsd-cta" data-page-node-id="ZSDctaRoot">
+          <div data-page-node-id="ZSDctaCopy">
+            <h4 data-page-node-id="ZSDctaH">把家里这几年的报告，放在一起看一次</h4>
+            <p data-page-node-id="ZSDctaP">带上本人或家人的历年体检报告、复查报告与检查资料，体验一次多年联合解读。留下联系方式，我们会与你确认体验方式。</p>
+          </div>
+          <button type="button" class="hb-btn primary" data-lead="智三多 · 多年体检报告联合解读" data-page-node-id="ZSDctaBtn">体验智三多</button>
+        </div>
+
+        <h3 class="hb-sub-title" data-page-node-id="ZSDloopTitle">在好伴 AI 里，它不是一次性工具</h3>
+        <p class="hb-sub-note" data-page-node-id="ZSDloopNote">在用户授权范围内，将可用解读结果整理到家庭健康档案。后续咨询与报告对照可参考已有记录，仍需补充缺失信息并确认最新情况。</p>
+
+        <div class="hb-loop" data-page-node-id="iQAZmaQxQYSorocKD34OtA">
+          <article data-page-node-id="J6XJHRq9FJLQ0PX8WD8mMq"><b data-page-node-id="cUhFkFGkEXkB4tLlEsHUxE">1</b><h3 data-page-node-id="E2jpkQHipHvudCC9Cs2Mqm">问答入口</h3><p data-page-node-id="ose87TAHIANbqaG06zYmWQ">以高频健康问题触发使用，让用户自然进入服务。</p></article>
+          <article data-page-node-id="DAkHvBG1bb9YUmcAKVpRTn"><b data-page-node-id="Yj6dI9UxQosUo9ySP1JILK">2</b><h3 data-page-node-id="yJyF8aENw9vy9xYqaEGTr2">资料理解</h3><p data-page-node-id="ejjsaAook8fkH9W1Cb22vx">图片、PDF、报告、病历多材料融合分析，形成结构化健康信息。</p></article>
+          <article data-page-node-id="kQylgKIwG6jVzDguFp8Pvi"><b data-page-node-id="P3sPf2oa3oyd9C5dg63bC4">3</b><h3 data-page-node-id="FEe1Z9sG7oBeWG0D1iVFwW">档案沉淀</h3><p data-page-node-id="1oDtiSZBCCXrqkLiUfjvDo">在授权范围内整理对应成员的可用资料，逐步积累健康记录。</p></article>
+          <article data-page-node-id="wTOilamCJcKnkR1NR3i00Q"><b data-page-node-id="h8P0GQ8iUgNIOIFxF4WGRJ">4</b><h3 data-page-node-id="0t4WLAlzSX4ViaySB4bab4">持续陪伴</h3><p data-page-node-id="CfcNEEqyHtvyD2rVZSzef4">在授权与可用档案范围内参考历史记录，减少后续咨询中的重复整理。</p></article>
+        </div>
+
+        <p class="hb-disclaimer" data-page-node-id="z5HuP6v0KHRXkfb6JcDrMe">本节看板与三个场景均为虚构的资料整理流程示例，并非真实或脱敏案例，不展示医学指标、疾病预测或诊疗结论。AI 输出仅供信息理解与沟通准备，不替代诊疗；实际诊断与治疗由具备资质的专业人员负责。如有健康问题，请及时就医。</p>
+      </div>
+    </section>
+
+    <!-- 多端体验 -->
+    <section class="hb-download" id="download" data-page-node-id="36KXAieouB3e2pIsK59dF5">
+      <div class="shell" data-page-node-id="RovLqzWc9tgBSmpJxauKwA">
+        
+        <h2 class="hb-title" data-page-node-id="icRttqZfxjFHYqLd779MOZ">移动端、小程序与鸿蒙，<em data-page-node-id="6eZ6ImsxxNN0uGGUkG7hFL">多端持续陪伴</em></h2>
+        <p class="hb-lede" data-page-node-id="BKsSYMn0cL8qMuDGAjHZXO">移动端 App、小程序与鸿蒙端提供不同使用入口。扫码后按设备环境和页面引导使用，具体功能、支持设备及数据同步范围以各端实际版本为准。</p>
+
+        <div class="hb-download-grid" data-page-node-id="uMomGYSktA6GWakdgg5yEZ">
+          <article class="hb-dl" data-page-node-id="JvgspyhRxXOtHwfogmHuNt">
+            <div class="hb-qr" data-page-node-id="y2j6L6o6GOdz83veoJIKT5"><img src="assets/app-download-qr.png" alt="好伴 AI 移动端 App 下载二维码" data-page-node-id="C083aFx93rdKG5Sa0SpJ92"></div>
+            <h3 data-page-node-id="GGxBp05jUSBBJDGMjrGUA5">移动端 App</h3>
+            <p data-page-node-id="IV4ShA1ThqeV2cMg6hLKS8">扫码进入 H5 下载入口，按 iOS 或 Android 设备提示完成下载。可体验问答、档案、报告解读、拍照分析和长期记忆，具体以当前版本及授权范围为准。</p>
+            <div class="hb-tags" data-page-node-id="xUqvMBJheql3NfUM7eLZIo"><span data-page-node-id="Ic6nS4fODudQJB0tBfVidi">iOS</span><span data-page-node-id="vQG9sNPGG1aZMbOp7EdZBI">Android</span><span data-page-node-id="Qrbu2BgZylB07ka4GX96Be">H5 下载入口</span></div>
+          </article>
+          <article class="hb-dl" data-page-node-id="eKFb3Z6G8fid8Al7KifaDQ">
+            <div class="hb-qr" data-page-node-id="f1fEMwlTJoDQI187LY7tHX"><img src="assets/miniprogram-qr.png" alt="好伴 AI 小程序二维码" data-page-node-id="TfUuiHrC4DOXoSkPADvzDj"></div>
+            <h3 data-page-node-id="HGve3aTNtMYzYKnfhWh8TJ">小程序</h3>
+            <p data-page-node-id="aGfZb8TnmgS9HO8zOFCtAI">无需安装，适合快速咨询、家人转发、临时查看报告解读和轻量化健康管理。</p>
+            <div class="hb-tags" data-page-node-id="yw312Ud1FHaDnJU5vFFtQT"><span data-page-node-id="1ZQu5WnGBhNJcS1LGqDg0n">扫码即用</span><span data-page-node-id="cQBWVA9SZCkFpDU1tDFBtj">快速体验</span><span data-page-node-id="mJ2NEvUqjkDN64E3FNvVvt">家人分享</span></div>
+          </article>
+          <article class="hb-dl device" data-page-node-id="CQqZ9o5zRUaXmbe1gLKjDI">
+            <div class="hb-qr" data-page-node-id="QRMvHarmonyNew"><img src="assets/harmony-qr.png" alt="好伴 AI 鸿蒙端下载二维码" data-page-node-id="QRImgHarmonyNew"></div>
+            <h3 data-page-node-id="aNoBs8fhsBHoniCWLsqL3I">鸿蒙端</h3>
+            <p data-page-node-id="wvnxT5DKHKcLtleYwkDDRH">适配鸿蒙生态，扫码后按引导完成安装，延续移动端核心能力，方便用户在手机、平板等多设备场景下持续记录、查看和管理家庭健康信息。</p>
+            <div class="hb-tags" data-page-node-id="TagsHarmonyNew"><span data-page-node-id="4tFQ6FZY4vVcSLvHT1yLxI">HarmonyOS</span><span data-page-node-id="9AJ9rohllz4hZYfuTnw7L3">多设备协同</span><span data-page-node-id="d7q1IIHPRvlbOZoUKDLGBh">数据同步</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 平台价值 -->
+    <section class="hb-section mist" id="value" data-page-node-id="jy27A4wcXFtNB9hoozrrHW">
+      <div class="shell" data-page-node-id="AIIV4gz5kRA0y46XBo73T4">
+        
+        <h2 class="hb-title" data-page-node-id="hHY35NiQ3GwGZlM2JpdWv3">面向家庭健康管理的<em data-page-node-id="iKBeqpE0AW5Mav5DIVjEdW">长期 AI 入口</em></h2>
+        <p class="hb-lede" data-page-node-id="keKxMJqFQHtRKy837NvmML">好伴 AI 以高频健康问答为入口，以家庭健康档案和长期记忆为底座，将体检报告、病历资料、日常咨询、拍照识别和专家 AI 分身连接起来，形成面向个人与家庭的持续健康管理能力。</p>
+
+        <div class="hb-value-grid" data-page-node-id="GEOTTPOMgsEXfchBmSpzpe">
+          <article class="hb-value" data-page-node-id="PNkKZWyKUEgWFACOCGKoUk">
+            <small data-page-node-id="11SQVt0pNYzAtHtfvBC6NT">01 高频入口</small>
+            <h3 data-page-node-id="lCJyB55zGegSmQXPmdPar3">覆盖家庭真实健康场景</h3>
+            <p data-page-node-id="GwgZNhGkZsDlOv4ng9hwp2">儿童、父母、孕产、慢病、体检、用药与就医准备，都是家庭日常会反复出现的健康问题。</p>
+          </article>
+          <article class="hb-value" data-page-node-id="hXjZ7hLVfR4B3yQv2hCABJ">
+            <small data-page-node-id="8EL3TBRHuVHbZt0UAXGRY1">02 数据沉淀</small>
+            <h3 data-page-node-id="NmgLHw7pSeLwNXPEY7IYBP">让分散资料逐步形成健康记录</h3>
+            <p data-page-node-id="AvR0PiOJbgpyf9cQqVZVgX">在用户授权范围内，将问答、上传、拍照和报告解读中的可用信息整理到家庭档案，便于持续查看和补充。</p>
+          </article>
+          <article class="hb-value" data-page-node-id="0H7Gd3DAKMhCFqzWLnwsX1">
+            <small data-page-node-id="wkuh21gPXZxycRbTQ0EZk4">03 服务延展</small>
+            <h3 data-page-node-id="PGMoG2iUpF4C6UNRYW6TTV">从理解信息走向连续管理</h3>
+            <p data-page-node-id="YQfqf1iv7d29Gg3PcbQbBc">围绕长期记忆和多报告趋势分析，好伴 AI 可承接更多医疗健康服务连接与家庭管理场景。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 全站 CTA -->
+    <section class="cta-band" id="contact" data-page-node-id="IzYHx2fELpiBNtFexG83EH">
+      <div class="shell" data-page-node-id="ZPBEx6cqqvFqISjKVTpyjU">
+        
+        <h2 data-page-node-id="d1H3kIVmk9kDdHiCg0zoBS">让家庭健康管理，从被动记录变成主动理解</h2>
+        <span data-page-node-id="Ax8i3rfLrPdlJ2SGl5PIus">好伴 AI 帮助用户更好地理解健康信息、整理家庭档案、追踪长期趋势，并为就医沟通做好准备。</span>
+        <div class="cta-band-actions" data-page-node-id="tDOSWnAGC9XlmW8JExHUXS">
+          <a class="button primary" href="#download" data-page-node-id="LS3lVhnz7LqveuMTRjnpO7">扫码体验好伴 AI <span data-page-node-id="LlUtqJ7I58cNwiHlHEQcC0">↗</span></a>
+          <a class="button secondary" href="#features" data-page-node-id="FnJH76FyBlYEF46LBG9Chs">查看核心能力 <span data-page-node-id="5rr923UVLOHnEDWJPOw48K">→</span></a>
+        </div>
+      
+        <div class="cta-form-wrap"><form class="lf-form lf-host" novalidate=""></form><p class="cta-inline-note" style="margin:14px 0 0;text-align:left;color:#8b98ad;font-size:12px;line-height:1.7;">提交后由顾问与您联系，围绕场景梳理、能力匹配与接入方式进一步沟通，具体安排以双方确认为准。</p></div></div>
+    </section>
+  </main>
+  <!-- footer:v2026-09-03-r4 -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+
+      <!-- 列 1：公司信息 + 关注智诊 -->
+      <div class="footer-company">
+        <a class="brand" href="index.html">
+          <img class="brand-mark" src="assets/footer/logo-wisediag.png" alt="智诊科技 WiseDiag">
+          <span><b>杭州智诊科技有限公司</b><small>WiseDiag</small></span>
+        </a>
+        <p class="addr">
+          <span>地址：浙江省杭州市临平区杭州智能健康谷A栋7楼</span>
+          <span class="line2">杭州智诊科技有限公司</span>
+        </p>
+
+        <div class="social-block">
+          <p class="title">关注智诊</p>
+          <div class="social-grid">
+            <a class="social-item" href="javascript:void(0)" aria-label="微信公众号">
+              <img src="assets/footer/icon-wechat.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-wechat.png" alt="微信公众号二维码"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="小红书">
+              <img src="assets/footer/icon-xhs.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-xhs.png" alt="小红书二维码"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="知乎">
+              <img src="assets/footer/icon-zhihu.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-zhihu.png" alt="知乎二维码"></span>
+            </a>
+            <a class="social-item" href="https://github.com/WiseDiag" target="_blank" rel="noopener" aria-label="GitHub">
+              <img src="assets/footer/icon-github.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-github.png" alt="GitHub 二维码"><small>github.com/WiseDiag</small></span>
+            </a>
+          </div>
+          <div class="social-caption">
+            <span>公众号</span>
+            <span>小红书</span>
+            <span>知乎</span>
+            <span>GitHub</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 列 2：WiseDiag医学多模态大模型 -->
+      <div>
+        <h3>WiseDiag医学多模态大模型</h3>
+        <div class="nav-double">
+          <a href="wisediag-model.html">模型架构</a>
+          <a href="haoban-ai.html">好伴AI(iOS版)</a>
+          <a href="wisediag-model.html#advantages">技术优势</a>
+          <a href="haoban-ai.html">好伴AI(安卓版)</a>
+          <a href="solutions.html">应用场景</a>
+          <span></span>
+          <a href="haoban-ai.html">立即体验</a>
+          <span></span>
+          <a href="wisediag-model.html#api">API接口</a>
+        </div>
+      </div>
+
+      <!-- 列 3：走进智诊 -->
+      <div>
+        <h3>走进智诊</h3>
+        <div class="nav-double">
+          <a href="about.html">走进智诊</a>
+          <a href="about.html#company">公司介绍</a>
+          <a href="about.html#milestones">发展历程</a>
+          <a href="about.html#honors">认证与荣誉</a>
+          <span></span>
+          <a href="enterprise-news.html">企业动态</a>
+          <span></span>
+          <a href="#contact" data-lead="申请合作">申请合作</a>
+        </div>
+      </div>
+
+      <!-- 列 4：联系我们 + 二维码 -->
+      <div class="footer-contact">
+        <h3>联系我们</h3>
+        <a class="email" href="mailto:marketing@wisediag.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3z M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.5"/></svg>
+          邮箱：marketing@wisediag.com
+        </a>
+        <a class="tel" href="tel:15336530072">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2 1c1 3 2 4 5 5l1-2 5 2v4c0 1-1 2-2 2C9 21 3 15 3 6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+          电话：15336530072
+        </a>
+        <div class="qr">
+          <img src="assets/footer/qr-consult.png" alt="扫码快捷咨询二维码">
+          <div>
+            <strong>扫码快捷咨询</strong>
+            <small>留下您的联系方式<br>专属顾问 1 对 1 对接</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部条 -->
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 杭州智诊科技有限公司　保留所有权利</span>
+      <span class="beian">
+        <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">浙公网安备 33011302000671号</a>
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener">浙ICP备2023052183号-1</a>
+        <a href="https://dxzhgl.miit.gov.cn/#/home" target="_blank" rel="noopener">增值电信业务经营许可证 浙B2-20241217</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => navLinks.classList.toggle('is-open'));
+
+    // 专家分身学科 Tab 切换
+    const expertTabs = document.querySelectorAll('.hb-tab');
+    const expertPanels = document.querySelectorAll('.hb-expert-panel');
+    expertTabs.forEach(tab => tab.addEventListener('click', () => {
+      expertTabs.forEach(t => {
+        const on = t === tab;
+        t.classList.toggle('on', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      expertPanels.forEach(p => p.classList.toggle('on', p.dataset.panel === tab.dataset.tab));
+    }));
+  </script>
+  <script src="nav-menu.js" defer></script>
+  <script src="lead-form.js" defer=""></script>
+  <script src="ai-advisor.js" defer></script>
+<script src="refresh.js" defer></script>
+</body></html>

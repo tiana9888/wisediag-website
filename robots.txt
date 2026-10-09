@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_tools/
+Disallow: /tests/
+
+Sitemap: https://www.wisediag.com/sitemap.xml

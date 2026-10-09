@@ -1,0 +1,95 @@
+{
+  "source_pdf": "26年数贸会产品宣传册.pdf",
+  "assets": [
+    {
+      "file": "care-interface.webp",
+      "page": 19,
+      "source": "B_p19_1加1加X产品体系三层图.png",
+      "alt": "智小伴健康服务对话界面",
+      "width": 560,
+      "height": 454,
+      "kind": "interface",
+      "privacy": "联系人、账户标题及个人档案区域已移除"
+    },
+    {
+      "file": "clinical-interface.webp",
+      "page": 23,
+      "source": "B_p23_产品卡-智小医与智小检.png",
+      "alt": "智小医病情智能总览界面",
+      "width": 892,
+      "height": 380,
+      "kind": "interface",
+      "privacy": "产品示意界面"
+    },
+    {
+      "file": "diagnostics-interface.webp",
+      "page": 23,
+      "source": "B_p23_产品卡-智小医与智小检.png",
+      "alt": "智小检检验服务看板",
+      "width": 576,
+      "height": 379,
+      "kind": "interface",
+      "privacy": "产品示意界面"
+    },
+    {
+      "file": "pharma-interface.webp",
+      "page": 21,
+      "source": "B_p21_产品卡-智小药与智小康.png",
+      "alt": "智小药一线医学支持界面",
+      "width": 892,
+      "height": 380,
+      "kind": "interface",
+      "privacy": "产品示意界面"
+    },
+    {
+      "file": "workforce-interface.webp",
+      "page": 21,
+      "source": "B_p21_产品卡-智小药与智小康.png",
+      "alt": "智小康员工健康管理看板",
+      "width": 676,
+      "height": 373,
+      "kind": "interface",
+      "privacy": "产品示意界面"
+    },
+    {
+      "file": "innovative-sme.webp",
+      "page": 10,
+      "source": "B_p10_荣誉证书-浙江省创新型中小企业.png",
+      "width": 1488,
+      "height": 1016,
+      "kind": "certificate"
+    },
+    {
+      "file": "national-project.webp",
+      "page": 10,
+      "source": "B_p10_荣誉-国家科技重大专项项目参与单位.png",
+      "width": 1080,
+      "height": 721,
+      "kind": "certificate"
+    },
+    {
+      "file": "research-center.webp",
+      "page": 10,
+      "source": "B_p10_荣誉证书-杭州市临平区科技企业研发中心.png",
+      "width": 1618,
+      "height": 1142,
+      "kind": "certificate"
+    },
+    {
+      "file": "ai-top40.webp",
+      "page": 11,
+      "source": "B_p11_荣誉证书-2026浙商AI智能体TOP40.png",
+      "width": 1484,
+      "height": 1084,
+      "kind": "certificate"
+    },
+    {
+      "file": "wiseclaw-certificate.webp",
+      "page": 11,
+      "source": "B_p11_信通院-WiseClaw智能体能力检验证书.png",
+      "width": 794,
+      "height": 1128,
+      "kind": "certificate"
+    }
+  ]
+}

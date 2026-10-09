@@ -1,0 +1,1973 @@
+<!doctype html>
+<html lang="zh-CN" data-page-node-id="cfNmGQnYJB8fnaGsA52XvG">
+<head data-page-node-id="2Ym1bqycMtSETPzyVWi8rU">
+  <meta charset="utf-8" data-page-node-id="cI6WFQu9CEJmGx54bqjnXq">
+  <meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="T04uKLbam7e066Y2xTZwDX">
+  <link rel="icon" href="assets/footer/logo-wisediag.png">
+  <meta name="description" content="智诊科技产品服务：以智多星为共享底座，连接智小伴、智小医、智小检、智小药、智小康五个应用产品，并提供 WiseClaw 智能体平台与部署体系。" data-page-node-id="UQd2DyEZOeym76hZgcwCS1">
+  <title>产品服务｜智诊科技 WiseDiag</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="wO5G1cU3ciYm0cNiFbA31i">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="rDxzmPbtDyw1Ckj7AiqQDV">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" data-page-node-id="HeiJPpgmnLibI7MHuwVwrJ">
+  <style>
+    :root {
+      --blue: #0649ff;
+      --blue-2: #356bff;
+      --blue-3: #0a6eff;
+      --navy: #071637;
+      --cyan: #16bed1;
+      --ink: #1f2735;
+      --muted: #738095;
+      --soft: #f7f9ff;
+      --soft-blue: #edf3ff;
+      --line: #e4eaf4;
+      --white: #fff;
+      --orange: #ff9f43;
+      --red: #ff4d5e;
+      --radius: 24px;
+      --page: 1192px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, a { font: inherit; }
+
+    button { color: inherit; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell { width: min(var(--page), calc(100% - 48px)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      height: 72px;
+      border-bottom: 1px solid rgba(226, 235, 247, .78);
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 31px;
+      height: 31px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid #9ec8cf;
+      border-radius: 50%;
+      color: #0d6a7b;
+      background: #effbfd;
+      font: 800 12px/1 Manrope, sans-serif;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 1px solid rgba(13, 106, 123, .34);
+      border-radius: 50%;
+    }
+
+    .brand-mark::after { width: 8px; height: 25px; border-width: 0 1px; border-radius: 0; }
+
+    .brand-copy { display: flex; align-items: baseline; gap: 3px; white-space: nowrap; }
+    .brand-copy small { font-size: 12px; font-weight: 600; }
+
+    .main-nav {
+      display: flex;
+      align-items: stretch;
+      align-self: stretch;
+      gap: 4px;
+      min-width: 0;
+      margin-left: auto;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border: 0;
+      cursor: pointer;
+      white-space: nowrap;
+      background: transparent;
+      color: #536074;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-link:hover,
+    .nav-link[aria-current="page"] { color: var(--blue); }
+
+    .nav-link[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      right: 11px;
+      bottom: 0;
+      left: 11px;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      background: var(--blue);
+    }
+
+    .nav-product-group {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .product-mega {
+      width: 700px;
+      position: absolute;
+      z-index: 80;
+      top: calc(100% - 1px);
+      left: 50%;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      padding: 18px;
+      border: 1px solid #e1e8f4;
+      border-radius: 18px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, 8px);
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 24px 60px rgba(34,58,108,.15);
+      transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+    }
+
+    .nav-product-group:hover .product-mega,
+    .nav-product-group:focus-within .product-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    .product-mega-item {
+      grid-column: span 2;
+      min-height: 112px;
+      display: block;
+      padding: 14px 15px 13px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      cursor: pointer;
+      text-align: left;
+      background: transparent;
+    }
+
+    .product-mega-item.span-half { grid-column: span 3; }
+    .product-mega-item.is-full { grid-column: 1 / -1; min-height: 98px; }
+    .product-mega-item.is-full .product-mega-head { grid-template-columns: 34px auto 1fr; }
+    .product-mega-item.is-full .product-mega-capabilities { margin-top: 0; justify-content: flex-end; }
+
+    .product-mega-head {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .product-mega-item:hover,
+    .product-mega-item[aria-current="page"] {
+      border-color: #dce6ff;
+      background: #f3f6ff;
+    }
+
+    .product-mega-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--blue);
+      background: #eaf0ff;
+      font: 800 10px/1 Manrope, sans-serif;
+    }
+
+    .product-mega-copy strong { display: flex; align-items: center; gap: 7px; color: #29364a; font-size: 13px; }
+    .product-mega-copy strong::after { content: "→"; color: var(--blue); opacity: .55; transition: transform .18s ease, opacity .18s ease; }
+    .product-mega-item:hover .product-mega-copy strong::after { opacity: 1; transform: translateX(3px); }
+    .product-mega-copy small { display: block; margin-top: 4px; color: #8793a6; font: 600 9px/1.35 Manrope, sans-serif; }
+
+    .product-mega-capabilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 11px;
+    }
+
+    .product-mega-capabilities span {
+      padding: 4px 7px;
+      border: 1px solid #e2e9f6;
+      border-radius: 6px;
+      color: #68768b;
+      background: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .header-cta,
+    .button-primary,
+    .button-secondary {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .header-cta { padding: 0 22px; margin-left: 8px; background: var(--blue); color: white; }
+    .button-primary { padding: 0 25px; background: var(--blue); color: #fff; box-shadow: 0 10px 26px rgba(6,73,255,.2); }
+    .button-secondary { padding: 0 25px; border-color: #dbe4f2; background: #fff; color: var(--blue); }
+    .button-primary:hover, .header-cta:hover { transform: translateY(-2px); box-shadow: 0 13px 30px rgba(6,73,255,.24); }
+    .button-secondary:hover { transform: translateY(-2px); border-color: #b9cbf4; }
+
+    .hero {
+      position: relative;
+      min-height: 600px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 16% 40%, rgba(72, 139, 255, .23), transparent 27%),
+        radial-gradient(circle at 76% 38%, rgba(106, 91, 255, .16), transparent 28%),
+        linear-gradient(180deg, #f7faff 0%, #edf3ff 72%, #fff 100%);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(102, 140, 225, .18);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before { width: 480px; height: 480px; left: -220px; top: 90px; }
+    .hero::after { width: 620px; height: 620px; right: -320px; top: -130px; }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 78px 0 60px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 30px;
+      padding: 0 13px;
+      border: 1px solid rgba(6, 73, 255, .16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      color: var(--blue);
+      font: 700 12px/1 Manrope, "Noto Sans SC", sans-serif;
+      letter-spacing: .08em;
+    }
+
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 5px rgba(6,73,255,.08); }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 22px 0 14px;
+      font-size: clamp(38px, 4.1vw, 58px);
+      line-height: 1.15;
+      letter-spacing: -.055em;
+      font-weight: 800;
+    }
+
+    .hero-en {
+      margin-bottom: 12px;
+      color: var(--blue);
+      font: 700 15px/1.4 Manrope, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero-lead {
+      max-width: 720px;
+      margin: 0;
+      color: #66748a;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .hero-actions { display: flex; gap: 14px; margin-top: 28px; }
+
+    .audience-label { margin: 39px 0 17px; color: #46546a; font-size: 14px; font-weight: 700; }
+
+    .audience-grid {
+      width: min(850px, 100%);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .audience-card {
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 15px;
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 20px;
+      background: rgba(255,255,255,.72);
+      color: #344156;
+      font-size: 14px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .audience-icon { width: 30px; height: 30px; color: var(--blue); }
+
+    .section { padding: 90px 0; }
+    .section.soft { background: #fbfcff; }
+
+    .section-heading { margin: 0 auto 42px; text-align: center; }
+    .section-kicker { margin-bottom: 10px; color: var(--blue); font: 700 12px/1.2 Manrope, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+    .section-heading h2 { margin: 0; font-size: clamp(30px, 3vw, 42px); letter-spacing: -.045em; }
+    .section-heading p { max-width: 680px; margin: 14px auto 0; color: var(--muted); line-height: 1.8; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      min-height: 520px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 34px 36px 0;
+      border: 1px solid #eef1f7;
+      border-radius: 26px;
+      background: #f9f9fd;
+    }
+
+    .feature-head { position: relative; z-index: 2; }
+    .feature-number {
+      width: 36px;
+      height: 36px;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font: 700 13px/1 Manrope, sans-serif;
+      box-shadow: 0 8px 20px rgba(6,73,255,.18);
+    }
+
+    .feature-card h3 { margin: 0; font-size: 21px; letter-spacing: -.025em; }
+    .feature-card p { margin: 11px 0 0; color: #788599; font-size: 14px; line-height: 1.8; }
+
+    .blueprint-section {
+      border-top: 1px solid #edf1f7;
+      border-bottom: 1px solid #edf1f7;
+      background: #f7f9fd;
+    }
+
+    .blueprint-groups { display: grid; gap: 42px; }
+    .blueprint-group { display: grid; gap: 18px; }
+    .blueprint-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+    .blueprint-group-head h3 { margin: 0; font-size: 21px; letter-spacing: -.025em; }
+    .blueprint-group-head span { color: #8c99ad; font: 700 11px/1.2 Manrope, sans-serif; letter-spacing: .11em; text-transform: uppercase; }
+    .blueprint-grid { display: grid; grid-template-columns: repeat(var(--blueprint-cols, 3), minmax(0, 1fr)); gap: 1px; border: 1px solid #dce5f4; border-radius: 22px; overflow: hidden; background: #dce5f4; }
+    .blueprint-card { min-height: 186px; padding: 24px; background: linear-gradient(180deg, #fff, #fbfcff); }
+    .blueprint-grid.items-7 .blueprint-card:last-child { grid-column: 1 / -1; }
+    .blueprint-code { display: inline-flex; min-height: 25px; align-items: center; padding: 0 9px; border-radius: 999px; background: #edf3ff; color: var(--blue); font: 750 10px/1 Manrope, sans-serif; letter-spacing: .04em; }
+    .blueprint-card h4 { margin: 16px 0 0; font-size: 17px; line-height: 1.45; letter-spacing: -.018em; }
+    .blueprint-card p { margin: 9px 0 0; color: #77859a; font-size: 12px; line-height: 1.75; }
+
+    /* 产品框架图（分层架构） */
+    .bp-diagram { display: grid; gap: 0; }
+    .bp-layer {
+      display: grid;
+      grid-template-columns: 232px minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px;
+      border: 1px solid #dce5f4;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fff, #fbfcff);
+      box-shadow: 0 10px 28px rgba(24, 58, 110, 0.05);
+    }
+    .bp-layer-aside { display: grid; align-content: start; gap: 8px; }
+    .bp-layer-step {
+      justify-self: start;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #0649ff, #16bed1);
+      color: #fff;
+      font: 800 11px/1 Manrope, sans-serif;
+      letter-spacing: .08em;
+    }
+    .bp-layer-aside h3 { margin: 0; font-size: 19px; letter-spacing: -.02em; }
+    .bp-layer-code { color: #8c99ad; font: 700 10.5px/1.4 Manrope, sans-serif; letter-spacing: .11em; text-transform: uppercase; }
+    .bp-layer-body { display: grid; grid-template-columns: repeat(var(--bp-cols, 3), minmax(0, 1fr)); gap: 12px; }
+    .bp-layer-body.cols-1 { --bp-cols: 1; }
+    .bp-layer-body.cols-2 { --bp-cols: 2; }
+    .bp-layer-body.cols-3 { --bp-cols: 3; }
+    .bp-layer-body.cols-4 { --bp-cols: 4; }
+    .bp-layer-body.cols-5 { --bp-cols: 5; }
+    .bp-layer-body.cols-6 { --bp-cols: 3; }
+    .bp-layer-body.cols-7 { --bp-cols: 4; }
+    .bp-layer-body.cols-8 { --bp-cols: 4; }
+    .bp-node {
+      padding: 16px 16px 18px;
+      border: 1px solid #e3eaf4;
+      border-radius: 14px;
+      background: #fff;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .bp-node:hover { transform: translateY(-3px); border-color: #c3d6ff; box-shadow: 0 14px 28px rgba(24, 58, 110, 0.1); }
+    .bp-node-code { display: inline-flex; min-height: 23px; align-items: center; padding: 0 8px; border-radius: 999px; background: #edf3ff; color: var(--blue); font: 750 10px/1 Manrope, sans-serif; letter-spacing: .04em; }
+    .bp-node h4 { margin: 12px 0 0; font-size: 15px; line-height: 1.45; letter-spacing: -.015em; }
+    .bp-node p { margin: 7px 0 0; color: #77859a; font-size: 12px; line-height: 1.7; }
+    .bp-bridge { display: grid; place-items: center; height: 46px; }
+    .bp-bridge::before { content: ""; width: 2px; height: 20px; background: linear-gradient(180deg, #c3d6ff, #9fd7e2); }
+    .bp-bridge span { display: block; margin-top: 4px; color: #8c99ad; font-size: 11px; letter-spacing: .04em; }
+
+    /* 特性卡适用行业小标签 */
+    .feature-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+    .feature-tags li {
+      padding: 4px 10px;
+      border: 1px solid #dbe5f3;
+      border-radius: 999px;
+      background: #f5f8ff;
+      color: #5b6b84;
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+
+    /* 总览视图精简：以下区块只在具体产品页展示 */
+    .view-overview .ps-detail-only { display: none !important; }
+    .brochure-hero[hidden] { display: none; }
+    .brochure-hero { margin: 32px auto; max-width: 920px; width: 100%; }
+    .brochure-shot { margin: 0; width: 100%; min-width: 0; padding: 14px; background: #fff; border: 1px solid #e3eaf4; border-radius: 16px; box-shadow: 0 10px 32px #183a6e0a; }
+    .brochure-shot > a { display: block; border-radius: 8px; overflow: hidden; background: #f5f8fc; }
+    .brochure-shot img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: contain; }
+    .product-visual .brochure-shot img { height: 220px; }
+    .brochure-shot figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 12px; font-size: 11px; color: #5b6b84; line-height: 1.7; }
+    .brochure-shot figcaption a { color: #0649ff; white-space: nowrap; }
+    .brochure-shot a:focus-visible { outline: 3px solid #0649ff; outline-offset: 3px; }
+    @media (max-width: 760px) { .brochure-hero { margin: 24px 0; } .brochure-shot { padding: 10px; } .product-visual .brochure-shot img { height: auto; max-height: 260px; } }
+
+    @media (max-width: 900px) {
+      .bp-layer { grid-template-columns: 1fr; gap: 16px; padding: 18px; }
+      .bp-layer-body { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .bp-layer-body { grid-template-columns: 1fr; }
+    }
+
+    .product-visual {
+      min-height: 270px;
+      position: relative;
+      display: grid;
+      place-items: end center;
+      flex: 1;
+      margin-top: 18px;
+    }
+
+    .app-window {
+      width: 86%;
+      min-height: 245px;
+      position: relative;
+      overflow: hidden;
+      border: 8px solid rgba(255,255,255,.92);
+      border-bottom: 0;
+      border-radius: 26px 26px 0 0;
+      background: #fff;
+      box-shadow: 0 20px 50px rgba(57,78,123,.11);
+    }
+
+    .app-window.phone { width: 47%; min-width: 210px; border-width: 9px; }
+    .app-window.phone::before { content: "9:41"; display: block; height: 28px; padding: 9px 14px 0; color: #151b25; font: 700 10px/1 Manrope, sans-serif; }
+
+    .window-top {
+      height: 43px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 15px;
+      border-bottom: 1px solid #eef2f8;
+      background: #fff;
+    }
+
+    .window-dot { width: 7px; height: 7px; border-radius: 50%; background: #d6dfed; }
+    .window-title { margin-left: 7px; color: #647188; font-size: 10px; font-weight: 700; }
+    .ui-body { padding: 16px; }
+
+    .ui-banner {
+      min-height: 65px;
+      padding: 14px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--blue-2), #79a1ff);
+      color: #fff;
+    }
+
+    .ui-banner strong { display: block; font-size: 12px; }
+    .ui-banner span { display: block; margin-top: 6px; opacity: .82; font-size: 9px; }
+    .ui-row { display: flex; gap: 8px; margin-top: 11px; }
+    .ui-stat { flex: 1; padding: 11px; border: 1px solid #e7edf7; border-radius: 11px; background: #fbfdff; }
+    .ui-stat b { display: block; color: var(--blue); font: 800 18px/1.2 Manrope, sans-serif; }
+    .ui-stat small { display: block; margin-top: 4px; color: #8792a4; font-size: 8px; }
+    .ui-line { height: 8px; margin-top: 10px; overflow: hidden; border-radius: 6px; background: #edf2fa; }
+    .ui-line::after { content: ""; display: block; width: var(--fill, 68%); height: 100%; border-radius: inherit; background: #80a2ff; }
+    .ui-list { margin-top: 10px; }
+    .ui-list-item { display: flex; align-items: center; gap: 9px; min-height: 34px; border-bottom: 1px solid #eef2f7; }
+    .ui-list-item::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #b8c9f7; }
+    .ui-list-item span { width: 48%; height: 6px; border-radius: 5px; background: #dfe7f3; }
+    .ui-list-item i { width: 21%; height: 6px; margin-left: auto; border-radius: 5px; background: #edf1f8; }
+
+    .chart-bars { height: 110px; display: flex; align-items: end; gap: 9px; margin-top: 15px; padding: 0 8px 8px; border-bottom: 1px solid #dbe4f2; }
+    .chart-bars i { flex: 1; height: var(--h); border-radius: 7px 7px 2px 2px; background: linear-gradient(180deg, #6f94ff, #cddaff); }
+
+    .network-canvas { min-height: 190px; position: relative; margin: 15px; border-radius: 18px; background: #f5f8ff; }
+    .network-line { position: absolute; left: 50%; top: 50%; width: 120px; height: 1px; transform-origin: left; background: #b9c9ed; }
+    .network-line:nth-child(2) { transform: rotate(45deg); }
+    .network-line:nth-child(3) { transform: rotate(135deg); }
+    .network-line:nth-child(4) { transform: rotate(225deg); }
+    .network-line:nth-child(5) { transform: rotate(315deg); }
+    .network-node { position: absolute; width: 66px; min-height: 40px; display: grid; place-items: center; padding: 6px; border: 1px solid #dbe4f4; border-radius: 12px; background: #fff; color: #43516a; font-size: 9px; font-style: normal; font-weight: 700; box-shadow: 0 8px 18px rgba(56,82,135,.08); }
+    .network-node.core { left: calc(50% - 38px); top: calc(50% - 23px); width: 76px; color: #fff; border-color: var(--blue); background: var(--blue); }
+    .network-node.n1 { left: 12px; top: 16px; }
+    .network-node.n2 { right: 12px; top: 16px; }
+    .network-node.n3 { left: 12px; bottom: 16px; }
+    .network-node.n4 { right: 12px; bottom: 16px; }
+
+    .scenario-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      overflow: hidden;
+      border: 1px solid #dce5f4;
+      border-radius: 22px;
+      background: #fff;
+    }
+
+    .scenario-board.items-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+    .scenario-card { min-height: 330px; padding: 28px 24px; border-right: 1px solid #dce5f4; background: linear-gradient(180deg, rgba(237,243,255,.78), #fff 35%); }
+    .scenario-card:last-child { border-right: 0; }
+    .scenario-label { color: var(--blue); font-size: 12px; font-weight: 700; }
+    .scenario-card h3 { min-height: 58px; margin: 10px 0 10px; font-size: 20px; line-height: 1.45; letter-spacing: -.025em; }
+    .scenario-card p { min-height: 66px; margin: 0; color: #808ca0; font-size: 13px; line-height: 1.7; }
+    .scenario-card ul { margin: 18px 0 0; padding: 0; list-style: none; }
+    .scenario-card li { position: relative; margin-top: 9px; padding-left: 14px; color: #5f6c81; font-size: 12px; line-height: 1.55; }
+    .scenario-card li::before { content: ""; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: #9bb5f5; }
+
+    .highlights-section {
+      background: linear-gradient(180deg, #fff 0%, #f7f9ff 100%);
+    }
+
+    .highlight-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      overflow: hidden;
+      border: 1px solid #dce5f4;
+      border-radius: 22px;
+      background: #fff;
+    }
+
+    .highlight-card {
+      min-height: 300px;
+      padding: 28px 24px;
+      border-right: 1px solid #dce5f4;
+      background: linear-gradient(180deg, rgba(237,243,255,.9), #fff 42%);
+    }
+
+    .highlight-card:last-child { border-right: 0; }
+
+    .highlight-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font: 700 12px/1 Manrope, sans-serif;
+      box-shadow: 0 8px 18px rgba(6,73,255,.16);
+    }
+
+    .highlight-card h3 {
+      min-height: 58px;
+      margin: 0 0 12px;
+      font-size: 20px;
+      line-height: 1.45;
+      letter-spacing: -.025em;
+    }
+
+    .highlight-card p {
+      min-height: 70px;
+      margin: 0;
+      color: #788599;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .highlight-proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 22px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .highlight-proof::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 5px rgba(6,73,255,.08); }
+
+    .collab-panel {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      min-height: 430px;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #f8f9fd;
+    }
+
+    .collab-copy { padding: 55px 54px; }
+    .collab-copy h2 { margin: 0 0 24px; font-size: 34px; letter-spacing: -.04em; }
+    .collab-item { display: grid; grid-template-columns: 46px 1fr; gap: 16px; margin-top: 25px; }
+    .collab-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; background: #e7ebff; color: var(--blue); font: 700 11px/1 Manrope, sans-serif; }
+    .collab-item strong { display: block; margin-bottom: 6px; font-size: 14px; }
+    .collab-item p { margin: 0; color: #748197; font-size: 12px; line-height: 1.7; }
+
+    .collab-art { position: relative; display: grid; place-items: center; overflow: hidden; background: linear-gradient(135deg, #e9efff, #dce7ff); }
+    .collab-art::before { content: ""; position: absolute; width: 430px; height: 430px; border: 1px solid rgba(64,108,235,.16); border-radius: 50%; }
+    .collab-art::after { content: ""; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(64,108,235,.18); border-radius: 50%; }
+    .collab-screen { width: 76%; position: relative; z-index: 2; padding: 12px; border: 7px solid rgba(255,255,255,.8); border-radius: 24px; background: white; box-shadow: 0 25px 70px rgba(32,65,150,.17); transform: rotate(-2deg); }
+    .collab-screen .ui-banner { min-height: 76px; }
+    .floating-note { position: absolute; z-index: 3; right: 7%; bottom: 12%; width: 175px; padding: 15px; border: 6px solid rgba(255,255,255,.8); border-radius: 18px; background: #fff; box-shadow: 0 18px 45px rgba(43,70,130,.17); font-size: 10px; line-height: 1.5; }
+    .floating-note b { display: block; margin-bottom: 6px; color: var(--blue); }
+
+    .access-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 22px; }
+    .access-chip { padding: 8px 15px; border: 1px solid #dce4f1; border-radius: 999px; color: #59667b; background: #fff; font-size: 12px; font-weight: 600; }
+    .access-card { max-width: 690px; min-height: 116px; display: grid; grid-template-columns: 100px 1fr; align-items: center; gap: 22px; margin: 0 auto; padding: 18px 24px; border: 1px solid #dce5f4; border-radius: 20px; background: #fff; }
+    .access-code { width: 76px; height: 76px; display: grid; place-items: center; border-radius: 14px; color: var(--blue); background: #edf1ff; font-weight: 800; }
+    .access-card h3 { margin: 0 0 7px; font-size: 17px; }
+    .access-card p { margin: 0; color: #7a879b; font-size: 12px; line-height: 1.7; }
+
+    .guarantee-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden; border: 1px solid #dce5f4; border-radius: 22px; }
+    .guarantee-card { min-height: 200px; padding: 28px 24px; border-right: 1px solid #dce5f4; background: linear-gradient(180deg, #f5f8ff, #fff); }
+    .guarantee-card:last-child { border-right: 0; }
+    .guarantee-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 26px; border-radius: 50%; background: #e7ebff; color: var(--blue); font: 800 11px/1 Manrope, sans-serif; }
+    .guarantee-card h3 { margin: 0 0 8px; font-size: 18px; }
+    .guarantee-card p { margin: 0; color: #7b8799; font-size: 12px; line-height: 1.7; }
+
+    .cta-band { position: relative; min-height: 330px; display: flex; align-items: center; overflow: hidden; background: linear-gradient(120deg, #f2f6ff, #e1ebff); }
+    .cta-band::before, .cta-band::after { content: ""; position: absolute; right: 8%; border: 1px solid rgba(65,108,230,.17); border-radius: 50%; }
+    .cta-band::before { width: 390px; height: 390px; top: -80px; }
+    .cta-band::after { width: 250px; height: 250px; top: -10px; right: 13%; }
+    .cta-copy { position: relative; z-index: 2; max-width: 580px; }
+    .cta-copy h2 { margin: 0 0 11px; font-size: 34px; letter-spacing: -.04em; }
+    .cta-copy p { margin: 0 0 23px; color: #758197; }
+    .cta-orb { position: absolute; right: 17%; z-index: 2; width: 140px; height: 140px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.7); border-radius: 35px; color: white; background: linear-gradient(145deg, #b8ccff, #4179ff); box-shadow: inset 0 0 25px rgba(255,255,255,.55), 0 24px 50px rgba(52,99,219,.18); transform: rotate(11deg); font: 800 26px/1 Manrope, sans-serif; }
+
+    .company-callout { padding: 68px 0; text-align: center; }
+    .company-callout h2 { margin: 0; font-size: 27px; }
+    .company-callout p { margin: 10px 0 22px; color: #9099a8; font-size: 13px; }
+
+    .site-footer { padding: 52px 0 28px; border-top: 1px solid var(--line); color: #738095; background: #f8faff; }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr 2fr .9fr; gap: 60px; }
+    .footer-brand { color: var(--ink); }
+    .footer-brand .brand { margin-bottom: 20px; }
+    .footer-brand p { margin: 0; color: #738095; font-size: 12px; line-height: 1.9; }
+    .footer-products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .footer-column h3, .footer-contact h3 { margin: 0 0 14px; color: var(--ink); font-size: 13px; }
+    .footer-column button { display: block; margin: 9px 0; padding: 0; border: 0; cursor: pointer; color: #738095; background: none; font-size: 11px; }
+    .footer-column button:hover { color: var(--blue); }
+    .footer-contact p { margin: 8px 0; color: #738095; font-size: 11px; }
+    .footer-bottom { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); color: #8b97a9; text-align: center; font-size: 10px; }
+
+    .fade-in { animation: fadeIn .45s ease both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+
+    :focus-visible { outline: 3px solid rgba(6, 73, 255, .28); outline-offset: 3px; }
+
+    @media (max-width: 1120px) {
+      .main-nav { overflow-x: auto; scrollbar-width: none; }
+      .main-nav::-webkit-scrollbar { display: none; }
+      .product-mega { display: none; }
+      .header-cta { display: none; }
+      .scenario-board, .scenario-board.items-5, .highlight-board, .guarantee-grid { grid-template-columns: repeat(2, 1fr); }
+      .blueprint-grid { --blueprint-cols: 2 !important; }
+      .blueprint-grid.items-7 .blueprint-card:last-child { grid-column: auto; }
+      .scenario-card:nth-child(2), .highlight-card:nth-child(2), .guarantee-card:nth-child(2) { border-right: 0; }
+      .scenario-card:nth-child(-n+2), .highlight-card:nth-child(-n+2), .guarantee-card:nth-child(-n+2) { border-bottom: 1px solid #dce5f4; }
+      .scenario-board.items-5 .scenario-card:nth-child(-n+4) { border-bottom: 1px solid #dce5f4; }
+      .scenario-board.items-5 .scenario-card:nth-child(even) { border-right: 0; }
+      .scenario-board.items-5 .scenario-card:last-child { grid-column: 1 / -1; border-right: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .shell { width: min(100% - 30px, var(--page)); }
+      .site-header { height: auto; }
+      .header-inner { min-height: 64px; flex-wrap: wrap; gap: 0; padding-top: 5px; }
+      .brand { height: 54px; }
+      .main-nav { width: calc(100% + 30px); order: 3; margin: 0 -15px; padding: 0 15px; border-top: 1px solid #eef2f7; }
+      .nav-link { min-height: 46px; padding: 0 13px; }
+      .hero-inner { padding-top: 62px; }
+      .hero h1 { font-size: 38px; }
+      .hero-actions { width: 100%; justify-content: center; }
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature-card { min-height: 500px; padding: 28px 24px 0; }
+      .blueprint-groups { gap: 34px; }
+      .blueprint-group-head { display: block; }
+      .blueprint-group-head span { display: block; margin-top: 8px; }
+      .blueprint-grid { --blueprint-cols: 1 !important; }
+      .blueprint-card { min-height: 0; }
+      .scenario-board, .scenario-board.items-5, .highlight-board, .guarantee-grid { grid-template-columns: 1fr; }
+      .scenario-card, .scenario-card:nth-child(2), .highlight-card, .highlight-card:nth-child(2), .guarantee-card, .guarantee-card:nth-child(2) { min-height: 0; border-right: 0; border-bottom: 1px solid #dce5f4; }
+      .scenario-card:last-child, .highlight-card:last-child, .guarantee-card:last-child { border-bottom: 0; }
+      .scenario-board.items-5 .scenario-card:last-child { grid-column: auto; }
+      .scenario-card h3, .scenario-card p { min-height: 0; }
+      .highlight-card h3, .highlight-card p { min-height: 0; }
+      .collab-panel { grid-template-columns: 1fr; }
+      .collab-copy { padding: 42px 28px; }
+      .collab-art { min-height: 370px; }
+      .access-card { grid-template-columns: 75px 1fr; padding: 16px; }
+      .access-code { width: 64px; height: 64px; }
+      .cta-band { min-height: 390px; align-items: flex-start; padding-top: 65px; }
+      .cta-copy { max-width: 72%; }
+      .cta-orb { right: 8%; bottom: 45px; width: 100px; height: 100px; border-radius: 28px; font-size: 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 34px; }
+      .footer-products { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: 640px; }
+      .hero h1 { font-size: 34px; }
+      .hero-actions { flex-direction: column; }
+      .button-primary, .button-secondary { width: 100%; }
+      .audience-grid { gap: 8px; }
+      .audience-card { min-height: 88px; font-size: 12px; }
+      .section { padding: 72px 0; }
+      .section-heading { margin-bottom: 30px; }
+      .app-window { width: 96%; }
+      .app-window.phone { width: 62%; }
+      .cta-copy { max-width: 100%; }
+      .cta-orb { display: none; }
+      .footer-products { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      /* 官网稿保持品牌白底；系统深色模式下仅降低纯白眩光。 */
+      body { background: #fbfcff; }
+    }
+  
+    /* ---- 官网第二版导航与页脚覆盖 ---- */
+    .site-header .brand { color: var(--ink); }
+    .site-header .brand-mark { width: 31px; height: 31px; border: 0; border-radius: 10px; color: #fff; background: linear-gradient(135deg, #0758ff, #20cde2); box-shadow: 0 7px 16px rgba(6,73,255,.33); font-size: 12px; }
+    .site-header .brand-mark::before, .site-header .brand-mark::after { content: none; }
+    .brand-copy small { margin-left: 2px; color: #66738a; font-size: 11px; font-weight: 600; }
+    .footer-column a { display: block; margin: 9px 0; color: #738095; font-size: 11px; transition: color .2s; }
+    .footer-column a:hover { color: var(--blue); }
+    .footer-bottom a { color: #8b97a9; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue); }
+
+/* ===== 解决方案二级菜单 ===== */
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.sol-item{display:block;padding:9px 10px 10px;border:1px solid transparent;border-radius:11px;transition:.18s}
+.sol-item:hover{border-color:#d6e2ff;background:#f2f6ff}
+.sol-item b{display:block;color:#20304a;font-size:12.5px;letter-spacing:-.01em}
+.sol-item b::after{content:" →";color:#0649ff;opacity:.4}
+.sol-item:hover b::after{opacity:1}
+.sol-item small{display:block;margin-top:3px;color:#8a96a8;font-size:10px;font-weight:600;line-height:1.45}
+.sol-side{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+.sol-card{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e9eef8;border-radius:12px;background:#fbfcff;transition:.18s}
+.sol-card:hover{border-color:#c9d8fb;background:#f2f6ff}
+.sol-card>span:first-child{display:grid;place-items:center;width:28px;height:28px;flex:none;border-radius:9px;color:#0649ff;background:#e8efff;font-size:12px}
+.sol-txt strong{display:block;color:#20304a;font-size:12.5px}
+.sol-txt small{display:block;margin-top:2px;color:#8a96a8;font-size:10px;font-weight:600;line-height:1.35}
+
+/* ===== 小屏产品视图切换条：超级菜单在 ≤1120px 隐藏，这里补一条可达入口 ===== */
+.ps-view-switch{display:none}
+@media (max-width:1120px){
+  .ps-view-switch{
+    position:sticky;top:0;z-index:70;display:flex;gap:8px;overflow-x:auto;
+    padding:10px 15px;margin:0;list-style:none;background:rgba(255,255,255,.97);
+    border-bottom:1px solid #e3eaf4;box-shadow:0 8px 20px rgba(24,58,110,.06);
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .ps-view-switch::-webkit-scrollbar{display:none}
+  .ps-view-switch a{
+    flex:none;padding:7px 13px;border:1px solid #dfe8f5;border-radius:999px;background:#fff;
+    color:#43516a;font-size:12.5px;font-weight:700;line-height:1.4;text-decoration:none;white-space:nowrap;
+  }
+  .ps-view-switch a:active{transform:translateY(1px)}
+  .ps-view-switch a.is-current{border-color:#0649ff;background:#0649ff;color:#fff}
+}
+</style>
+  <link rel="stylesheet" href="solutions-menu.css">
+  <link rel="stylesheet" href="lead-form.css">
+  <link rel="stylesheet" href="ai-advisor.css">
+<link rel="stylesheet" href="refresh.css">
+</head>
+<body data-page-node-id="ozoCF8sTGic0uADlgtb80j">
+  <header class="site-header" data-page-node-id="8OJCo3BEHSUQBv8fPDEFSw">
+    <div class="shell header-inner" data-page-node-id="CfGbvzUbt2zIUWJVps3tJv">
+      <a class="brand" href="index.html" aria-label="智诊科技首页" data-page-node-id="IljcJevyLdCLUlTlW0GH9r">
+        <span class="brand-mark" data-page-node-id="Zm4S6016oHjfBrDTMcfE2T">W</span>
+        <span class="brand-copy" data-page-node-id="DJIkk2AtBCEJHg8hNye8VD">智诊科技<small data-page-node-id="HIMJ3OAAb3B6DiF7zRE0qG">WiseDiag</small></span>
+      </a>
+      <nav class="main-nav" aria-label="官网主导航" data-page-node-id="4EGVSXaEvFWRyz1AJOTimR">
+        <a class="nav-link" href="index.html" data-page-node-id="H0fiJTwY4J6Lleb4jxuIyE">首页</a>
+        <a class="nav-link" href="wisediag-model.html" data-page-node-id="vcpBGmUChRGVsvCXwLDsD5">WiseDiag 医学大模型</a>
+        <a class="nav-link" href="haoban-ai.html" data-page-node-id="EV90UW79roHgNBHFu1zqaq">好伴 AI</a>
+      <div class="nav-product-group" data-page-node-id="AqtiK2ax2931v8u6tzHF7b">
+        <button class="nav-link" data-product-link="overview" data-primary-nav="products" aria-current="page" aria-haspopup="true" data-page-node-id="qk23iDIhLDzrH5WjIglk5B">产品服务</button>
+        <div class="product-mega" aria-label="智诊科技产品矩阵" data-page-node-id="MTHhEG3ZFLqdY4Gi4DQbFt">
+          
+          <a class="product-mega-item" data-product="care" href="#care" aria-label="查看智小伴详情" data-page-node-id="8tFtDlbvgu87Y0gfM4S1uz"><span class="product-mega-head" data-page-node-id="dlpa74iSiBAkrQU97hDfLS"><span class="product-mega-icon" data-page-node-id="e25P6hvzAFRITVaqdo0nLT">照护</span><span class="product-mega-copy" data-page-node-id="rc0s7UFN8XFP7O60jDNLuQ"><strong data-page-node-id="WwKMt2VkcCRYxJiafWghDQ">智小伴</strong><small data-page-node-id="EUtG8mqq8jcRnqxeRHOnOB">Wise Care</small></span></span><span class="product-mega-capabilities" data-page-node-id="AIDkMJiGniujr5p6ILbhGf"><span>医院</span><span>互联网医院</span><span>慢病管理中心</span><span>康养机构</span></span></a>
+          <a class="product-mega-item" data-product="clinical" href="#clinical" aria-label="查看智小医详情" data-page-node-id="LCGvXKSMepLiJrDAopayBX"><span class="product-mega-head" data-page-node-id="IkrLI4gE4DpfDgEg2DEqw7"><span class="product-mega-icon" data-page-node-id="lbF7NSNqw2Ddq1NR4afEth">临床</span><span class="product-mega-copy" data-page-node-id="cTaEhqTE0YUAITrH5Yn0b7"><strong data-page-node-id="WHDPM1THxAQtGt0wG55SDE">智小医</strong><small data-page-node-id="BqAMevoPOQAfBFaDf1GFRK">Wise Clinical</small></span></span><span class="product-mega-capabilities" data-page-node-id="Ktibu8xGkNj9lmilfgb1vr"><span>公立医院</span><span>互联网医院</span><span>县域医共体</span><span>私立医疗</span></span></a>
+          <a class="product-mega-item" data-product="diagnostics" href="#diagnostics" aria-label="查看智小检详情" data-page-node-id="yl2OMu2L5ce5q4wM42koBk"><span class="product-mega-head" data-page-node-id="EOUbOurpEYtD2xFhO5PcAq"><span class="product-mega-icon" data-page-node-id="xpWxMMo1gecKYidUsjTABZ">检验</span><span class="product-mega-copy" data-page-node-id="AHNHegLcM5US7aePUvExua"><strong data-page-node-id="Zcb1cGdK9iFEqnu0x3Zvl5">智小检</strong><small data-page-node-id="SSEzpsmPrNfGQFBLr0tcxv">Wise Diagnostics</small></span></span><span class="product-mega-capabilities" data-page-node-id="vpqmaG86RoJ3CFqQFfnPN1"><span>IVD 与检验</span><span>体检中心</span><span>医院检验科</span><span>第三方医检</span></span></a>
+          <a class="product-mega-item span-half" data-product="pharma" href="#pharma" aria-label="查看智小药详情" data-page-node-id="mgYYRuUUcsYDgL0WIbuZBp"><span class="product-mega-head" data-page-node-id="py380lgOIlv8dTCQtaqMH4"><span class="product-mega-icon" data-page-node-id="GPmDpkFf8Cxy2VtdmG4YXF">医药</span><span class="product-mega-copy" data-page-node-id="xfQ24fMHSjqTLu5p1WguSc"><strong data-page-node-id="PXvtttlk7lVi7XSuRtqLoE">智小药</strong><small data-page-node-id="ozjmA8E6NceUsc6gV5pNUM">Wise Pharma</small></span></span><span class="product-mega-capabilities" data-page-node-id="NfYnzGZQfkWEKzwv2d7Icl"><span>药企</span><span>医疗器械</span><span>医药流通</span><span>临床研究</span></span></a>
+          <a class="product-mega-item span-half" data-product="workforce" href="#workforce" aria-label="查看智小康详情" data-page-node-id="XxkXAId1zrkXuYDvhKJPPS"><span class="product-mega-head" data-page-node-id="3mSPHj0zyA38vX7h6UjhQZ"><span class="product-mega-icon" data-page-node-id="ic8fRsy9qYEFHKV61LhEtM">员工</span><span class="product-mega-copy" data-page-node-id="SLEPBvEW628Kb2aRf54q03"><strong data-page-node-id="SVR4ASATezg8r1Kj1vv7Xg">智小康</strong><small data-page-node-id="s53Y9ukS75XDyEhwnw2z0g">Wise Workforce</small></span></span><span class="product-mega-capabilities" data-page-node-id="XTTICDusDEH6gU8ngj0sVL"><span>大型企业</span><span>健康险</span><span>体检中心</span><span>职业健康</span></span></a>
+          <a class="product-mega-item is-full" data-product="wiseclaw" href="#wiseclaw" aria-label="查看WiseClaw详情"><span class="product-mega-head"><span class="product-mega-icon">智能体</span><span class="product-mega-copy"><strong>WiseClaw</strong><small>Agent OS</small></span></span><span class="product-mega-capabilities"><span>智能体构建</span><span>Skill 市场</span><span>安全隔离</span><span>多渠道接入</span></span></a>
+<a class="product-mega-item is-full" data-product="foundation" href="#foundation" aria-label="查看智多星详情" data-page-node-id="zhORR7V9KlRr72l57dRLfj"><span class="product-mega-head" data-page-node-id="CqzBm0KEKx42CuzK195AZR"><span class="product-mega-icon" data-page-node-id="6h8XaqyNmFp0FUALaD7TVf">底座</span><span class="product-mega-copy" data-page-node-id="UyD6n5DDn1pfWHLp1pxEl9"><strong data-page-node-id="SU8NZsllHp5XvhrhXW6jcK">智多星</strong><small data-page-node-id="KrDyxqkcf3DVheYj25fuFs">Wise Foundation</small></span></span><span class="product-mega-capabilities" data-page-node-id="npwyJvy7Iu6wbTNbbHFn86"><span data-page-node-id="SJ4pWXwoQjGtgtrSW4BX7v">医疗模型</span><span data-page-node-id="IuZ4UNfMhh7AQDIkGc60uI">知识证据</span><span data-page-node-id="xUzHgKSlOFHZ1iUkIH4n5i">数据治理</span><span data-page-node-id="XgiMjvFSR019V8jjPKjcJ9">智能编排</span></span></a>
+            
+        </div>
+      </div>
+<div class="products-menu solutions-menu">
+          <button class="nav-trigger" type="button" aria-haspopup="true">解决方案 <span>⌄</span></button>
+          <div class="mega-menu solution-mega">
+            <div class="mega-intro"><div><span>行业解决方案</span><strong>解决方案</strong></div><p>让医疗 AI 能力融入真实业务流程。</p></div>
+            <div class="mega-body solution-body">
+              <section class="product-matrix">
+                <p>行业解决方案</p>
+                <div class="product-grid solution-grid">
+                  <a href="solution-pharma.html"><b>药企</b><small>学术推广 · 患者管理 · 临床研究</small></a>
+                  <a href="solution-ivd.html"><b>IVD 体外诊断</b><small>报告解读 · 检后服务</small></a>
+                  <a href="solution-internet-hospital.html"><b>互联网医院</b><small>在线问诊 · 随访运营</small></a>
+                  <a href="solutions.html#cases"><b>体检中心</b><small>团检报告深度解读</small></a>
+                  <a href="solutions.html#cases"><b>药房 / 医药流通</b><small>店员助手 · 用药指导</small></a>
+                  <a href="solutions.html#cases"><b>商业健康保险</b><small>核保理赔 · 健管服务</small></a>
+                  <a href="solutions.html#cases"><b>医美机构</b><small>术前咨询 · 术后随访</small></a>
+                  <a href="solutions.html#cases"><b>中医养生</b><small>体质辨识 · 调养建议</small></a>
+                  <a href="solutions.html#cases"><b>营养保健品</b><small>营养咨询 · 复购运营</small></a>
+                  <a href="solutions.html#cases"><b>模算智一体机</b><small>软硬一体本地部署</small></a>
+                </div>
+                <p class="matrix-note">未覆盖的场景可通过 WiseClaw 智能体平台共创搭建</p>
+              </section>
+              
+            </div>
+          </div>
+        </div>        <a class="nav-link" href="enterprise-news.html" data-page-node-id="d0HxN7EASeRCtA36F5DHfQ">企业动态</a>
+        <a class="nav-link" href="about.html" data-page-node-id="ZDd1ZTvEdJsW9CCOFMI1mp">走进智诊</a>
+      </nav>
+      <a class="header-cta" href="#contact" data-page-node-id="x9khmZz1FSg1xtmGyqUFol" data-lead="合作申请">合作申请 <span aria-hidden="true" data-page-node-id="yuLThy7m27bJhDY7Mf9t29">→</span></a>
+    </div>
+  </header>
+
+  <main id="product-page" aria-live="polite" data-page-node-id="x1B9BrGcipnoTqsSwosAB3">
+    <nav class="ps-view-switch" aria-label="产品视图切换" data-page-node-id="psViewSwitch"></nav>
+    <section class="hero" data-page-node-id="sAuCnGUNhQmd6jnhJI13xy">
+      <div class="shell hero-inner fade-in" data-page-node-id="FBZF8QrFDAfZ12D2fEd2q2">
+        <div class="eyebrow" data-page-node-id="ODXw69ti8glzlehQlHykDr"><span class="eyebrow-dot" data-page-node-id="mq78y9LCdAmDxiKGlXH3JE"></span><span id="heroEyebrow" data-page-node-id="Hz4xtsQGd8zZuSflqOPe5X"></span></div>
+        <h1 id="heroTitle" data-pretext data-page-node-id="ydq0Ar0GOtIZzusyEJ8UUe"></h1>
+        <div class="hero-en" id="heroEnglish" data-page-node-id="XN8jaklIr85ywfD1oamzis"></div>
+        <p class="hero-lead" id="heroLead" data-pretext data-page-node-id="AEMdKKEGswTfUK0OszH1pz"></p>
+        <div class="hero-actions" data-page-node-id="FIBniC4WpPX0L7dtCyCX36">
+          <a class="button-primary" href="#contact" data-page-node-id="pgUvCQoSDZcG8dDQC5SKp3"><span id="primaryAction" data-page-node-id="rz9jc7jn1TVlSr4eArzRp2">预约产品演示</span><span aria-hidden="true" data-page-node-id="xvF3GCkZq9xEkSfeE1HVal">→</span></a>
+          <a class="button-secondary" href="#features" data-page-node-id="1HWl94GJ4fwTJRxtHwcYrp">查看产品特性 <span aria-hidden="true" data-page-node-id="oleDEE1FOGDPdSvh6duZjU">→</span></a>
+        </div>
+        <div id="brochureHero" class="brochure-hero" hidden></div>
+        <div class="audience-label" data-page-node-id="EiNYeYDz2LYnSeAdMBmAdH">适用机构与团队</div>
+        <div class="audience-grid" id="audienceGrid" data-page-node-id="UUi9BXESLyo5FIDw9DrYUY"></div>
+      </div>
+    </section>
+
+    <section class="section" id="features" data-page-node-id="aYUkNJfX36xTJDxFK9CUIc">
+      <div class="shell" data-page-node-id="77G90b1hR6LAfrJe7KiLQ6">
+        <div class="section-heading" data-page-node-id="NHcWjUFjF5MqrP2jjbwXxR">
+          
+          <h2 id="featureHeading" data-page-node-id="4l1KymPp3Tptmwpw6eYiLf">产品特性</h2>
+          <p id="featureIntro" data-pretext data-page-node-id="E2JUArCqK7iAHGv6BdUn20"></p>
+        </div>
+        <div class="feature-grid" id="featureGrid" data-page-node-id="Wq3bjGnpHORLlHPAi6qEqB"></div>
+      </div>
+    </section>
+
+    <section class="section blueprint-section" id="blueprint" data-page-node-id="7iUDiYd7WdHV8PXOE9pPxv">
+      <div class="shell" data-page-node-id="5KmbWYzI94riZhRQCLUho5">
+        <div class="section-heading" data-page-node-id="lTE4f0xfRxcWFnxXRNSaOO">
+          
+          <h2 id="blueprintHeading" data-page-node-id="ppxDLRzUuvG9e5wDScgp9O">产品框架</h2>
+        </div>
+        <div class="blueprint-groups" id="blueprintGroups" data-page-node-id="Q0DS0pdKuhtKlWQFUgUmsB"></div>
+      </div>
+    </section>
+
+    <section class="section highlights-section" id="highlights" data-page-node-id="YI0xyDccs4sJ7cYmiGhsoM">
+      <div class="shell" data-page-node-id="nAiQhJMuHQPFPEm62ACTbO">
+        <div class="section-heading" data-page-node-id="g8WkHPoTPp3qxwcHRxnlUo">
+          
+          <h2 data-page-node-id="6RQ4GJRrKW7bEu2vPHyLfQ">产品亮点</h2>
+          <p id="highlightIntro" data-pretext data-page-node-id="CCMzcpRkTJBXmr3Fnw7jNY"></p>
+        </div>
+        <div class="highlight-board" id="highlightBoard" data-page-node-id="0qipRBZLdQFHTunqZV3qLq"></div>
+      </div>
+    </section>
+
+    <section class="section soft" id="scenarios" data-page-node-id="0E5k3QVZKCBGUuuak59E09">
+      <div class="shell" data-page-node-id="Y6efaCkH1j9ZGZu1sY8k6Z">
+        <div class="section-heading" data-page-node-id="FkA1Jv9f3am53LQXpjMLq9">
+          
+          <h2 data-page-node-id="D4m54OgZ7ji82ruiSfgIHC">应用场景</h2>
+          <p id="scenarioIntro" data-pretext data-page-node-id="TFrdZiw5ijCtky2HKvZ8UB"></p>
+        </div>
+        <div class="scenario-board" id="scenarioBoard" data-page-node-id="zjdou4cdZarPDmBhY0BSrS"></div>
+      </div>
+    </section>
+
+    <section class="section ps-detail-only" data-page-node-id="Zkz8MEtzEIioE3aOD7DUbH">
+      <div class="shell collab-panel" data-page-node-id="KVrhNKi0lcLGtlqgkFTUzl">
+        <div class="collab-copy" data-page-node-id="7iuF2SosC8bfEHoeHnkZ6O">
+          
+          <h2 id="collabTitle" data-page-node-id="im6MaMpfLV9G9W1CAVmEua">人机协同</h2>
+          <div id="collabItems" data-page-node-id="a8yqQ384aHF3ep2x6ljVNI"></div>
+        </div>
+        <div class="collab-art" aria-hidden="true" data-page-node-id="W3lD9wwgoXKW9BBx1Wjpbf">
+          <div class="collab-screen" data-page-node-id="pbEohoXmY5j4XOpOofxctk">
+            <div class="window-top" data-page-node-id="FgfK6pgJAAbyf6qOwVWVF6"><span class="window-dot" data-page-node-id="J5oGJFeX0DYRN5OhVd4Qq3"></span><span class="window-dot" data-page-node-id="tjKwcsUC9Zkg6oshdPeOLm"></span><span class="window-dot" data-page-node-id="eYUWHSHiSCIAkOY0vHhimG"></span><span class="window-title" id="collabWindowTitle" data-page-node-id="0IMsFisbihuXUcRnO3CusZ"></span></div>
+            <div class="ui-body" data-page-node-id="pHIyHBZKieEHnlajMsqH5R">
+              <div class="ui-banner" data-page-node-id="JCOrWPPo87bvBckRNJHHDb"><strong id="collabBannerTitle" data-page-node-id="zB7GEXR6ooSVszIPHeqggq"></strong><span id="collabBannerText" data-page-node-id="o7DThyfPSEia0uudAdUEL2"></span></div>
+              <div class="ui-row" data-page-node-id="31yOv4LBoSfl3HCsYGblEH"><div class="ui-stat" data-page-node-id="Uf4ZFNJ67m7eGjNSZ68C1z"><b data-page-node-id="yFsCA2bzHa1tZ0luPgADk6">已准备</b><small data-page-node-id="KpF60xqK2RD5AWpjXxvfRk">AI任务</small></div><div class="ui-stat" data-page-node-id="85XbTc6drX5EMTXQTWSBDZ"><b data-page-node-id="tiTzYuMqesqy0zd3Yh0GSp">待确认</b><small data-page-node-id="KdmTVC37e3rRLDCU4jkGCR">专业审核</small></div><div class="ui-stat" data-page-node-id="wb9xiPMVFcBImi7mIgex76"><b data-page-node-id="aV2FLnyK8gkz1EtYOCOfUu">已升级</b><small data-page-node-id="cizG40fP6Bdl3HjeJPByq5">风险事项</small></div></div>
+              <div class="ui-list" data-page-node-id="FwXI591kRsVGVAnFhnLFQl"><div class="ui-list-item" data-page-node-id="6lKz7lwcEZUtp9ZzAX9slG"><span data-page-node-id="GfIGYgd72yOeNRdh2ncvSD"></span><i data-page-node-id="QyVFI8eiFDFLLzBWj2YlRM"></i></div><div class="ui-list-item" data-page-node-id="ookadK26FFTRZcUvJQyrqB"><span data-page-node-id="gIVL48ubbDuwilcWQdR54j"></span><i data-page-node-id="uKELCH2Z3GXusTuWiZKgyl"></i></div><div class="ui-list-item" data-page-node-id="ggaQHCAP5vmjLDyJ6APfAg"><span data-page-node-id="DKaMBJy5oJrFuV4vvBLHvH"></span><i data-page-node-id="ZBCl9NlHafbwb4MLQjoAnC"></i></div></div>
+            </div>
+          </div>
+          <div class="floating-note" data-page-node-id="UrbbIzrsphooVShWxOonhE"><b data-page-node-id="yGBzpdaMFk5L7MVQh8XreJ">专业人员确认</b><span id="floatingNote" data-page-node-id="G1t3gyOmtFpgDsmHe6Uvhg"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft ps-detail-only" data-page-node-id="kGZRMeXr8yblAaf5BNf7CJ">
+      <div class="shell" data-page-node-id="8Az3fsI8CUoGUuwye3EnDq">
+        <div class="section-heading" data-page-node-id="ZnA0R6rgCn6snLoW9V1TzP">
+          
+          <h2 data-page-node-id="En9ecmxswsWdNO5VFViN7e">接入与交付</h2>
+          <p id="accessIntro" data-pretext data-page-node-id="HqCVf9FeQjDpIKLbR1bO0k"></p>
+        </div>
+        <div class="access-tabs" id="accessTabs" data-page-node-id="QCnPbBSvxZ5htHrd6VsIQ5"></div>
+        <div class="access-card" data-page-node-id="AHGYEljFR3FDy155HvmMR2">
+          <div class="access-code" id="accessCode" data-page-node-id="O6EDzfix3fClhoD25DmzLS">API</div>
+          <div data-page-node-id="APgm5wFNm3AtewrWPhz1Eg"><h3 id="accessTitle" data-page-node-id="5rgjAoeqpGJdMuND6sCoS2"></h3><p id="accessText" data-pretext data-page-node-id="JYGLKHMHkqLzJDYY5UcC0L"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ps-detail-only" data-page-node-id="TxjY8LuFCSaogEGmAQRplT">
+      <div class="shell" data-page-node-id="oMkgTwpVZLfDzarLGE9Fh5">
+        <div class="section-heading" data-page-node-id="JaJ26S8fgN7dEgdUHkN1Te">
+          
+          <h2 data-page-node-id="FVnwAKsNHh5C3NHNNIOuOj">平台保障</h2>
+          <p data-page-node-id="HrPMr6hJdANX8uA3PRBY4I">提供专业知识、权限治理与运行管理支持，具体功能和交付范围按项目确认。AI 不替代专业人员，实际诊断与治疗须由具备资质的专业人员负责。</p>
+        </div>
+        <div class="guarantee-grid" id="guaranteeGrid" data-page-node-id="sZf7Wth0PHdoS8pviBbdaV"></div>
+      </div>
+    </section>
+
+    <section class="lead-section" id="contact">
+      <div class="lead-inner">
+        
+        <h2 class="lead-title">留下您的业务场景，我们一起把它跑通</h2>
+        <p class="lead-sub">从一个明确的业务场景开始，由专属顾问协助梳理能力匹配、部署方式与验收路径。</p>
+        <ul class="lead-contacts"><li>电话 <b>15336530072</b></li><li>邮箱 <b>marketing@wisediag.com</b></li><li>地址 <b>杭州市临平区杭州智能健康谷A栋7楼</b></li></ul>
+        <div class="cta-form-wrap"><form class="lf-form lf-host" novalidate=""></form><p class="cta-inline-note" style="margin:14px 0 0;text-align:left;color:#8b98ad;font-size:12px;line-height:1.7;">提交后由顾问与您联系，围绕场景梳理、能力匹配与接入方式进一步沟通，具体安排以双方确认为准。</p></div>
+      </div>
+    </section>
+  </main>
+  <!-- footer:v2026-09-03-r4 -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+
+      <!-- 列 1：公司信息 + 关注智诊 -->
+      <div class="footer-company">
+        <a class="brand" href="index.html">
+          <img class="brand-mark" src="assets/footer/logo-wisediag.png" alt="智诊科技 WiseDiag">
+          <span><b>杭州智诊科技有限公司</b><small>WiseDiag</small></span>
+        </a>
+        <p class="addr">
+          <span>地址：浙江省杭州市临平区杭州智能健康谷A栋7楼</span>
+          <span class="line2">杭州智诊科技有限公司</span>
+        </p>
+
+        <div class="social-block">
+          <p class="title">关注智诊</p>
+          <div class="social-grid">
+            <a class="social-item" href="javascript:void(0)" aria-label="微信公众号">
+              <img src="assets/footer/icon-wechat.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-wechat.png" alt="微信公众号二维码"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="小红书">
+              <img src="assets/footer/icon-xhs.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-xhs.png" alt="小红书二维码"></span>
+            </a>
+            <a class="social-item" href="javascript:void(0)" aria-label="知乎">
+              <img src="assets/footer/icon-zhihu.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-zhihu.png" alt="知乎二维码"></span>
+            </a>
+            <a class="social-item" href="https://github.com/WiseDiag" target="_blank" rel="noopener" aria-label="GitHub">
+              <img src="assets/footer/icon-github.png" alt="">
+              <span class="social-qr"><img src="assets/footer/qr-github.png" alt="GitHub 二维码"><small>github.com/WiseDiag</small></span>
+            </a>
+          </div>
+          <div class="social-caption">
+            <span>公众号</span>
+            <span>小红书</span>
+            <span>知乎</span>
+            <span>GitHub</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 列 2：WiseDiag医学多模态大模型 -->
+      <div>
+        <h3>WiseDiag医学多模态大模型</h3>
+        <div class="nav-double">
+          <a href="wisediag-model.html">模型架构</a>
+          <a href="haoban-ai.html">好伴AI(iOS版)</a>
+          <a href="wisediag-model.html#advantages">技术优势</a>
+          <a href="haoban-ai.html">好伴AI(安卓版)</a>
+          <a href="solutions.html">应用场景</a>
+          <span></span>
+          <a href="haoban-ai.html">立即体验</a>
+          <span></span>
+          <a href="wisediag-model.html#api">API接口</a>
+        </div>
+      </div>
+
+      <!-- 列 3：走进智诊 -->
+      <div>
+        <h3>走进智诊</h3>
+        <div class="nav-double">
+          <a href="about.html">走进智诊</a>
+          <a href="about.html#company">公司介绍</a>
+          <a href="about.html#milestones">发展历程</a>
+          <a href="about.html#honors">认证与荣誉</a>
+          <span></span>
+          <a href="enterprise-news.html">企业动态</a>
+          <span></span>
+          <a href="#contact" data-lead="申请合作">申请合作</a>
+        </div>
+      </div>
+
+      <!-- 列 4：联系我们 + 二维码 -->
+      <div class="footer-contact">
+        <h3>联系我们</h3>
+        <a class="email" href="mailto:marketing@wisediag.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3z M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.5"/></svg>
+          邮箱：marketing@wisediag.com
+        </a>
+        <a class="tel" href="tel:15336530072">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2 1c1 3 2 4 5 5l1-2 5 2v4c0 1-1 2-2 2C9 21 3 15 3 6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+          电话：15336530072
+        </a>
+        <div class="qr">
+          <img src="assets/footer/qr-consult.png" alt="扫码快捷咨询二维码">
+          <div>
+            <strong>扫码快捷咨询</strong>
+            <small>留下您的联系方式<br>专属顾问 1 对 1 对接</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部条 -->
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 杭州智诊科技有限公司　保留所有权利</span>
+      <span class="beian">
+        <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">浙公网安备 33011302000671号</a>
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener">浙ICP备2023052183号-1</a>
+        <a href="https://dxzhgl.miit.gov.cn/#/home" target="_blank" rel="noopener">增值电信业务经营许可证 浙B2-20241217</a>
+      </span>
+    </div>
+  </footer>
+  
+  
+  
+  
+
+  <script type="module">
+    const products = {
+      overview: {
+        eyebrow: "医疗智能产品体系",
+        title: "WiseDiag 医疗智能产品体系",
+        english: "",
+        lead: "智诊科技围绕 WiseDiag 医学大模型构建“1+1+X”医疗智能产品体系：以 WiseDiag 为模型底座、智多星为共享医疗智能中枢，支撑智小伴、智小医、智小检、智小药、智小康五个应用产品。WiseClaw 提供智能体构建与管理平台，部署体系负责云端、本地及混合交付。AI 辅助信息处理与任务准备，实际诊断与治疗由具备资质的专业人员负责。",
+        action: "探索产品矩阵",
+        audiences: ["医院与互联网医院", "私立医疗与康养集团", "药企与IVD企业", "大型企业与健康产业"],
+        featureIntro: "1 个模型底座、1 个医疗智能中枢，与 X 个持续扩展的产品共同形成可组合、可交付、可持续运营的医疗智能产品体系，并通过 WISE Nexus Stack 支持云端、专有环境、一体机与混合部署。",
+        features: [
+          { title: "智多星 · Wise Foundation", desc: "医疗智能中枢底座，统一承载医学大模型、医学知识、医疗数据、智能体、系统连接及可信运行能力。", visual: "network", window: "Wise Foundation", industries: ["医院", "互联网医院", "药企", "IVD", "康养", "企业健康"] },
+          { title: "智小伴 · Wise Care", desc: "全病程连续照护协同中枢，围绕患者纵向健康档案连接报告、指标、设备、对话与专业服务。", visual: "phone", window: "Wise Care", industries: ["医院", "互联网医院", "私立医疗与康养", "药企", "企业健康"] },
+          { title: "智小医 · Wise Clinical", desc: "医院临床智能应用中枢，支持预问诊、导诊分流、资料整理、文书辅助、质控提醒和随访服务。", visual: "dashboard", window: "Wise Clinical", industries: ["公立医院", "互联网医院", "县域医共体", "私立医疗"] },
+          { title: "智小检 · Wise Diagnostics", desc: "检验诊断智能与检后服务中枢，连接检测数据、报告解读、风险分流、复测随访与运营分析。", visual: "chart", window: "Wise Diagnostics", industries: ["IVD与检验", "体检中心", "医院", "互联网医院"] },
+          { title: "智小药 · Wise Pharma", desc: "医学证据、医生服务与患者价值协同中枢，连接证据治理、内容审核、一线支持和患者项目。", visual: "dashboard", window: "Wise Pharma", industries: ["药企", "医疗器械", "临床研究"] },
+          { title: "智小康·企业员工健康与福利智能运营中枢", desc: "连接体检数据、员工档案、群体洞察、重点人群、疾病管理和福利运营。", visual: "network", window: "Wise Workforce", industries: ["大型企业", "健康险", "体检中心"] },
+          { title: "WiseClaw·专业健康领域智能体平台", desc: "医疗健康行业智能体平台，原生适配 WiseDiag 医疗大模型，覆盖构建、分发、管理、使用全流程。", visual: "dashboard", window: "Wise Claw", industries: ["医院", "药企", "IVD", "互联网医院"] }
+        ],
+        highlightsIntro: "医疗智能的价值来自持续运行：统一底座承载专业能力，场景产品连接业务任务，专业人员承担关键判断，运行结果形成可验证的改进闭环。",
+        highlights: [
+          { title: "一套底座支撑多类医疗应用", desc: "模型、知识、数据、智能体、连接和运行治理由全产品线共享，减少重复建设。", proof: "统一能力" },
+          { title: "从单点能力走向持续运行", desc: "信息进入患者档案或临床流程，持续触发评估、任务、人工确认和结果追踪。", proof: "持续运行" },
+          { title: "专业人员始终参与关键节点", desc: "高风险、低置信和复杂判断进入授权人员队列，保留医疗专业边界。", proof: "专业协同" },
+          { title: "适配云端本地与混合交付", desc: "同一产品主干支持SaaS、私有化、一体机、混合部署、API和白标。", proof: "灵活交付" }
+        ],
+        scenarioIntro: "同一产品主干按行业入口、业务角色、数据基础、权限边界与部署方式组合交付，服务药企、IVD、医院、康养、基层县域及大健康等场景。",
+        scenarios: [
+          { label: "公立医院", title: "院内医疗智能一体化", desc: "连接诊前诊中诊后、患者筛选和医院管理。", bullets: ["临床应用共享统一底座", "本地数据与可信运行", "按场景模块化落地"] },
+          { label: "私立医疗与康养", title: "高品质会员健康服务", desc: "将一次就诊延伸为连续、可衡量的会员服务。", bullets: ["统一会员健康档案", "全病程任务和触达", "集团化运营与白标"] },
+          { label: "IVD与检验生态", title: "检验诊断与检后服务", desc: "将报告从一次性交付转化为可持续服务入口。", bullets: ["报告结构化与解释", "复测随访闭环", "检测数据资产沉淀"] },
+          { label: "药企", title: "医学事务与价值证据协同", desc: "连接医学证据、内容治理、一线支持、患者项目和受控研究。", bullets: ["专业内容可追溯", "双端工作台协同", "PV与RWE受控运行"] },
+          { label: "大型企业", title: "员工健康与福利运营", desc: "将年度体检延伸为员工持续健康入口和可复盘的福利服务。", bullets: ["纵向员工健康档案", "重点人群持续服务", "企业员工双端协同"] }
+        ],
+        collabTitle: "共享智能中枢",
+        collab: [
+          { icon: "01", title: "统一能力供给", text: "上层产品共享模型、知识、数据、连接和安全治理能力。" },
+          { icon: "02", title: "场景化智能编排", text: "每个医疗场景配置专用上下文、工具、输出和人审节点。" },
+          { icon: "03", title: "反馈持续回流", text: "应用运行结果进入统一评测与产品改进闭环。" }
+        ],
+        collabWindowTitle: "WiseDiag 运行驾驶舱", collabBannerTitle: "全产品线运行态势", collabBannerText: "统一观察应用、模型、任务与人工接管状态", floating: "关键动作保留来源、版本、确认人与结果写回记录。",
+        access: ["Cloud 云端服务", "Private 私有化", "Nexus One 一体机", "Hybrid 混合架构", "API与白标"],
+        accessCode: "Wise", accessTitle: "按客户边界组合交付", accessText: "产品共享同一能力主干，可按机构的数据位置、算力规模、接口条件和业务优先级拆分成独立小平台。",
+        guarantees: [
+          { icon: "AI", title: "医疗垂类模型", text: "面向病历、报告、风险、知识与场景任务持续适配。" },
+          { icon: "KB", title: "证据与知识治理", text: "知识来源、主张、引用、版本与审核状态全程管理。" },
+          { icon: "DG", title: "数据与运行治理", text: "数据质量、模型版本、工具调用和结果写回均可追溯。" },
+          { icon: "MX", title: "多形态交付", text: "支持SaaS、专有环境、本地一体机、混合部署、API和白标。" }
+        ],
+        ctaTitle: "让医疗智能进入真实业务主链", ctaText: "从一个明确场景开始，形成可验收、可复制、可持续运营的智能产品。", orb: "Wise"
+      },
+      foundation: {
+        eyebrow: "医学智能底座",
+        title: "智多星·医疗智能中枢底座",
+        english: "",
+        lead: "将医疗垂类大模型、医学知识证据、数据治理、智能体编排、运行治理与标准连接汇聚为统一能力中枢，为每一项上层应用提供可调用、可评测、可追溯的医疗智能。",
+        action: "预约底座演示",
+        audiences: ["医院信息与数据中心", "临床与医务管理部门", "药企与IVD数字化团队", "健康科技产品研发团队"],
+        featureIntro: "模型、知识、数据和行动能力围绕业务目标共同设计，运行结果进入同一评测闭环。",
+        features: [
+          { title: "医疗垂类大模型 WiseDiag", desc: "理解病历、报告、医嘱、用药、风险和纵向事件，支持抽取、摘要、推理、生成与工具调用。", visual: "dashboard", window: "医疗语义理解" },
+          { title: "医学知识与证据中枢", desc: "治理指南、文献、机构知识、医学主张、证据引用、版本与审核状态。", visual: "chart", window: "Wise EvidenceHub" },
+          { title: "医疗数据治理底座", desc: "完成OCR、结构化、标准编码、质量核验、数据血缘、专病变量与数据版本管理。", visual: "network", window: "Wise Data Fabric" },
+          { title: "医疗智能体与可信运行", desc: "完成任务规划、检索校验、工具调用、人工确认、审计、成本与运行监测。", visual: "dashboard", window: "AgentOS · TrustGuard" }
+        ],
+        highlightsIntro: "以医疗垂类专业能力为核心，让模型、数据、知识和行动在同一可信环境中协同运行。",
+        highlights: [
+          { title: "面向医疗任务深度适配", desc: "理解病历、报告、医嘱、用药、风险和纵向事件，输出结构贴合真实业务。", proof: "医疗专业" },
+          { title: "数据知识共同支持推理", desc: "患者事实、机构知识和公开医学证据在受控上下文中协同支持模型运行。", proof: "受控上下文" },
+          { title: "从理解生成延伸至行动", desc: "智能体完成检索、校验、工具调用、任务执行和结果持久化。", proof: "行动编排" },
+          { title: "关键运行过程全程可追溯", desc: "模型版本、输入证据、工具调用、人工确认和结果写回形成完整记录。", proof: "可信运行" }
+        ],
+        scenarioIntro: "底座能力可以被独立调用，也可以随智小伴、智小医、智小检、智小药与智小康整体交付。",
+        scenarios: [
+          { label: "模型能力", title: "医疗任务智能引擎", desc: "为不同业务任务提供专用理解、生成与推理能力。", bullets: ["医学语义与时间线理解", "多模态资料抽取", "结构化结果输出"] },
+          { label: "知识能力", title: "机构知识可信运行", desc: "将公共证据与机构知识纳入可引用、可审核上下文。", bullets: ["主张与证据绑定", "知识版本和有效期", "角色化表达"] },
+          { label: "数据能力", title: "非标数据转化与复用", desc: "让病历、报告和文件转化为可持续使用的数据资产。", bullets: ["OCR与事实抽取", "标准编码和质量核验", "专病数据结构重构"] },
+          { label: "连接能力", title: "医疗系统与设备连接", desc: "连接院内系统、患者服务入口、业务平台与健康设备。", bullets: ["HIS/EMR/LIS/PACS", "CRM与互联网医院", "设备、API和消息体系"] }
+        ],
+        collabTitle: "模型—算力—应用协同",
+        collab: [
+          { icon: "AI", title: "模型即临床智能引擎", text: "医疗模型围绕上层任务优化，输出适配真实业务结构。" },
+          { icon: "HW", title: "算力即可信运行底座", text: "云端与本地算力承载不同敏感度和实时性的工作负载。" },
+          { icon: "APP", title: "应用即价值交付界面", text: "能力通过场景应用进入工作流，并持续沉淀效果反馈。" }
+        ],
+        collabWindowTitle: "Wise TrustGuard", collabBannerTitle: "医疗AI运行治理", collabBannerText: "模型、证据、工具调用与人工确认全链路可观察", floating: "高风险、低置信和越界事项自动进入专业人员队列。",
+        access: ["模型API", "知识服务", "数据治理", "智能体编排", "标准连接", "本地运行"],
+        accessCode: "CORE", accessTitle: "能力按需组合，底座统一治理", accessText: "既可向现有系统提供标准能力，也可作为WiseDiag行业应用的统一运行底座，减少重复建设。",
+        guarantees: [
+          { icon: "MC", title: "专业医学语义", text: "覆盖病历、报告、医嘱、用药、风险与纵向事件。" },
+          { icon: "EH", title: "可核验证据", text: "重要医学输出保留知识来源、主张和引用位置。" },
+          { icon: "TG", title: "可信运行治理", text: "模型登记、评测、人审、审计、成本和运行状态统一管理。" },
+          { icon: "CX", title: "开放连接能力", text: "以标准连接适配医院系统、业务平台、设备和第三方服务。" }
+        ],
+        ctaTitle: "构建机构级医疗智能中枢", ctaText: "让模型、知识、数据和智能体在同一安全体系内服务真实业务。", orb: "BASE"
+      },
+      care: {
+        eyebrow: "全病程连续照护",
+        title: "智小伴·全病程连续照护协同中枢",
+        english: "",
+        lead: "围绕患者纵向健康档案，将报告、指标、设备、对话和专业服务持续汇入同一时间线；医疗AI参与理解、分层、计划与任务准备，专业人员处理风险、复杂判断与关键服务。",
+        action: "预约患者管理演示",
+        audiences: ["医疗与互联网医院", "药企患者支持项目", "慢病与专病管理中心", "健康管理与康养机构"],
+        featureIntro: "从一次服务延伸至全病程管理，让患者状态、服务任务和执行结果持续连接。",
+        features: [
+          { title: "统一纵向健康档案", desc: "在患者授权范围内汇聚可用的病历、检查、指标、用药、计划与服务记录，为后续服务提供参考上下文。", visual: "phone", window: "患者健康档案" },
+          { title: "智能健康服务助手", desc: "结合当前问题与既往健康背景，生成解释、建议、任务和下一步服务准备，并主动连接专业人员。", visual: "phone", window: "好伴AI服务" },
+          { title: "可配置的全病程管理", desc: "按疾病、阶段和人群配置评估、分层、计划、提醒、随访、打卡、复查与干预调整。", visual: "dashboard", window: "连续照护计划" },
+          { title: "高效人机协同运营", desc: "AI承担高频服务和任务准备，专业人员处理风险、异常和复杂事项，运营过程可观察、可评价。", visual: "chart", window: "专业服务工作台" }
+        ],
+        highlightsIntro: "把患者体验、医疗模型、运营经验和专业服务工程沉淀为可持续运行的全病程管理能力。",
+        highlights: [
+          { title: "好伴AI患者体验持续沉淀", desc: "自然对话、资料上传、任务提醒、阶段报告与人工入口降低患者使用门槛。", proof: "患者体验" },
+          { title: "结合可用档案理解服务背景", desc: "AI 按授权读取可用健康档案、待核实线索和待办事项，并按配置写回服务结果；最新情况仍需补充确认。", proof: "有状态服务" },
+          { title: "长期患者运营经验产品化", desc: "将用户分层、触达节奏、依从困难、流失信号和人工介入时点转化为服务策略。", proof: "运营沉淀" },
+          { title: "AI与专业人员协同服务", desc: "高频任务由AI准备，风险、异常和临床判断由授权专业人员处理。", proof: "专业接管" }
+        ],
+        scenarioIntro: "以统一健康档案连接不同服务入口，让患者从咨询、就医到院外管理获得连续体验。",
+        scenarios: [
+          { label: "医疗患者服务", title: "把院内诊疗延伸到院外", desc: "整合报告、出院随访、专病管理和复诊提醒。", bullets: ["连接院内服务流程", "提升患者连续体验", "支持医生关键节点参与"] },
+          { label: "互联网医院", title: "从咨询走向就医闭环", desc: "串联咨询、资料上传、就诊准备、处方用药与复诊。", bullets: ["明确问题与健康背景", "诊前诊后使用同一上下文", "支持线上与线下联动"] },
+          { label: "药企患者项目", title: "让患者支持持续可衡量", desc: "承载教育、提醒、依从困难识别、人工服务与项目审计。", bullets: ["按治疗旅程配置任务", "困难和风险及时升级", "服务结果持续写回"] },
+          { label: "慢病与健康中心", title: "指南路径转化为日常行动", desc: "围绕评估、目标、计划、打卡、复测和复盘形成闭环。", bullets: ["专病服务路径配置", "个性化目标和任务", "阶段效果可视化"] }
+        ],
+        collabTitle: "患者服务人机协同",
+        collab: [
+          { icon: "AI", title: "理解、解读、提醒分层", text: "AI读取健康档案和当前任务，准备高频服务与个体化表达。" },
+          { icon: "HCP", title: "异常处置与分级运营", text: "患者风险、异常指标、低置信输出和复杂需求进入人工队列。" },
+          { icon: "REC", title: "诊疗决策与关键节点确认", text: "在需要医疗判断的节点，由授权专业人员确认并形成服务记录。" }
+        ],
+        collabWindowTitle: "智小伴专业工作台", collabBannerTitle: "患者状态已更新", collabBannerText: "AI完成资料解析、风险分层并生成待确认服务任务", floating: "专业人员可查看依据、调整计划并将结果写回患者档案。",
+        access: ["独立入口", "专业品牌", "专病计划", "企业内容", "数据授权", "私有部署"],
+        accessCode: "H5", accessTitle: "快速接入患者服务场景", accessText: "支持H5、小程序、App嵌入、公众号、互联网医院与客户自有入口，患者端可使用“好伴”服务品牌。",
+        guarantees: [
+          { icon: "AI", title: "医疗服务专业能力", text: "把院内、出院随访、专病管理与健康管理连接成连续体验。" },
+          { icon: "ID", title: "医学证据与内容治理", text: "连接指南、说明书、机构知识和可审核内容版本。" },
+          { icon: "RG", title: "风险线索与专业复核", text: "红线、低置信和异常情况进入专业人员队列。" },
+          { icon: "API", title: "开放接入能力", text: "支持HIS、互联网医院、药品库、设备和企业业务系统接入。" }
+        ],
+        ctaTitle: "构建专属患者服务", ctaText: "把患者体验、医疗模型、运营方法与全病程服务工程沉淀为可持续运行的服务能力。", orb: "CARE"
+      },
+      clinical: {
+        eyebrow: "临床智能协作",
+        title: "智小医·医院临床智能应用中枢",
+        english: "",
+        lead: "连接诊前、诊中、诊后、临床人群发现和医疗管理，让医疗AI以专用上下文、工具、输出和人审机制进入医院工作流，并由智多星提供统一的模型、知识、数据、算力与治理。",
+        action: "预约院内方案演示",
+        audiences: ["门诊与临床科室", "医务质控与病案部门", "信息与数据中心", "专科中心与临床研究团队"],
+        featureIntro: "从患者就诊准备到院后管理，让临床记录、质量控制和患者发现共享同一智能底座。",
+        features: [
+          { title: "AI诊前服务 Wise CareEntry", desc: "通过AI预问诊、智能分诊、智能导诊、资料摘要与就诊准备，提升患者信息完整度。", visual: "phone", window: "AI诊前服务" },
+          { title: "临床文书助手 Clinical Scribe", desc: "完成语音记录、医学事实抽取、历史摘要和结构化病历草稿，由医生确认后签署。", visual: "dashboard", window: "临床文书助手" },
+          { title: "病历质量控制 ChartGuard", desc: "在签名前完成完整性、一致性、时限、逻辑、诊疗事实与证据链检查。", visual: "chart", window: "病历质控" },
+          { title: "临床人群智能发现", desc: "识别高危、延迟诊治、随访中断和临床试验高潜患者，输出候选与可核验证据链。", visual: "network", window: "Patient Discovery" }
+        ],
+        highlightsIntro: "模型、算力和院内应用围绕临床任务共同设计，让AI能力进入诊前、诊中、诊后和管理流程。",
+        highlights: [
+          { title: "模型算力应用一体协同", desc: "医疗模型围绕院内任务优化，本地算力承载敏感推理，应用反馈进入统一评测。", proof: "一体协同" },
+          { title: "AI原生嵌入临床工作流", desc: "每个场景配置专用上下文、知识、工具、输出结构和人工确认节点。", proof: "流程原生" },
+          { title: "院内数据知识共同支撑", desc: "HIS、EMR、LIS、PACS、机构知识和患者时间线共同支持模型运行。", proof: "院内协同" },
+          { title: "多项应用共享同一底座", desc: "预问诊、病历、质控、随访和患者筛选共享身份、连接、安全与治理能力。", proof: "能力复用" }
+        ],
+        scenarioIntro: "以模块化方式切入一个明确工作流，再复用底座能力扩展到更多院内场景。",
+        scenarios: [
+          { label: "诊前", title: "让患者带着完整信息就诊", desc: "连接预约、导诊、预问诊和既往资料摘要。", bullets: ["AI预问诊和信息补齐", "智能分诊与导诊", "就诊准备任务"] },
+          { label: "诊中", title: "让记录与质控同步发生", desc: "医生工作过程中完成文书准备和签名前质量检查。", bullets: ["语音与事实抽取", "结构化病历草稿", "证据定位与医生确认"] },
+          { label: "诊后", title: "让报告触发后续服务", desc: "连接报告解读、风险分流、复查和院后随访。", bullets: ["患者分层解释", "复查和随访任务", "异常人工升级"] },
+          { label: "患者发现", title: "让需要服务的人群被及时看见", desc: "基于多源院内数据识别高风险和未完成诊疗患者。", bullets: ["候选人群和风险分层", "证据链与缺失信息", "人工确认后触发服务"] }
+        ],
+        collabTitle: "临床工作流人机协同",
+        collab: [
+          { icon: "AI", title: "AI完成资料理解与任务准备", text: "在专用上下文中完成抽取、摘要、生成、校验和候选筛选。" },
+          { icon: "MD", title: "医生保留临床判断与签名权", text: "病历、诊疗建议和关键临床动作均由授权人员确认。" },
+          { icon: "QA", title: "管理部门获得过程证据", text: "缺陷、整改、证据来源和处理结果形成可追溯闭环。" }
+        ],
+        collabWindowTitle: "智小医院内工作台", collabBannerTitle: "诊疗任务智能协同", collabBannerText: "AI已准备病历摘要、质控线索与候选患者清单", floating: "候选与建议均保留依据，最终诊断、治疗和联系动作由医院人员完成。",
+        access: ["HIS", "EMR", "LIS/PACS", "医生工作站", "互联网医院", "临试系统"],
+        accessCode: "HIS", accessTitle: "进入现有系统和临床流程", accessText: "支持嵌入医生工作站、移动查房、门诊入口与管理驾驶舱，也可按场景提供独立轻应用。",
+        guarantees: [
+          { icon: "AI", title: "AI原生临床工作流", text: "每个场景配置专用上下文、知识、工具、输出与人审节点。" },
+          { icon: "EV", title: "院内数据与知识协同", text: "HIS、EMR、LIS、PACS与机构知识共同支持模型运行。" },
+          { icon: "LO", title: "本地可信运行", text: "敏感数据、模型、算力、审计与出域控制可在院内承载。" },
+          { icon: "ONE", title: "多应用共享底座", text: "预问诊、病历、质控、随访与患者筛选共享统一能力。" }
+        ],
+        ctaTitle: "从一个临床场景开始", ctaText: "选择可衡量、可嵌入、可复制的工作流，让医疗智能形成真实业务结果。", orb: "CLIN"
+      },
+      diagnostics: {
+        eyebrow: "检验与报告服务",
+        title: "智小检·检验诊断智能与检后服务中枢",
+        english: "",
+        lead: "连接设备、LIS、报告与患者服务，将检测数据转化为标准化指标、分层解释、复测随访和可持续积累的诊断数据资产。",
+        action: "预约检验方案演示",
+        audiences: ["IVD与医疗器械企业", "第三方医学检验机构", "医院检验科与专科中心", "体检与健康管理机构"],
+        featureIntro: "让每一份检验结果具备可理解、可行动、可追踪的后续服务能力。",
+        features: [
+          { title: "检测数据连接与标准化", desc: "连接设备、LIS、报告与OCR，完成指标归一、参考区间处理、单位换算和来源追溯。", visual: "network", window: "Diagnostic DataBridge" },
+          { title: "报告智能 Report Intelligence", desc: "完成报告识别、结构化，以及面向患者、客服和医生的分层解释与人工复核。", visual: "phone", window: "报告智能解读" },
+          { title: "检后服务闭环 Wise InsightLoop", desc: "围绕复测、随访、患者教育、风险分流和人工服务形成结果回写闭环。", visual: "dashboard", window: "检后服务中心" },
+          { title: "检验知识与数据分析", desc: "支持检验知识问答、专业培训、产品知识治理、检测队列和服务结果分析。", visual: "chart", window: "Diagnostic Analytics" }
+        ],
+        highlightsIntro: "让检测数据从一次性结果升级为可理解、可行动、可复用的诊断服务与数据资产。",
+        highlights: [
+          { title: "多源检测数据统一标准", desc: "设备、LIS、报告和OCR数据完成指标归一、单位处理、参考区间与来源追溯。", proof: "数据标准" },
+          { title: "面向不同角色分层解释", desc: "患者、客服和医生获得不同深度的医学表达，并保留专业风险边界。", proof: "分层解释" },
+          { title: "检验结果触发后续行动", desc: "异常结果连接复测、随访、教育、风险分流、人工服务和结果回写。", proof: "检后闭环" },
+          { title: "检验知识持续沉淀复用", desc: "产品知识、专业培训、问答内容和服务数据进入统一治理与评测体系。", proof: "知识资产" }
+        ],
+        scenarioIntro: "以报告为服务入口，覆盖机构、专业人员、客服与患者的不同解释深度和行动路径。",
+        scenarios: [
+          { label: "IVD企业", title: "产品连接智能服务", desc: "为检测产品提供可嵌入、可白标的报告智能与患者服务。", bullets: ["产品知识和说明治理", "报告量级API服务", "服务效果分析"] },
+          { label: "检验机构", title: "从结果交付到检后运营", desc: "围绕异常结果、复测计划和服务任务建立持续连接。", bullets: ["报告自动结构化", "风险分层和人工接管", "复测转化跟踪"] },
+          { label: "医院检验科", title: "专业解释与临床协同", desc: "为医生和患者提供分层内容，并保留检验专业边界。", bullets: ["检验知识问答", "结果趋势与参考区间", "临床沟通辅助"] },
+          { label: "体检机构", title: "让体检报告触发行动", desc: "将异常指标转化为复查、专科就诊与长期跟踪任务。", bullets: ["多报告汇总解释", "风险提示和转诊", "年度健康趋势"] }
+        ],
+        collabTitle: "检验服务人机协同",
+        collab: [
+          { icon: "OCR", title: "AI完成高频资料处理", text: "批量识别报告、归一指标、生成分层解释与服务任务。" },
+          { icon: "LAB", title: "检验专业人员处理复杂结果", text: "边界结果、罕见组合和低置信内容进入专业复核。" },
+          { icon: "OPS", title: "客服与健管团队承接服务", text: "围绕复测、复查、教育和随访任务执行患者服务。" }
+        ],
+        collabWindowTitle: "智小检服务工作台", collabBannerTitle: "检测结果已完成智能分层", collabBannerText: "报告结构化、风险提示和复测任务已生成", floating: "专业边界与人工复核状态同步展示，避免解释越界。",
+        access: ["设备连接", "LIS接口", "报告OCR", "报告API", "白标患者端", "私有部署"],
+        accessCode: "LIS", accessTitle: "嵌入现有检测交付链路", accessText: "可通过API、白标页面、机构工作台或私有化方式接入，不改变既有设备和LIS主流程。",
+        guarantees: [
+          { icon: "STD", title: "检测数据标准化", text: "指标、单位、参考区间和来源形成可追溯数据基础。" },
+          { icon: "MED", title: "分层医学解释", text: "按患者、客服和医生角色提供不同深度的专业表达。" },
+          { icon: "RISK", title: "风险边界与复核", text: "异常和低置信输出进入检验专业人员确认路径。" },
+          { icon: "LOOP", title: "检后行动闭环", text: "复测、随访、教育与服务结果持续回写患者档案。" }
+        ],
+        ctaTitle: "让检测结果产生持续价值", ctaText: "从一类报告或一项检测产品开始，构建可复制的报告智能与检后服务。", orb: "DX"
+      },
+      pharma: {
+        eyebrow: "药企专业服务",
+        title: "智小药·医学事务与价值证据协同平台",
+        english: "",
+        lead: "面向医学事务、医学信息、Field Medical、医学市场、销售一线、患者项目、RWE、药物警戒与合规团队，以一个产品体系连接桌面专业工作台与一线移动工作台。",
+        action: "预约药企方案演示",
+        audiences: ["医学事务与医学信息团队", "Field Medical与销售一线", "患者支持与药物警戒团队", "RWE、合规与数字化团队"],
+        featureIntro: "一个产品体系提供两个工作入口，让专业团队治理医学资产，让一线团队受控调用并回流现场信息。",
+        features: [
+          { title: "医学事务桌面工作台", desc: "供医学事务、医学信息、医学市场、RWE、合规与PV团队治理证据、内容、规则、审核、发布和撤回。", visual: "dashboard", window: "Medical Affairs Workspace" },
+          { title: "智小药一线移动工作台", desc: "向MSL与销售一线提供访前简报、获准资料、受控问答、会后记录、任务协同和问题回流。", visual: "phone", window: "Field Workspace" },
+          { title: "医学证据与内容治理", desc: "从获准文献、指南、说明书和产品知识形成证据包、内容草稿、主张核验、审核状态与版本资产。", visual: "chart", window: "EvidenceHub · Content Studio" },
+          { title: "患者支持、PV与RWE协同", desc: "按独立权限组织治疗旅程、用药持续性、药物警戒线索和真实世界研究任务。", visual: "network", window: "Patient Value Workspace" }
+        ],
+        highlightsIntro: "以经治理的医学证据为共同基础，让专业生产、受控调用、现场反馈和资产更新在同一产品中运行。",
+        highlights: [
+          { title: "证据约束医学内容生成", desc: "WiseDiag基于获准证据准备摘要与草稿，智多星记录引用、适用范围、版本和审核状态。", proof: "证据约束" },
+          { title: "医学内容工作链可编排", desc: "需求拆解、证据检索、内容草拟、主张核验、医学审核、发布和归档沿统一流程运行。", proof: "内容编排" },
+          { title: "专业与一线双端协同", desc: "专业团队发布受控医学资产，一线通过移动端调用并回流问题，专业人员继续处置。", proof: "双端协同" },
+          { title: "医学资产持续沉淀复用", desc: "证据包、内容模板、服务路径、项目规则和分析口径形成受控的版本化资产。", proof: "资产复用" }
+        ],
+        scenarioIntro: "围绕具体产品、疾病领域或患者项目选择模块，按角色、用途、内容状态与有效期隔离权限。",
+        scenarios: [
+          { label: "医学事务与医学信息", title: "证据生产与内容治理", desc: "将证据、主张、医学问询、内容审核和正式版本纳入统一专业工作台。", bullets: ["证据卡与引用定位", "内容草拟与主张核验", "版本发布与撤回"] },
+          { label: "Field Medical与销售一线", title: "受控的一线医学支持", desc: "通过移动工作台完成访前准备、获准资料调用、受控问答、会后记录和反馈。", bullets: ["按产品与区域授权", "现场问题及时回流", "过期内容停止展示"] },
+          { label: "患者支持与PV", title: "治疗旅程与安全线索协同", desc: "连接患者教育、阶段随访、依从困难、人工接管与药物警戒线索流转。", bullets: ["项目入组与退出", "分层任务和人工服务", "AE与投诉候选升级"] },
+          { label: "RWE与数字化", title: "受控的研究协同", desc: "围绕明确研究项目组织数据字典、EDC、队列、质控和分析准备。", bullets: ["研究方案与变量", "数据质量与授权", "队列和受控分析"] }
+        ],
+        collabTitle: "专业发布与一线调用协同",
+        collab: [
+          { icon: "MA", title: "专业团队生产并发布", text: "医学事务、医学信息与合规团队治理证据、内容、规则和正式版本。" },
+          { icon: "FIELD", title: "一线团队受控调用并反馈", text: "移动端只展示与产品、区域、用途和有效期匹配的获准内容。" },
+          { icon: "PV", title: "专业流程接管边界事项", text: "无依据、个体诊疗、超说明书、不良事件与投诉问题进入医学或PV流程。" }
+        ],
+        collabWindowTitle: "智小药双端协同工作台", collabBannerTitle: "获准内容与现场问题已同步", collabBannerText: "专业端完成审核发布，一线端按权限调用并回流任务", floating: "内容撤回或过期后移动端同步停止展示，边界问题进入专业处置队列。",
+        access: ["专业桌面端", "一线移动端", "企业身份", "内容系统", "PV流程", "Cloud/Private/Hybrid"],
+        accessCode: "RX", accessTitle: "一个产品体系，两个工作入口", accessText: "从EvidenceHub、Content Studio、HCP Copilot或Field Workspace的一条高频工作链切入，再按项目扩展患者支持、PV和RWE模块。",
+        guarantees: [
+          { icon: "EV", title: "证据版本可追溯", text: "医学主张、引用位置、适用范围、审核状态和有效期保持绑定。" },
+          { icon: "ROLE", title: "多角色权限隔离", text: "医学、Field Medical、销售、患者服务、PV、研究和合规分别授权。" },
+          { icon: "MOB", title: "移动内容受控调用", text: "一线移动端不自行生成未经审核的对外医学结论。" },
+          { icon: "PV", title: "安全线索专业流转", text: "潜在不良事件和产品投诉保留原文并进入既有专业流程。" }
+        ],
+        ctaTitle: "从一条可验收的医学工作链开始", ctaText: "选择一个产品或疾病领域，先验证专业工作台，再以受控移动入口连接一线协同。", orb: "RX"
+      },
+      workforce: {
+        eyebrow: "员工健康福利",
+        title: "智小康·企业员工健康与福利智能运营中枢",
+        english: "",
+        lead: "面向大型企业管理层、人力资源、工会、福利、健康与职业健康部门，以年度体检和员工授权健康资料为入口，连接个人健康服务、重点人群连续管理、群体洞察与年度福利运营。",
+        action: "预约企业健康方案演示",
+        audiences: ["大型企业管理层", "人力资源、工会与福利部门", "健康与职业健康团队", "信息化与数据安全团队"],
+        featureIntro: "让年度体检进入持续运行：员工获得个人服务入口，企业获得聚合洞察与受控运营视图。",
+        features: [
+          { title: "员工健康数据与纵向档案", desc: "接入多机构体检、报告、设备和员工上传资料，完成身份关联、标准化、质量治理与历年健康时间线。", visual: "network", window: "Workforce DataHub · Profile" },
+          { title: "群体洞察与重点人群分层", desc: "按组织、人群、年度和疾病主题观察健康线索，形成待核实、待服务和重点管理候选。", visual: "chart", window: "Workforce Insight" },
+          { title: "疾病连续管理与员工门户", desc: "围绕复测、咨询、转诊、随访、资料补充和结果写回组织任务，员工自主完成授权与反馈。", visual: "phone", window: "DiseaseLoop · Member Portal" },
+          { title: "福利资源与运营评估", desc: "连接体检、保险、健康服务和福利资源，形成健康问题账、服务执行账和资源投入账。", visual: "dashboard", window: "Benefit Intelligence" }
+        ],
+        highlightsIntro: "智小康以员工授权为前提，将健康数据、群体洞察、服务任务和福利运营组织为可持续运行的企业健康产品。",
+        highlights: [
+          { title: "历年健康资料形成纵向档案", desc: "体检、复查、员工上传和授权服务记录关联到同一时间线，保留来源、时间和核验状态。", proof: "纵向档案" },
+          { title: "群体洞察进入具体服务行动", desc: "疾病主题线索转化为有对象、原因、责任人、期限、状态与结果的受控任务。", proof: "洞察行动" },
+          { title: "员工端与企业端各司其职", desc: "员工端承接授权、报告和任务，企业端查看聚合洞察与受控服务队列。", proof: "双端协同" },
+          { title: "医疗智能与专业服务协同", desc: "模型与智能体准备资料和任务建议，专业人员处理医学判断与异常，过程全程留痕。", proof: "可信运营" }
+        ],
+        scenarioIntro: "从年度体检和一个疾病主题切入，先验证数据、授权、任务与结果写回，再扩展组织、主题和福利资源。",
+        scenarios: [
+          { label: "年度体检延伸", title: "从一次报告到持续服务", desc: "将多机构体检结果转化为员工可理解、可确认、可持续跟进的健康任务。", bullets: ["体检数据治理", "员工报告查看", "复测与服务承接"] },
+          { label: "重点人群管理", title: "让群体洞察进入行动队列", desc: "按明确规则形成待核实与待服务候选，由授权人员确认后进入服务流程。", bullets: ["疾病主题筛选", "证据与缺失信息", "人工确认和分派"] },
+          { label: "疾病连续管理", title: "围绕问题组织管理周期", desc: "连接复测、咨询、转诊、随访、资料补充、异常升级和结果回写。", bullets: ["个体化服务任务", "员工自主反馈", "专业人员接管"] },
+          { label: "福利运营复盘", title: "统一健康、服务与投入视图", desc: "以聚合或去标识结果支持组织复盘、资源配置和年度服务设计。", bullets: ["健康问题账", "服务执行账", "资源投入账"] }
+        ],
+        collabTitle: "员工服务与企业运营协同",
+        collab: [
+          { icon: "AI", title: "AI准备健康信息与行动任务", text: "整理体检资料、识别待核实线索、准备报告解释和后续服务任务。" },
+          { icon: "HCP", title: "专业人员处理医学与异常事项", text: "医学判断、急症、高风险复查和职业健康结论由具备资质的机构与人员负责。" },
+          { icon: "ORG", title: "企业管理使用聚合运营视图", text: "管理端原则上查看聚合或去标识结果，不将个体健康信息用于用工决定。" }
+        ],
+        collabWindowTitle: "智小康企业健康运营台", collabBannerTitle: "员工健康任务已进入服务队列", collabBannerText: "数据治理、授权核验、重点人群分层与专业接管状态统一展示", floating: "员工个体服务与企业管理视图相互隔离，访问、分派和状态变化保留审计。",
+        access: ["体检数据", "员工服务门户", "企业身份系统", "健康服务资源", "Wise Nexus", "Cloud/Private/Hybrid"],
+        accessCode: "WF", accessTitle: "从一个组织与一个疾病主题启动", accessText: "首期连接一个主要体检数据源，验证身份关联、员工授权、行动任务、专业接管、结果写回和指标一致性。",
+        guarantees: [
+          { icon: "AUTH", title: "员工知情与授权", text: "围绕项目范围管理告知、授权、撤回、最小字段和服务用途。" },
+          { icon: "SEP", title: "个人与管理视图隔离", text: "企业管理层原则上只查看聚合或去标识结果。" },
+          { icon: "MED", title: "医学事项专业确认", text: "系统不直接形成诊断、治疗、职业病认定或用工决定。" },
+          { icon: "AUD", title: "运行过程可追溯", text: "数据来源、权限访问、任务分派、人工接管和结果写回保留记录。" }
+        ],
+        ctaTitle: "让年度体检进入持续健康运营", ctaText: "从一个企业、一个组织单元、一个体检数据源和一个疾病主题开始验证。", orb: "WF"
+      },
+      wiseclaw: {
+        eyebrow: "医疗智能体平台",
+        title: "WiseClaw·专业健康领域智能体平台",
+        english: "",
+        lead: "WiseClaw 是面向医疗健康行业的智能体平台，适配 WiseDiag 医疗大模型，支持机构结合授权数据构建、分发、管理和使用智能体。智能体上线需完成配置、测试与审核；安全与合规要求按具体项目评估，实际诊断与治疗由具备资质的专业人员负责。",
+        action: "申请场景试搭",
+        audiences: ["医院与体检中心", "药企与互联网医院", "运营与医生团队", "信息化与数字化团队"],
+        featureIntro: "从行业模板和机构资料出发，将智能体构建、测试、审核与运行管理衔接起来，逐步验证业务场景。",
+        features: [
+          { title: "医疗原生 Skill 驱动", desc: "提供预设 Skill 与技能市场，支持用自然语言描述需求、创建自建 Skill 草稿，再经配置、测试与审核后发布。像应用商店一样管理医疗 AI 能力。", visual: "dashboard", window: "WiseClaw SkillHub" },
+          { title: "企业级 Workspace 隔离", desc: "通过多租户工作空间管理数据、记忆与访问权限。隔离策略需结合部署架构验证；涉及专有环境或物理隔离的需求，按项目评估与约定。", visual: "network", window: "Workspace" },
+          { title: "数据与工具按需连接", desc: "通过医疗 MCP 对接授权业务数据与兼容的 IoT 设备。静态知识、动态数据及实时数据流的接入范围，需结合接口条件、权限与项目配置验证。", visual: "network", window: "Medical MCP" },
+          { title: "业务团队参与构建与更新", desc: "通过向导描述业务需求，运营与医生团队可创建 Skill 或 Agent 草稿；经配置、测试与审核后发布，后续更新沿相同流程验证。", visual: "phone", window: "Agent Builder" }
+        ],
+        highlightsIntro: "从行业模板起步，在可审核的专业知识基础上，让智能体融入真实业务渠道，并由团队协同交付。",
+        highlights: [
+          { title: "快速构建", desc: "场景化AI智能体基于报告解读、用药问答、导诊问诊、复诊提醒等行业模板，快速生成可验证的服务入口。", proof: "行业模板" },
+          { title: "专业开发", desc: "提供医学知识库及预设插件、技能，支持接入机构知识库、FAQ、SOP 和产品资料。通过资料维护、测试与审核，为回答提供可核查的知识基础，不保证所有输出均准确或完整。", proof: "可审核知识" },
+          { title: "开放连接", desc: "支持 API、网页、公众号、企微、智能硬件等渠道接入，具体适配范围与接入条件按项目确认。", proof: "多渠道接入" },
+          { title: "团队协作", desc: "支持团队成员共同参与智能体设计、测试与优化，按项目明确审核责任与验收标准，协同推进交付。", proof: "协同交付" }
+        ],
+        scenarioIntro: "围绕医疗健康服务中的资料说明、提醒与沟通准备搭建智能体，具体功能按项目验证，涉及诊疗的问题由专业人员处理。",
+        scenarios: [
+          { label: "医美机构", title: "医美项目咨询助手", desc: "依据机构审核资料介绍医美项目与注意事项，整理术前沟通问题；个体适用性、效果预期与术前评估由专业人员确认。", bullets: ["项目介绍与禁忌整理成可复用问答", "咨询中识别敏感问题并提示联系机构确认"] },
+          { label: "居家健康", title: "术后护理与居家用药咨询助手", desc: "围绕术后康复与居家用药场景，提供注意事项、复诊提醒与人工升级入口。", bullets: ["术后护理知识与用药信息问答", "异常情况升级人工服务"] },
+          { label: "慢病管理", title: "慢病用药AI管家", desc: "面向慢病人群，依据专业人员确认的用药计划提供提醒与记录支持，不自行调整药物、剂量或疗程。", bullets: ["用药提醒与依从管理", "复诊复查任务"] },
+          { label: "保险与消费健康", title: "保险条款与营养解读助手", desc: "面向保险客户与健康消费者，解读条款、报告与营养方案。", bullets: ["保险条款AI解读", "AI报告解读与AI营养师"] }
+        ],
+        collabTitle: "常见问题",
+        collab: [
+          { icon: "Q1", title: "WiseClaw 适合一开始就做大项目吗？", text: "更建议先选一个服务入口试跑，跑通知识、边界和数据复盘后，再进入更完整的项目。" },
+          { icon: "Q2", title: "医疗问题回答如何控制风险？", text: "通过可审核资料、禁答规则、测试记录，把上线前确认动作前置。" },
+          { icon: "Q3", title: "能否接入客户已有系统和渠道？", text: "可以按项目评估 API、网页、公众号、企微、院内入口和硬件设备等接入方式。" }
+        ],
+        collabWindowTitle: "WiseClaw 控制台", collabBannerTitle: "智能体已上线", collabBannerText: "Skill 市场、构建向导、审核规则与渠道分发统一管理", floating: "上线前确认动作前置：可审核资料、禁答规则与测试记录。",
+        access: ["体验版试用", "API 接入", "网页嵌入", "公众号", "企业微信", "智能硬件"],
+        accessCode: "CLAW", accessTitle: "先选一个服务入口试跑", accessText: "申请 WiseClaw 场景试搭，选一个具体入口，先完成模板、资料、边界和渠道验证。",
+        guarantees: [
+          { icon: "SK", title: "医疗原生 Skill", text: "通过预设技能、技能市场与自然语言草稿构建能力，完成配置、测试与审核后发布。" },
+          { icon: "WS", title: "Workspace 隔离", text: "按工作空间管理数据、记忆与权限；专有环境及物理隔离需求按项目评估。" },
+          { icon: "MCP", title: "医疗 MCP 连接", text: "通过 MCP 对接兼容数据与工具，具体接入范围按接口条件和项目配置确认。" },
+          { icon: "BD", title: "业务自驱", text: "运营与医生团队可用自然语言创建 Agent 草稿，经配置、测试与审核后发布。" }
+        ],
+        ctaTitle: "申请 WiseClaw 场景试搭", ctaText: "先选一个真实服务入口，把资料、边界和渠道接入跑起来。", orb: "CLAW"
+      },
+      nexus: {
+        eyebrow: "安全部署体系",
+        title: "医疗智能安全部署与模智算存一体化交付体系",
+        english: "",
+        lead: "以统一产品主干支持云端服务、专有环境、本地医疗智能一体机与混合架构，让数据位置、模型运行、算力资源、系统连接和出域控制适配不同机构边界。",
+        action: "预约部署评估",
+        audiences: ["单科室与专科中心", "多科室与院级平台", "医疗集团与区域平台", "高敏感行业客户"],
+        featureIntro: "本地存储、云端存储、本地运算与云端运算可以按数据敏感度和任务类型灵活组合。",
+        features: [
+          { title: "Wise Cloud 云端服务", desc: "适合标准SaaS、医学知识更新、公共文献检索和弹性智能服务，快速开通并持续升级。", visual: "network", window: "Wise Cloud" },
+          { title: "Wise Private 专有环境", desc: "在客户专有云或指定环境中部署数据、应用、知识与模型服务，满足组织级隔离。", visual: "dashboard", window: "Wise Private" },
+          { title: "Wise Nexus One 医疗智能一体机", desc: "将模型、算力、存储、编排与治理集成为本地设备，承载OCR、资料处理和敏感推理任务。", visual: "chart", window: "Nexus One" },
+          { title: "Wise Hybrid 混合智能架构", desc: "本地处理敏感数据和高频任务，云端承载知识更新、弹性能力和授权的数据交换。", visual: "network", window: "Wise Hybrid" }
+        ],
+        highlightsIntro: "围绕数据位置、任务负载和机构边界，提供从单科室到全院的可信医疗智能运行空间。",
+        highlights: [
+          { title: "敏感数据与推理本地可控", desc: "数据、文件、索引和敏感模型任务可在客户环境内存储、处理和审计。", proof: "本地安全" },
+          { title: "本地能力与云端弹性协同", desc: "本地承担高频敏感任务，云端提供文献、知识更新和弹性智能服务。", proof: "云边协同" },
+          { title: "模智算存形成一体交付", desc: "模型、智能体、算力、存储、连接和运行治理在同一体系完成部署。", proof: "一体交付" },
+          { title: "从科室节点扩展至全院", desc: "支持单科室、多科室共享和院级平台的容量规划、资源调度与持续运维。", proof: "弹性扩展" }
+        ],
+        scenarioIntro: "部署方式随医院规模、科室数量、任务负载、数据敏感度和系统连接条件共同确定。",
+        scenarios: [
+          { label: "单科室", title: "轻量本地智能节点", desc: "承载OCR、文档处理、专病知识和基础模型任务。", bullets: ["小场景快速落地", "本地数据存储", "云端知识与文献能力"] },
+          { label: "3—5个科室", title: "共享算力与应用平台", desc: "多个场景共享模型、知识、数据和运行治理能力。", bullets: ["统一资源调度", "多场景权限隔离", "共享连接与运维"] },
+          { label: "全院", title: "院级医疗智能基础设施", desc: "形成统一模型服务、数据治理、智能体与应用接入体系。", bullets: ["高可用与容量规划", "统一评测和审计", "院级应用目录"] },
+          { label: "混合架构", title: "本地安全与云端能力协同", desc: "按任务类型决定数据和计算位置，保持可控交换。", bullets: ["敏感数据不出域", "云端知识持续更新", "策略化任务路由"] }
+        ],
+        collabTitle: "云边端智能协同",
+        collab: [
+          { icon: "EDGE", title: "本地承担敏感与高频任务", text: "OCR、数据治理、院内资料处理和敏感推理在本地完成。" },
+          { icon: "CLOUD", title: "云端提供弹性与持续更新", text: "文献检索、公共知识、复杂能力和更新服务由云端承载。" },
+          { icon: "POL", title: "策略决定数据与计算位置", text: "按机构规则、任务类型和授权状态自动选择运行路径。" }
+        ],
+        collabWindowTitle: "Wise Nexus Control", collabBannerTitle: "本地与云端运行状态", collabBannerText: "统一观察算力、模型、存储、任务路由与数据交换", floating: "跨域调用按项目配置执行授权与审计策略，记录范围和保存要求在部署时确认。",
+        access: ["Cloud", "Private", "Nexus One", "Hybrid", "API Gateway", "本地对象存储"],
+        accessCode: "NEX", accessTitle: "按机构规模完成容量与部署设计", accessText: "结合并发、OCR量、文档量、模型规模、token吞吐与可用性要求，形成单科室、多科室或全院配置。",
+        guarantees: [
+          { icon: "LOC", title: "本地数据控制", text: "数据、文件、索引和敏感推理可在客户环境内完整承载。" },
+          { icon: "OPS", title: "统一运行运维", text: "算力、模型、存储、任务、评测和审计在同一体系管理。" },
+          { icon: "SEC", title: "策略化出域控制", text: "云端调用和数据交换遵循授权、脱敏、最小必要和审计策略。" },
+          { icon: "SCL", title: "弹性扩展能力", text: "从单科室节点平滑扩展至多科室共享和全院级平台。" }
+        ],
+        ctaTitle: "为医疗智能配置可信运行空间", ctaText: "根据业务场景、数据边界和容量需求，评估最合适的云端、本地或混合架构。", orb: "NEXUS"
+      }
+    };
+
+    const productBlueprints = {
+      overview: {
+        intro: "智多星提供共享底座，五个应用产品分别面向不同业务场景；WiseClaw 是智能体构建与管理平台，不计入五个应用产品。各层按项目组合，复用模型、知识、数据、连接与运行治理能力。",
+        groups: [{
+          title: "共享医疗智能底座", code: "WISE FOUNDATION",
+          items: [
+            { code: "Wise Foundation", title: "智多星·医疗智能中枢底座", desc: "统一承载医疗模型、医学知识、医疗数据、智能体编排、标准连接和可信运行治理。" }
+          ]
+        }, {
+          title: "五个应用产品", code: "FIVE BUSINESS PRODUCTS",
+          items: [
+            { code: "Wise Care", title: "智小伴·全病程连续照护协同中枢", desc: "围绕纵向患者状态组织评估、计划、任务、随访、风险与专业协同。" },
+            { code: "Wise Clinical", title: "智小医·医院临床智能应用中枢", desc: "覆盖实体医院与互联网医院的诊前、诊中、诊后、人群发现和医疗运营。" },
+            { code: "Wise Diagnostics", title: "智小检·检验诊断智能与检后服务中枢", desc: "连接检测数据、报告智能、风险分流、检后服务和诊断数据分析。" },
+            { code: "Wise Pharma", title: "智小药·医学事务与价值证据协同平台", desc: "连接专业工作台、一线移动工作台、患者项目、PV衔接和受控研究。" },
+            { code: "Wise Workforce", title: "智小康·企业员工健康与福利智能运营中枢", desc: "连接体检数据、员工档案、群体洞察、疾病管理和福利运营。" }
+          ]
+        }, {
+          title: "智能体构建与管理平台", code: "WiseClaw",
+          items: [
+            { code: "Wise Claw", title: "WiseClaw·专业健康领域智能体平台", desc: "独立于五个应用产品，支持基于授权数据构建和管理智能体，经配置、测试与审核后发布。" }
+          ]
+        }, {
+          title: "医疗智能安全部署", code: "WISE NEXUS STACK",
+          items: [
+            { code: "Wise Nexus Stack", title: "医疗智能安全部署体系", desc: "支持 Cloud、Private、Nexus One 和 Hybrid 四类部署形态。" }
+          ]
+        }]
+      },
+      foundation: {
+        intro: "智多星通过六项标准组件组织共享能力，并按任务风险采用确定性、复杂任务和影子验证三类运行方式。",
+        groups: [
+          {
+            title: "六项标准组件", code: "WISE FOUNDATION CORE",
+            items: [
+              { code: "WiseDiag MedCore", title: "医疗垂类大模型", desc: "医学语义理解、生成、抽取、摘要、推理、工具调用和场景适配。" },
+              { code: "Wise EvidenceHub", title: "医学知识与证据中枢", desc: "治理指南、文献、机构知识、医学主张、引用、版本与审核状态。" },
+              { code: "Wise AgentOS", title: "医疗智能体编排系统", desc: "组织 Skill、Tool、Workflow、模型适配、任务规划、会话和结果持久化。" },
+              { code: "Wise Data Fabric", title: "医疗数据治理底座", desc: "完成 OCR、结构化、标准编码、质量、血缘、专病变量和数据版本管理。" },
+              { code: "Wise TrustGuard", title: "医疗AI运行治理", desc: "管理红线、评测、模型登记、人审、审计、成本和运行监测。" },
+              { code: "Wise Connect", title: "医疗标准连接体系", desc: "连接 HIS、EMR、LIS、PACS、互联网医院、CRM、设备和标准接口。" }
+            ]
+          },
+          {
+            title: "分级运行模式", code: "RISK-BASED OPERATION",
+            items: [
+              { code: "Deterministic", title: "生产确定性模式", desc: "患者状态、风险升级、随访任务、病历签署和结果写回使用固定权限、人审与业务审计。" },
+              { code: "Complex Tasks", title: "复杂任务模式", desc: "证据综合、知识整理和方案草稿在隔离环境中以短时最小权限运行。" },
+              { code: "Shadow Validation", title: "影子验证模式", desc: "新模型、新工具和新流程与现有流程并行回放，未达到门槛不进入生产。" }
+            ]
+          }
+        ]
+      },
+      care: {
+        intro: "智小伴由十个可组合功能模块构成，共享同一纵向患者状态和照护运行机制。客户可以从一个业务场景切入，再沿同一产品主干扩展。",
+        groups: [
+          {
+            title: "患者进入与档案", code: "INTAKE · PROFILE",
+            items: [
+              { code: "Wise Care Intake", title: "患者入组建档模块", desc: "身份、授权、建档、入组表单、资料上传和初始评估。" },
+              { code: "Wise Care Profile", title: "纵向健康档案模块", desc: "健康事实、报告、指标、用药、风险、时间线和健康快照。" }
+            ]
+          },
+          {
+            title: "评估与计划", code: "ASSESSMENT · PLAN",
+            items: [
+              { code: "Wise Care Assessment", title: "健康评估与专病分层模块", desc: "量表、专病评估、阶段识别、风险分层和人工核验。" },
+              { code: "Wise Care Plan", title: "个体化照护计划模块", desc: "目标、任务、频次、内容、复查、调整条件和计划版本。" }
+            ]
+          },
+          {
+            title: "持续服务与专业协同", code: "FOLLOW-UP · RISK · OPERATIONS",
+            items: [
+              { code: "Wise Care FollowUp", title: "AI智能随访模块", desc: "随访问卷、对话随访、记录草稿、失败重试和结果写回。" },
+              { code: "Wise Care TaskFlow", title: "患者任务与依从管理模块", desc: "提醒、打卡、用药与复查任务、逾期识别、召回与追踪。" },
+              { code: "Wise Care RiskHub", title: "风险预警与人工接管模块", desc: "识别风险、低置信和越界事项，进入升级队列、SLA与处置记录。" },
+              { code: "Wise Care Workbench", title: "多角色照护协同模块", desc: "患者列表、任务队列、角色分工、转派、服务记录和交接。" },
+              { code: "Wise Care Engagement", title: "患者触达与健康教育模块", desc: "消息、内容、服务卡、分层触达、患者教育和退订管理。" },
+              { code: "Wise Care Operations", title: "患者服务运营管理模块", desc: "观察激活、分层、任务、风险、人工投入、服务结果和项目运营。" }
+            ]
+          }
+        ]
+      },
+      clinical: {
+        intro: "智小医将实体医院与互联网医院能力组织为可按需组合的场景模块，由智多星统一提供模型、知识、数据、算力和可信运行。",
+        groups: [
+          {
+            title: "诊前服务", code: "PRE-CONSULTATION",
+            items: [
+              { code: "Wise Clinical PreConsult", title: "AI预问诊模块", desc: "主诉采集、病史追问、用药过敏、红旗风险、资料上传和医生摘要。" },
+              { code: "Wise Clinical Triage", title: "AI智能分诊模块", desc: "就诊紧急度、候选科室、分诊依据、冲突提示和人工确认。" },
+              { code: "Wise Clinical Navigator", title: "AI智能导诊模块", desc: "科室、院区、医生、时间、地点、检查准备和院内路径导航。" },
+              { code: "Wise Clinical VisitPrep", title: "就诊准备与病史摘要模块", desc: "归纳既往病历、报告、用药和时间线，形成就诊材料与待补问题。" }
+            ]
+          },
+          {
+            title: "诊中记录与文书", code: "DOCUMENTATION",
+            items: [
+              { code: "Wise Clinical Ambient Capture", title: "诊疗语音记录模块", desc: "医患对话采集、说话人区分、医学术语转写、关键事实标记和授权控制。" },
+              { code: "Wise Clinical Medical Record", title: "AI病历生成模块", desc: "门急诊病历、入院记录和专科记录草稿，保留来源定位与医生确认。" },
+              { code: "Wise Clinical Progress Note", title: "AI病程书写模块", desc: "首次病程、日常病程、查房、会诊、术前术后和阶段小结草稿。" },
+              { code: "Wise Clinical Nursing Note", title: "AI护理文书模块", desc: "护理评估、交班、观察、宣教和护理记录草稿及一致性提示。" },
+              { code: "Wise Clinical ChartGuard", title: "AI病历质控模块", desc: "完整性、一致性、时限、逻辑、诊疗事实和签名前整改。" },
+              { code: "Wise Clinical Evidence Copilot", title: "临床循证助手模块", desc: "指南与文献检索、证据摘要、引用、适用范围和知识版本。" }
+            ]
+          },
+          {
+            title: "诊后连续服务", code: "POST-CONSULTATION",
+            items: [
+              { code: "Wise Clinical ReportAssist", title: "AI报告解读模块", desc: "检验检查报告结构化、分层解释、趋势、风险边界和人工复核。" },
+              { code: "Wise Clinical DischargeCare", title: "出院服务与患者教育模块", desc: "出院材料转译、用药康复教育、注意事项和复诊复查任务。" },
+              { code: "Wise Clinical FollowUp", title: "诊后智能随访模块", desc: "出院、术后、用药、康复和专病随访，异常升级与结果回写。" },
+              { code: "Wise Clinical ReviewFlow", title: "复诊复查任务模块", desc: "复诊、复查、康复、检查准备、逾期识别和患者召回。" }
+            ]
+          },
+          {
+            title: "人群发现与医疗管理", code: "DISCOVERY · QUALITY",
+            items: [
+              { code: "HighRisk Discovery", title: "高危患者智能发现模块", desc: "输出高危候选、风险因素、证据定位、缺失信息和医生复核队列。" },
+              { code: "CareGap Discovery", title: "诊疗缺口识别模块", desc: "识别已确诊未治疗、异常未复查、计划未完成和延迟诊治候选。" },
+              { code: "Wise Clinical Recall", title: "失访患者召回模块", desc: "管理失访、逾期、联系失败、召回优先级、触达任务和结果写回。" },
+              { code: "Wise Clinical TrialMatch", title: "临床试验预筛模块", desc: "结构化纳排条件，输出候选匹配、冲突、未知字段和证据定位。" },
+              { code: "Wise Clinical CodingAssist", title: "病案首页与编码辅助模块", desc: "提供诊断、手术、首页字段和编码线索，并保留来源证据与人工确认。" },
+              { code: "Wise Clinical IntegrityGuard", title: "诊疗事实与医保质控模块", desc: "连接诊疗事实、结算清单、规则线索、证据链和整改闭环。" },
+              { code: "Wise Clinical Quality Command", title: "医疗质量智能管理模块", desc: "观察质量指标、缺陷趋势、科室分布、整改任务和证据追踪。" }
+            ]
+          }
+        ]
+      },
+      diagnostics: {
+        intro: "智小检由七个可组合功能模块构成，贯通检测接入、报告治理、分层解释、风险处置、检后服务、专业知识和运营分析。",
+        groups: [{
+          title: "检验诊断与检后服务模块", code: "DATA TO POST-TEST SERVICE",
+          items: [
+            { code: "Wise Diagnostics DataBridge", title: "检测数据接入与标准化模块", desc: "设备、LIS、API、文件、OCR、指标归一、单位和参考区间。" },
+            { code: "Wise Diagnostics ReportStruct", title: "检验报告结构化模块", desc: "报告版式识别、字段提取、异常标记、来源定位和人工核验。" },
+            { code: "Report Intelligence", title: "AI报告解读模块", desc: "面向患者、客服和医生提供分层解释、趋势、边界与复核。" },
+            { code: "Wise Diagnostics Risk Triage", title: "异常结果与风险分流模块", desc: "异常分级、危急信号、服务队列、人工升级和处置记录。" },
+            { code: "Wise Diagnostics InsightLoop", title: "复测随访与检后服务模块", desc: "复测、随访、患者教育、提醒、人工服务和结果写回。" },
+            { code: "Wise Diagnostics Lab Copilot", title: "检验医学知识助手模块", desc: "检验知识、产品知识、专业培训、证据引用和内容治理。" },
+            { code: "Wise Diagnostics Analytics", title: "检测服务运营分析模块", desc: "检测队列、产品使用、复测、服务结果、客户和模型评测分析。" }
+          ]
+        }]
+      },
+      pharma: {
+        intro: "智小药采用一个产品体系、两个工作入口和八个可组合功能模块，专业端负责生产与治理，一线端负责受控调用与现场反馈。",
+        groups: [
+          {
+            title: "双端工作入口", code: "PROFESSIONAL DESKTOP · FIELD MOBILE",
+            items: [
+              { code: "Medical Affairs Workspace", title: "医学事务桌面工作台", desc: "面向医学、内容、RWE、合规和PV团队，完成证据、内容、规则、审核、发布与撤回。" },
+              { code: "Wise Pharma Field Workspace", title: "智小药一线移动工作台", desc: "面向MSL与销售一线，完成访前简报、获准资料、受控问答、会后记录、任务协同和问题回流。" }
+            ]
+          },
+          {
+            title: "八项功能模块", code: "EVIDENCE TO FIELD AND PATIENT VALUE",
+            items: [
+              { code: "Wise Pharma EvidenceHub", title: "医学证据与知识治理模块", desc: "文献导入、证据卡、主张与证据映射、引用定位、专题综述、版本和有效期治理。" },
+              { code: "Wise Pharma Content Studio", title: "医学内容智能生产与审核模块", desc: "从证据包到大纲、草稿、主张核验、协同审阅、版本锁定和发布准备。" },
+              { code: "Wise Pharma HCP Copilot", title: "医生学术服务助手模块", desc: "医学问询受理、受控检索、答复草拟、引用校验、学术沟通准备和洞察回流。" },
+              { code: "Wise Pharma Field Workspace", title: "一线移动工作模块", desc: "访前简报、获准资料、受控问答、会后记录、任务协同和现场问题回流。" },
+              { code: "Wise Pharma TheraJourney", title: "治疗旅程与患者支持模块", desc: "项目入组、患者教育、阶段随访、风险提示、人工接管、退出和项目审计。" },
+              { code: "Wise Pharma Adherence", title: "用药持续性与脱落干预模块", desc: "用药计划、依从记录、脱落风险分层、分层触达、人工干预和成效评估。" },
+              { code: "Wise Pharma PV Connect", title: "药物警戒线索协同模块", desc: "不良事件与产品投诉候选识别、原文保留、人工确认、升级分发、回执和审计。" },
+              { code: "Wise Pharma RWE Bridge", title: "真实世界研究协同模块", desc: "研究方案、数据字典、EDC/eCRF、专病数据、质控、队列构建与受控分析。" }
+            ]
+          }
+        ]
+      },
+      workforce: {
+        intro: "智小康由七个可组合功能模块构成，连接员工个人服务、重点人群连续管理、群体健康洞察和年度福利运营。",
+        groups: [{
+          title: "企业员工健康与福利运营模块", code: "DATA · PROFILE · INSIGHT · ACTION · BENEFITS",
+          items: [
+            { code: "Wise Workforce DataHub", title: "员工健康数据治理模块", desc: "多机构体检、报告、设备与员工上传资料的接入、结构化、标准化、身份匹配、质量和版本。" },
+            { code: "Wise Workforce Profile", title: "员工纵向健康档案模块", desc: "历年体检、复查、服务、风险、任务和授权记录的一人一档与事件时间线。" },
+            { code: "Wise Workforce Insight", title: "群体健康洞察驾驶舱", desc: "按组织、人群、年度和疾病主题观察风险线索、服务承接、数据质量和可评价结果。" },
+            { code: "Wise Workforce Population Discovery", title: "重点人群识别与分层模块", desc: "依据授权数据和明确规则形成待核实、待服务与重点管理候选，保留证据和人工确认。" },
+            { code: "Wise Workforce DiseaseLoop", title: "疾病连续管理模块", desc: "以疾病问题和管理周期组织复测、咨询、转诊、随访、资料补充、结果写回和异常升级。" },
+            { code: "Wise Workforce Member Portal", title: "员工健康服务门户", desc: "提供身份与授权、资料上传、报告查看、任务确认、复测反馈、服务沟通和撤回入口。" },
+            { code: "Wise Workforce Benefit Intelligence", title: "福利资源与运营评估模块", desc: "连接体检、保险、健康服务和福利资源，形成健康问题账、服务执行账与资源投入账。" }
+          ]
+        }]
+      },
+      wiseclaw: {
+        intro: "WiseClaw 衔接智能体构建、分发、管理与使用，通过 Skill 市场、Workspace 权限管理、医疗 MCP 和向导式构建支持项目落地；上线前需完成配置、测试与审核，安全与合规边界按项目评估。",
+        groups: [
+          {
+            title: "为什么选择 WiseClaw", code: "WHY WISECLAW",
+            items: [
+              { code: "Skill Driven", title: "医疗原生 Skill 驱动", desc: "提供预设 Skill 与技能市场，支持用自然语言描述需求、创建自建 Skill 草稿，再经配置、测试与审核后发布。" },
+              { code: "Workspace", title: "企业级 Workspace 隔离", desc: "通过多租户工作空间管理数据、记忆与权限，隔离策略按部署架构验证；专有环境及物理隔离需求按项目评估。" },
+              { code: "Medical MCP", title: "数据与工具按需连接", desc: "通过医疗 MCP 对接授权业务数据与兼容 IoT 设备，具体数据类型、接口与实时处理能力按项目验证。" },
+              { code: "Self-Driven", title: "业务团队参与构建与更新", desc: "向导式自建 Skill，运营与医生团队可用自然语言创建 Agent 草稿，经配置、测试与审核后发布。" }
+            ]
+          },
+          {
+            title: "产品优势", code: "PRODUCT ADVANTAGES",
+            items: [
+              { code: "Fast Build", title: "快速构建", desc: "基于报告解读、用药问答、导诊问诊、复诊提醒等行业模板，快速生成可验证的服务入口。" },
+              { code: "Pro Content", title: "专业开发", desc: "提供医学知识库与预设插件、技能，支持接入机构知识库、FAQ、SOP 和产品资料，并按项目维护来源与审核状态。" },
+              { code: "Open Channel", title: "开放连接", desc: "支持 API、网页、公众号、企微、智能硬件等多渠道接入。" },
+              { code: "Teamwork", title: "团队协作", desc: "多人协同参与智能体设计、测试与优化，按约定的审核流程和验收标准推进交付。" }
+            ]
+          }
+        ]
+      },
+      nexus: {
+        intro: "同一产品主干按数据位置、任务负载、接口条件和机构边界选择云端、专有环境、一体机或混合部署。",
+        groups: [{
+          title: "四类部署形态", code: "CLOUD · PRIVATE · NEXUS ONE · HYBRID",
+          items: [
+            { code: "Wise Cloud", title: "云端服务", desc: "承载标准 SaaS、公共证据更新和经授权的弹性智能服务。" },
+            { code: "Wise Private", title: "专有环境", desc: "在客户专有云或指定环境部署数据、应用、知识和模型服务。" },
+            { code: "Wise Nexus One", title: "医疗智能一体机", desc: "在本地集成模型、算力、存储、编排与治理，承载敏感和高频任务。" },
+            { code: "Wise Hybrid", title: "混合智能架构", desc: "本地处理敏感数据，云端承载知识更新、弹性能力和受控交换。" }
+          ]
+        }]
+      }
+    };
+
+    const audienceIcons = [
+      '<svg viewBox="0 0 32 32" fill="none"><path d="M7 26V10h18v16M12 10V6h8v4M5 26h22M16 15v7M12.5 18.5h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+      '<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="10" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M8 26c.5-6 3.2-9 8-9s7.5 3 8 9M7 26h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+      '<svg viewBox="0 0 32 32" fill="none"><path d="M16 27s10-5.4 10-14V7l-10-3L6 7v6c0 8.6 10 14 10 14Z" stroke="currentColor" stroke-width="1.8"/><path d="m11.5 15.5 3 3 6-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '<svg viewBox="0 0 32 32" fill="none"><path d="M9 5h14v22H9zM13 9h6M13 23h6M6 11H3v10h3M26 11h3v10h-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+    ];
+
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => [...document.querySelectorAll(selector)];
+    let currentKey = "overview";
+    let prepared = new Map();
+    let pretextEngine = null;
+
+    import("https://esm.sh/@chenglou/pretext")
+      .then(module => { pretextEngine = module; prepareText(); })
+      .catch(() => { /* 基础CSS布局不依赖外部排版增强。 */ });
+
+    function uiRows() {
+      return '<div class="ui-list"><div class="ui-list-item"><span></span><i></i></div><div class="ui-list-item"><span></span><i></i></div><div class="ui-list-item"><span></span><i></i></div></div>';
+    }
+
+    const brochureShots = {
+      care: { file: "care-interface.webp", alt: "智小伴健康服务对话界面", width: 560, height: 454 },
+      clinical: { file: "clinical-interface.webp", alt: "智小医病情智能总览界面", width: 892, height: 380 },
+      diagnostics: { file: "diagnostics-interface.webp", alt: "智小检检验服务看板", width: 576, height: 379 },
+      pharma: { file: "pharma-interface.webp", alt: "智小药一线医学支持界面", width: 892, height: 380 },
+      workforce: { file: "workforce-interface.webp", alt: "智小康员工健康管理看板", width: 676, height: 373 }
+    };
+    const brochureWindows = { "Wise Care": "care", "Wise Clinical": "clinical", "Wise Diagnostics": "diagnostics", "Wise Pharma": "pharma", "Wise Workforce": "workforce" };
+    function renderBrochureShot(key) {
+      const shot = brochureShots[key];
+      if (!shot) return "";
+      const src = `assets/brochure/${shot.file}`;
+      return `<figure class="brochure-shot"><a href="${src}" target="_blank" rel="noopener" aria-label="查看${shot.alt}大图（新窗口）"><img src="${src}" alt="${shot.alt}，产品界面示意" width="${shot.width}" height="${shot.height}" loading="lazy" decoding="async"></a><figcaption>产品界面示意 · 具体功能以实际交付为准 <a href="${src}" target="_blank" rel="noopener">查看大图 ↗</a></figcaption></figure>`;
+    }
+    function renderVisual(item) {
+      const shotKey = brochureWindows[item.window];
+      if (currentKey === "overview" && shotKey) return renderBrochureShot(shotKey);
+      if (item.visual === "network") {
+        return `<div class="app-window"><div class="window-top"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-title">${item.window}</span></div><div class="network-canvas"><span class="network-line"></span><span class="network-line"></span><span class="network-line"></span><span class="network-line"></span><i class="network-node core">Wise</i><i class="network-node n1">数据</i><i class="network-node n2">知识</i><i class="network-node n3">模型</i><i class="network-node n4">应用</i></div></div>`;
+      }
+      if (item.visual === "phone") {
+        return `<div class="app-window phone"><div class="window-top"><span class="window-title">${item.window}</span></div><div class="ui-body"><div class="ui-banner"><strong>智能服务已准备</strong><span>基于当前状态生成下一步任务</span></div><div class="ui-row"><div class="ui-stat"><b>6</b><small>健康任务</small></div><div class="ui-stat"><b>2</b><small>待确认</small></div></div>${uiRows()}</div></div>`;
+      }
+      if (item.visual === "chart") {
+        return `<div class="app-window"><div class="window-top"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-title">${item.window}</span></div><div class="ui-body"><div class="ui-row"><div class="ui-stat"><b>已处理</b><small>结构化任务</small></div><div class="ui-stat"><b>待复核</b><small>专业确认</small></div><div class="ui-stat"><b>已留痕</b><small>运行记录</small></div></div><div class="chart-bars"><i style="--h:42%"></i><i style="--h:68%"></i><i style="--h:55%"></i><i style="--h:82%"></i><i style="--h:73%"></i><i style="--h:94%"></i><i style="--h:86%"></i></div></div></div>`;
+      }
+      return `<div class="app-window"><div class="window-top"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-title">${item.window}</span></div><div class="ui-body"><div class="ui-banner"><strong>业务工作台</strong><span>模型、知识、任务和人工确认协同运行</span></div><div class="ui-row"><div class="ui-stat"><b>已分流</b><small>当前任务</small></div><div class="ui-stat"><b>待确认</b><small>风险事项</small></div><div class="ui-stat"><b>可追溯</b><small>过程证据</small></div></div>${uiRows()}</div></div>`;
+    }
+
+    // 产品框架图：把分组渲染成分层架构图（底座 → 应用 → 部署 → 行业）
+    function renderBlueprintDiagram(blueprint) {
+      return `<div class="bp-diagram">${blueprint.groups.map((group, index) => `
+        <div class="bp-layer">
+          <div class="bp-layer-aside">
+            <span class="bp-layer-step">${index + 1}</span>
+            <h3>${group.title}</h3>
+            
+          </div>
+          <div class="bp-layer-body cols-${group.items.length}">${group.items.map(item => `
+            <article class="bp-node">
+              
+              <h4>${item.title}</h4>
+              <p data-pretext>${item.desc}</p>
+            </article>`).join("")}
+          </div>
+        </div>${index < blueprint.groups.length - 1 ? '<div class="bp-bridge" aria-hidden="true"><span>统一模型 · 知识 · 数据 · 连接 · 权限 · 审计</span></div>' : ""}`).join("")}
+      </div>`;
+    }
+
+    function renderProduct(key, updateHash = true) {
+      const product = products[key] || products.overview;
+      currentKey = products[key] ? key : "overview";
+      document.title = `${product.title}｜智诊科技 WiseDiag`;
+      if (updateHash && location.hash !== `#${currentKey}`) history.pushState(null, "", `#${currentKey}`);
+
+      $("#heroEyebrow").textContent = product.eyebrow;
+      $("#heroTitle").textContent = product.title;
+      $("#heroEnglish").textContent = "";
+      $("#heroEnglish").hidden = true;
+      $("#heroLead").textContent = product.lead;
+      $("#brochureHero").hidden = !brochureShots[currentKey];
+      $("#brochureHero").innerHTML = renderBrochureShot(currentKey);
+      $("#primaryAction").textContent = product.action;
+      $("#featureIntro").textContent = product.featureIntro;
+      $("#highlightIntro").textContent = product.highlightsIntro;
+      $("#scenarioIntro").textContent = product.scenarioIntro;
+
+      $("#product-page").classList.toggle("view-overview", currentKey === "overview");
+
+      const blueprint = productBlueprints[currentKey] || productBlueprints.overview;
+      $("#blueprintGroups").innerHTML = renderBlueprintDiagram(blueprint);
+
+      $("#audienceGrid").innerHTML = product.audiences.map((name, index) => `<div class="audience-card"><span class="audience-icon">${audienceIcons[index]}</span><span>${name}</span></div>`).join("");
+      $("#featureGrid").innerHTML = product.features.map((item, index) => `<article class="feature-card"><div class="feature-head"><span class="feature-number">${String(index + 1).padStart(2, "0")}</span><h3>${item.title}</h3><p data-pretext>${item.desc}</p>${item.industries ? `<ul class="feature-tags">${item.industries.map(tag => `<li>${tag}</li>`).join("")}</ul>` : ""}</div><div class="product-visual">${renderVisual(item)}</div></article>`).join("");
+      $("#highlightBoard").innerHTML = product.highlights.map((item, index) => `<article class="highlight-card"><span class="highlight-number">${String(index + 1).padStart(2, "0")}</span><h3>${item.title}</h3><p data-pretext>${item.desc}</p><span class="highlight-proof">${item.proof}</span></article>`).join("");
+      $("#scenarioBoard").className = `scenario-board items-${product.scenarios.length}`;
+      $("#scenarioBoard").innerHTML = product.scenarios.map(item => `<article class="scenario-card"><div class="scenario-label">${item.label}</div><h3>${item.title}</h3><p data-pretext>${item.desc}</p><ul>${item.bullets.map(bullet => `<li>${bullet}</li>`).join("")}</ul></article>`).join("");
+
+      $("#collabTitle").textContent = product.collabTitle;
+      $("#collabItems").innerHTML = product.collab.map(item => `<div class="collab-item"><span class="collab-icon" aria-hidden="true">◇</span><div><strong>${item.title}</strong><p data-pretext>${item.text}</p></div></div>`).join("");
+      $("#collabWindowTitle").textContent = product.collabWindowTitle;
+      $("#collabBannerTitle").textContent = product.collabBannerTitle;
+      $("#collabBannerText").textContent = product.collabBannerText;
+      $("#floatingNote").textContent = product.floating;
+
+      $("#accessTabs").innerHTML = product.access.map(item => `<span class="access-chip">${item}</span>`).join("");
+      $("#accessCode").textContent = product.accessCode;
+      $("#accessTitle").textContent = product.accessTitle;
+      $("#accessText").textContent = product.accessText;
+
+      $("#guaranteeGrid").innerHTML = product.guarantees.map(item => `<article class="guarantee-card"><span class="guarantee-icon" aria-hidden="true">◇</span><h3>${item.title}</h3><p data-pretext>${item.text}</p></article>`).join("");
+      $$("[data-product]").forEach(button => button.setAttribute("aria-current", button.dataset.product === currentKey ? "page" : "false"));
+      const primarySection = "products";
+      $$("[data-primary-nav]").forEach(item => item.setAttribute("aria-current", item.dataset.primaryNav === primarySection ? "page" : "false"));
+      prepareText();
+      window.dispatchEvent(new CustomEvent('product-rendered', { detail: { key: currentKey } }));
+      if (window.scrollY > 120) window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    async function prepareText() {
+      if (!pretextEngine) return;
+      await document.fonts.ready;
+      prepared = new Map();
+      $$('[data-pretext]').forEach(el => {
+        const style = getComputedStyle(el);
+        prepared.set(el, pretextEngine.prepare(el.textContent, style.font));
+      });
+      relayoutText();
+    }
+
+    function relayoutText() {
+      if (!pretextEngine) return;
+      prepared.forEach((handle, el) => {
+        if (!el.isConnected || !el.clientWidth) return;
+        const lineHeight = parseFloat(getComputedStyle(el).lineHeight);
+        if (!Number.isFinite(lineHeight)) return;
+        const { height } = pretextEngine.layout(handle, el.clientWidth, lineHeight);
+        el.style.minHeight = `${Math.ceil(height)}px`;
+      });
+    }
+
+    document.addEventListener("click", event => {
+      const target = event.target.closest("[data-product], [data-product-link]");
+      if (!target) return;
+      event.preventDefault();
+      renderProduct(target.dataset.product || target.dataset.productLink);
+    });
+
+    window.addEventListener("hashchange", () => {
+      const key = location.hash.slice(1) || "overview";
+      if (products[key]) renderProduct(key, false);
+    });
+
+    /* 小屏视图切换条：复用超级菜单的条目，避免两套文案各自漂移 */
+    (function buildViewSwitch() {
+      const host = document.querySelector(".ps-view-switch");
+      if (!host) return;
+      const items = [{ key: "overview", label: "总览", isOverview: true }];
+      document.querySelectorAll(".product-mega-item").forEach(link => {
+        const key = link.dataset.product;
+        if (!key || items.some(item => item.key === key)) return;
+        const label = (link.querySelector("strong")?.textContent || key).trim();
+        items.push({ key, label });
+      });
+      items.forEach(item => {
+        const link = document.createElement("a");
+        link.className = "ps-view-chip";
+        link.href = "#" + item.key;
+        link.textContent = item.label;
+        if (item.isOverview) link.dataset.productLink = item.key;
+        else link.dataset.product = item.key;
+        host.appendChild(link);
+      });
+      const sync = () => {
+        const current = location.hash.slice(1) || "overview";
+        host.querySelectorAll("a").forEach(link => {
+          const key = link.dataset.product || link.dataset.productLink;
+          link.classList.toggle("is-current", key === current);
+          if (key === current) link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+      };
+      window.addEventListener("hashchange", sync);
+      sync();
+    })();
+
+    new ResizeObserver(relayoutText).observe(document.body);
+    renderProduct(location.hash.slice(1) || "overview", false);
+  </script>
+  <script src="nav-menu.js" defer></script>
+  <script src="lead-form.js" defer></script>
+  <script src="ai-advisor.js" defer></script>
+<script src="refresh.js" defer></script>
+</body>
+</html>
